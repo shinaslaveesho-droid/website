@@ -1,545 +1,1168 @@
 <!doctype html>
-<!--
-  Laveesho homepage rebuild. Type and colour follow Typography System v1.0 (Oct 2026).
-  Techniques: 6-layer parallax, pinned scrub hero, masked line reveal, word-by-word scroll lighting,
-  horizontal pinned process, clip-path section birth, circle iris CTA, 3D tilt cards, magnetic buttons.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Laveesho | Digital &amp; Technology Partner in Dubai, UAE</title>
-<meta name="description" content="Laveesho is a Dubai digital and technology partner for branding, digital marketing, SEO, websites and apps, built around measurable growth.">
+<title>Laveesho — Creative Branding &amp; Digital Marketing Agency in Dubai</title>
+<meta name="description" content="Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai. Brand identity, social media, SEO & AI search, paid ads and websites. Plans from AED 3,000/month.">
+<link rel="canonical" href="https://laveesho.com/">
+<meta name="theme-color" content="#4A1FD1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Laveesho">
+<meta property="og:title" content="Laveesho — Creative Branding &amp; Digital Marketing Agency in Dubai">
+<meta property="og:description" content="Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai. Brand identity, social media, SEO & AI search, paid ads and websites. Plans from AED 3,000/month.">
+<meta property="og:url" content="https://laveesho.com/">
+<meta property="og:image" content="https://laveesho.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,800;0,900;1,500&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@500;600;700;800;900&amp;family=Montserrat:wght@400;500;600&amp;family=Caveat:wght@500;600&amp;display=swap">
 <style>
-:root{
-  --bg:#05061A;--bg-2:#0A0B22;--card:#0C0D28;--line:rgba(169,173,207,.18);
-  --text:#F5F3FF;--muted:#A9ADCF;
-  --grad:linear-gradient(95deg,#D4B4FF,#A06BFF 38%,#5B7CFF 72%,#3FD0FF);
-  --light:#EEF1FF;--light-text:#0A0B22;--light-muted:#454A6E;
-  --grad-light:linear-gradient(95deg,#7A1FD6,#5A2BEA 55%,#2F55F0);
-  --display:"Playfair Display",Georgia,serif;--sans:"Montserrat",Arial,sans-serif;
-  --gutter:clamp(20px,5vw,80px);--ease:cubic-bezier(.2,.8,.2,1);
+body{margin:0}
+a{color:inherit}a:hover{color:inherit}
+.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--electric:#2F55F0;--orchid:#BF0D65;--pink:#D94FC4;--gold:#F2C94C;--silver:#F4F8FD;--ice:#DCE8F7;--navy:#0B1A5C;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--silver)}
+.lx *{box-sizing:border-box}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
+.kick{font-family:"Inter Tight",Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:1}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.wrap{max-width:1320px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
+.g-pp{background:linear-gradient(100deg,#4A1FD1 0%,#B02D97 45%,#2F55F0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.g-gold{background:linear-gradient(100deg,#FFE7A3 0%,#F2C94C 50%,#E79BD9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:15px;letter-spacing:-.01em;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(74,31,209,.55)}
+.btn svg{transition:transform .45s cubic-bezier(.2,.8,.2,1)}.btn:hover svg{transform:translateX(4px) rotate(-45deg)}
+.nl{text-decoration:none;font-size:14px;font-weight:500;padding:12px 2px;position:relative}
+.nl::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1.5px;background:linear-gradient(90deg,#4A1FD1,#D94FC4);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.nl:hover::after{transform:scaleX(1);transform-origin:left}
+/* plasma */
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.9;animation:morph 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes morph{0%{transform:translate(0,0) scale(1);border-radius:50% 46% 54% 48%}50%{transform:translate(8%,-6%) scale(1.15);border-radius:40% 60% 45% 55%}100%{transform:translate(-6%,8%) scale(.92);border-radius:58% 42% 60% 40%}}
+.silk{position:absolute;inset:-20%;background:repeating-linear-gradient(115deg,rgba(255,255,255,0) 0 120px,rgba(255,255,255,.7) 170px,rgba(255,255,255,0) 230px);filter:blur(18px);animation:silk 14s linear infinite;mix-blend-mode:soft-light;pointer-events:none}
+@keyframes silk{to{transform:translateX(230px)}}
+.float3d{animation:f3d 9s ease-in-out infinite;transform-style:preserve-3d}
+@keyframes f3d{0%,100%{transform:translateY(0) rotateY(-14deg) rotateX(6deg)}50%{transform:translateY(-22px) rotateY(14deg) rotateX(-4deg)}}
+.halo{animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+/* hero v2 */
+.aurora{position:absolute;inset:-35%;background:conic-gradient(from 0deg at 50% 50%,#C6DBFF,#D8C6FF,#F7C9EC,#FFE7A3,#BFD3FF,#E3D4FF,#C6DBFF);filter:blur(90px);opacity:.9;animation:spin 46s linear infinite;pointer-events:none}
+.g-shine{background:linear-gradient(100deg,#4A1FD1 0%,#BF0D65 25%,#D94FC4 45%,#2F55F0 70%,#4A1FD1 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes sheen{to{background-position:300% 0}}
+.irid{position:absolute;inset:-7%;border-radius:50%;background:conic-gradient(from 0deg,#4A1FD1,#D94FC4,#F2C94C,#2F55F0,#C6DBFF,#4A1FD1);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));animation:spin 12s linear infinite}
+.irid-glow{position:absolute;inset:-4%;border-radius:50%;background:conic-gradient(from 0deg,#4A1FD1,#D94FC4,#F2C94C,#2F55F0,#4A1FD1);filter:blur(42px);opacity:.55;animation:spin 12s linear infinite}
+.orbit{position:absolute;inset:-16%;animation:spin 30s linear infinite;pointer-events:none}
+.orbit>span{position:absolute;transform:translate(-50%,-50%)}
+.orbit>span>span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 16px 30px -16px rgba(10,11,34,.35);font-family:"Inter Tight",sans-serif;font-weight:700;font-size:13px;color:#0A0B22;animation:spin 30s linear infinite reverse}
+.orbit i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.orb-pos{position:absolute;right:clamp(16px,5vw,80px);top:clamp(-10px,0vw,10px);width:clamp(220px,27vw,430px);aspect-ratio:1;z-index:3;perspective:1100px}
+.tiltme{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lead-box{position:relative;z-index:4}
+@media (min-width:1000px){.lead-box{margin-top:calc(clamp(64px,10.5vw,170px) * -.82);max-width:42%}}
+@media (max-width:999px){.orb-pos{position:relative;right:auto;top:auto;margin:0 auto 28px;width:min(78vw,360px)}}
+.cue{width:1px;height:46px;background:rgba(10,11,34,.2);position:relative;overflow:hidden}
+.cue::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:#4A1FD1;animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{to{top:100%}}
+/* hero v3 — reference structure */
+.hx-top{position:relative;z-index:6;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-top:20px;padding-bottom:8px}
+.hx-loc{margin:0;display:flex;align-items:center;gap:10px;font-family:"Inter Tight",sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
+.hx-logo{justify-self:center;display:flex}.hx-logo img{height:clamp(54px,6vw,78px);width:auto;display:block}
+.hx-burger{justify-self:end;width:56px;height:44px;border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0;color:var(--ink)}
+.hx-burger span{display:block;height:3px;border-radius:2px;background:currentColor;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.hx-burger span:nth-child(2){width:78%;align-self:flex-end}.hx-burger:hover span:nth-child(2){width:100%}
+.hx-body{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:14px;padding-bottom:clamp(64px,7vw,110px)}
+.hx-seg{display:inline-flex;padding:6px;border-radius:999px;border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)) padding-box,linear-gradient(100deg,#4A1FD1,#D94FC4,#F2C94C) border-box;box-shadow:0 18px 40px -18px rgba(74,31,209,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hx-seg button{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border:none;border-radius:999px;background:transparent;color:var(--ink);font-family:"Inter Tight",sans-serif;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .45s,color .45s,box-shadow .45s}
+.hx-seg button.on{background:linear-gradient(100deg,#4A1FD1,#BF0D65);color:#fff;box-shadow:0 10px 22px -10px rgba(191,13,101,.7)}
+.hx-proof{margin:clamp(30px,3.6vw,56px) 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 0;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:clamp(11px,1vw,14px);letter-spacing:.24em;text-transform:uppercase;color:var(--inkm)}
+.hx-pi{display:inline-flex;align-items:center}
+.hx-pi:first-child{color:var(--royal)}
+.hx-pi+.hx-pi::before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#D94FC4,#F2C94C);margin:0 clamp(14px,2vw,26px)}
+.hx-h1{margin:clamp(14px,1.8vw,26px) 0 0;color:var(--ink);font-size:clamp(46px,8.6vw,150px);line-height:.9}
+.hx-h1 .pline{white-space:normal}
+.hx-h1 .pline>span{display:inline-block;white-space:nowrap}
+.hx-split{width:100%;margin-top:clamp(44px,5.5vw,84px);padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(10,11,34,.12);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px clamp(32px,6vw,96px);align-items:start;text-align:left}
+.hx-state{margin:0;font-family:Montserrat,sans-serif;font-weight:500;font-size:clamp(26px,2.9vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--ink)}
+.hx-state em{font-family:"Instrument Serif",Georgia,serif;font-size:1.12em;font-style:italic;font-weight:400;background:linear-gradient(100deg,#4A1FD1,#BF0D65 55%,#D94FC4);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.04em}
+.hx-small{margin:clamp(22px,2.6vw,40px) 0 0;max-width:560px;font-size:15px;line-height:1.65;color:var(--inkm)}
+.hx-small strong{color:var(--ink);font-weight:600}
+.hx-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding-top:clamp(0px,1vw,14px)}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-width:min(100%,320px);min-height:64px;padding:0 30px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,background .4s,color .4s}
+.hx-solid{background:var(--ink);color:#fff;box-shadow:0 22px 40px -18px rgba(10,11,34,.6)}
+.hx-solid:hover{transform:translateY(-3px);box-shadow:0 26px 46px -16px rgba(74,31,209,.6)}
+.hx-ring{width:34px;height:34px;border-radius:50%;border:1.5px solid currentColor;display:inline-flex;align-items:center;justify-content:center;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.hx-solid:hover .hx-ring{transform:rotate(45deg)}
+.hx-line{color:var(--royal);border:1.5px solid var(--royal);background:rgba(255,255,255,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hx-line:hover{background:var(--royal);color:#fff}
+.hx-bar{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:clamp(28px,3vw,44px)}
+.hx-tile{position:relative;overflow:hidden;display:flex;align-items:center;gap:clamp(14px,2vw,26px);min-height:clamp(110px,9vw,136px);padding:20px clamp(20px,2.4vw,34px);border-radius:28px;text-decoration:none;transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s}
+.hx-tile.t1{background:var(--ink);color:var(--ivory);box-shadow:0 26px 50px -26px rgba(10,11,34,.7)}
+.hx-tile.t2{background:linear-gradient(110deg,#4A1FD1,#BF0D65);color:#fff;box-shadow:0 26px 50px -26px rgba(191,13,101,.7)}
+.hx-tile::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 120% at var(--hx,90%) 50%,rgba(255,255,255,.16),transparent 60%);opacity:0;transition:opacity .5s}
+.hx-tile:hover{transform:translateY(-6px)}.hx-tile:hover::before{opacity:1}
+.hx-tile>*{position:relative}
+.hx-tn{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(34px,3.4vw,52px);line-height:1;color:var(--gold);flex:none}
+.hx-tile.t2 .hx-tn{color:#FFE7A3}
+.hx-tt{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1;text-align:left}
+.hx-tl{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:clamp(18px,1.9vw,28px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05}
+.hx-ts{font-size:13.5px;line-height:1.5;opacity:.8}
+.hx-tc{flex:none;width:clamp(52px,4.4vw,64px);aspect-ratio:1;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;transition:transform .55s cubic-bezier(.2,.8,.2,1),background .4s,color .4s}
+.hx-tile:hover .hx-tc{transform:rotate(45deg);background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.hx-side{position:absolute;left:0;top:clamp(170px,17vw,220px);z-index:6;width:62px;height:62px;border-radius:0 999px 999px 0;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -12px rgba(201,134,46,.7);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.hx-side:hover{width:74px}
+.hx-seal{position:absolute;right:clamp(14px,3vw,40px);bottom:calc(clamp(76px,7vw,100px) - 44px);z-index:7;width:clamp(96px,8vw,120px);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 0 0 1.5px rgba(74,31,209,.35),0 20px 40px -16px rgba(74,31,209,.55);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.hx-seal svg{position:absolute;inset:4%;width:92%;height:92%}
+.hx-seal img{width:48%;height:48%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.hx-seal:hover img{transform:rotate(-12deg) scale(1.08)}
+@media (max-width:860px){
+.hx-loc span{display:none}
+.hx-bar{grid-template-columns:1fr}
+.hx-ts{font-size:13px}
+.hx-split{grid-template-columns:1fr;text-align:center}
+.hx-small{margin-left:auto;margin-right:auto}
+.hx-ctas{align-items:stretch}
+.hx-btn{width:100%}
+.hx-side{width:50px;height:50px;top:150px}.hx-side:hover{width:56px}
 }
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 var(--sans);overflow-x:hidden}
-img,svg{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid #3FD0FF;outline-offset:4px;border-radius:4px}
-.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--text);color:var(--bg);padding:10px 16px;border-radius:99px}
-.skip:focus{top:16px}
-
-h1,h2{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;letter-spacing:-.02em}
-h1{font-size:clamp(56px,8vw,112px);line-height:.92}
-h2{font-size:clamp(40px,5vw,72px);line-height:.95}
-h3{font:800 clamp(26px,2.4vw,32px)/1.1 var(--display);letter-spacing:-.01em;margin:0}
-p{margin:0}
-.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.light .grad{background-image:var(--grad-light)}
-.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
-.lead{font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:var(--muted);max-width:62ch}
-.quote{font:italic 500 clamp(20px,1.8vw,24px)/1.45 var(--display)}
-.wrap{padding-inline:var(--gutter);max-width:1520px;margin-inline:auto}
-section{position:relative}
-.pad{padding-block:clamp(90px,12vw,180px)}
-.layer{position:absolute;inset:0;pointer-events:none}
-.mask{display:block;overflow:hidden;padding-block:.06em .08em;margin-block:-.06em -.08em}
-.mask>span{display:block;will-change:transform}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:99px;font:500 15px/1 var(--sans);position:relative;overflow:hidden;isolation:isolate;transition:color .35s var(--ease),border-color .35s}
-.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
-.btn:hover svg{transform:translateX(5px)}
-.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--grad);transform:translateY(101%);transition:transform .45s var(--ease)}
-.btn:hover::before{transform:none}
-.btn-solid{background:var(--text);color:var(--bg)}
-.btn-ghost{border:1px solid var(--line);color:var(--text)}
-.btn-ghost:hover{color:var(--bg);border-color:transparent}
-.link{position:relative}
-.link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--grad);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
-.link:hover::after{transform:scaleX(1);transform-origin:left}
-
-/* Preloader, JS only so the page is never stuck behind it */
-.loader{display:none}
-.js .loader{display:grid;place-items:center;position:fixed;inset:0;z-index:90;background:var(--bg)}
-.loader b{font:900 clamp(34px,6vw,64px)/1 var(--display);letter-spacing:-.02em}
-.loader i{display:block;height:1px;margin-top:18px;background:var(--grad);transform-origin:left;animation:load 1s var(--ease) both}
-@keyframes load{from{transform:scaleX(0)}}
-
-/* Nav */
-.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);transition:background .3s,transform .4s var(--ease)}
-.nav.solid{background:rgba(5,6,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav.hide{transform:translateY(-100%)}
-.brand{font:900 24px/1 var(--display);letter-spacing:-.01em}
-.brand small{display:block;font:400 7.5px/1 var(--sans);letter-spacing:.3em;margin-top:6px;color:var(--muted);text-transform:uppercase}
-.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font:500 15px/1 var(--sans)}
-.nav .btn{min-height:44px;padding:0 22px}
-.burger{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;padding:10px;cursor:pointer}
-
-/* Hero */
-.hero{height:100svh;min-height:640px;overflow:hidden;background:var(--bg)}
-.stars{background-image:radial-gradient(1px 1px at 12% 22%,#fff8,transparent),radial-gradient(1px 1px at 72% 12%,#fff9,transparent),radial-gradient(1.5px 1.5px at 38% 62%,#fff5,transparent),radial-gradient(1px 1px at 88% 44%,#fff7,transparent),radial-gradient(1px 1px at 22% 80%,#fff5,transparent),radial-gradient(1.5px 1.5px at 56% 28%,#fff6,transparent),radial-gradient(1px 1px at 6% 52%,#fff5,transparent),radial-gradient(1px 1px at 94% 76%,#fff5,transparent)}
-.glow{position:absolute;border-radius:50%;filter:blur(90px)}
-.g1{width:52vw;height:52vw;right:-6vw;top:-14vw;background:#5A2BEA;opacity:.42}
-.g2{width:38vw;height:38vw;right:24vw;bottom:-20vw;background:#2F55F0;opacity:.3}
-.tower{position:absolute;right:max(-2vw,-40px);bottom:-3vh;height:112vh;aspect-ratio:2/3;isolation:isolate;mix-blend-mode:screen;transform-origin:50% 100%}
-.tower img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(1.2)}
-.tower::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#D4B4FF,#A06BFF 35%,#5B7CFF 70%,#3FD0FF);mix-blend-mode:color}
-.fade{background:linear-gradient(90deg,var(--bg) 22%,transparent 62%),linear-gradient(0deg,var(--bg),transparent 24%)}
-.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:90px var(--gutter) 40px;max-width:1520px;margin-inline:auto}
-.hero-copy .eyebrow{margin-bottom:26px;display:flex;flex-wrap:wrap;gap:6px 18px}
-.hero-copy .lead{margin:28px 0 36px;max-width:52ch;color:var(--text)}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.float-card{position:absolute;right:calc(var(--gutter) + 1vw);top:24vh;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(12,13,40,.6);backdrop-filter:blur(10px);font:500 14px/1.7 var(--sans);animation:float 9s ease-in-out infinite}
-.float-card em{font:italic 500 18px/1.2 var(--display);display:block;margin-bottom:6px}
-@keyframes float{50%{translate:0 -14px}}
-.scroll-cue{position:absolute;right:var(--gutter);bottom:30px;font:500 12px/1 var(--sans);letter-spacing:.32em;color:var(--muted);text-transform:uppercase}
-
-/* Marquee */
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;background:var(--bg-2)}
-.marquee div{display:flex;width:max-content;animation:slide 34s linear infinite}
-.marquee:hover div{animation-play-state:paused}
-.marquee span{padding-right:56px;white-space:nowrap;font:500 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase}
-.marquee span i{font:italic 500 18px/1 var(--display);letter-spacing:0;text-transform:none;color:var(--muted);margin-left:14px}
-@keyframes slide{to{transform:translateX(-50%)}}
-
-/* Statement */
-.statement .eyebrow{margin-bottom:24px}
-.statement h2{max-width:14ch}
-.lit{font-size:clamp(24px,3vw,44px);line-height:1.3;font-weight:300;max-width:26ch;margin-top:clamp(40px,6vw,80px);margin-left:auto}
-.lit .w{opacity:1}
-.js .lit .w{opacity:.18}
-
-/* Services */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,6vw,72px);perspective:1400px}
-.card{position:relative;padding:34px 30px 32px;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden;transform-style:preserve-3d;transition:border-color .35s,transform .25s ease-out;min-height:300px;display:flex;flex-direction:column}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(160,107,255,.24),transparent 70%);opacity:0;transition:opacity .35s}
-.card:hover{border-color:rgba(160,107,255,.6)}
-.card:hover::before{opacity:1}
-.card>*{position:relative}
-.card .num{position:absolute;right:26px;top:30px;font:italic 500 16px/1 var(--display);color:var(--muted)}
-.icon{width:56px;height:56px;margin-bottom:auto;fill:none;stroke:url(#ig);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s var(--ease)}
-.icon *{stroke-dasharray:1;stroke-dashoffset:0}
-.card:hover .icon{transform:translateY(-4px) scale(1.06)}
-.card:hover .icon *{animation:draw 1s var(--ease)}
-@keyframes draw{from{stroke-dashoffset:1}}
-.card h3{margin:44px 0 12px}
-.card p{color:var(--muted);font-size:15px}
-
-/* Growth */
-.growth{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);align-items:start}
-.growth-left{position:sticky;top:120px}
-.growth-left .eyebrow{margin-bottom:24px}
-.growth-left .lead{margin-top:28px}
-.steps{list-style:none;margin:0;padding:0}
-.steps li{padding:clamp(34px,5vw,60px) 0;border-top:1px solid var(--line)}
-.steps li:last-child{border-bottom:1px solid var(--line)}
-.steps span{font:italic 500 16px/1 var(--display);color:var(--muted);display:block;margin-bottom:14px}
-.steps p{color:var(--muted);margin-top:10px}
-
-/* AI dial */
-.ai{background:var(--bg-2);overflow:hidden}
-.ai-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
-.ai .eyebrow{margin-bottom:24px}
-.dial{width:min(100%,520px);margin-inline:auto;overflow:visible}
-.dial circle.o{fill:none;stroke:var(--line)}
-.dial text{font:500 13px var(--sans);fill:var(--text)}
-.dial .n{fill:#A06BFF}
-.dial .prog{fill:none;stroke:url(#ig);stroke-width:2;stroke-linecap:round}
-
-/* Horizontal process */
-.proc{overflow:hidden}
-.proc-head{padding-top:clamp(90px,10vw,140px)}
-.proc-head .eyebrow{margin-bottom:24px}
-.track{display:flex;gap:18px;padding:clamp(40px,5vw,64px) var(--gutter) clamp(90px,10vw,140px);width:max-content}
-.panel{width:min(62vw,720px);min-height:360px;padding:clamp(28px,4vw,52px);border:1px solid var(--line);border-radius:26px;background:var(--card);display:flex;flex-direction:column;justify-content:space-between;gap:40px;transition:border-color .35s}
-.panel:hover{border-color:rgba(160,107,255,.6)}
-.panel h3{font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;margin:14px 0 18px}
-.panel p{color:var(--muted);max-width:44ch}
-
-/* Light section */
-.light{background:var(--light);color:var(--light-text)}
-.light .eyebrow,.light .lead{color:var(--light-muted)}
-.why{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,100px);align-items:end}
-.why .eyebrow{margin-bottom:24px}
-.why-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
-.why-cards article{padding:34px 30px;background:#fff;border-radius:22px;transition:transform .4s var(--ease),box-shadow .4s}
-.why-cards article:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(90,43,234,.45)}
-.why-cards p{color:var(--light-muted);margin-top:12px}
-
-/* FAQ */
-.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(30px,6vw,100px)}
-.faq .eyebrow{margin-bottom:24px}
-details{border-top:1px solid var(--line)}
-details:last-child{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-weight:500;font-size:18px;line-height:1.4;transition:color .3s}
-summary::-webkit-details-marker{display:none}
-summary:hover{color:#D4B4FF}
-summary::after{content:"+";font:500 24px/1 var(--sans);transition:transform .35s var(--ease)}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--muted);padding-bottom:26px;max-width:62ch}
-
-/* CTA */
-.cta{min-height:90vh;display:grid;place-items:center;text-align:center;overflow:hidden;background:linear-gradient(140deg,#1A0D4F,#2A1B8F 55%,#123F8F)}
-.cta-in{padding:90px var(--gutter);position:relative}
-.cta .eyebrow{color:var(--text);margin-bottom:24px}
-.cta .lead{margin:26px auto 34px;color:var(--text)}
-.cta .cta-row{justify-content:center}
-
-/* Footer */
-footer{padding:clamp(60px,8vw,100px) 0 30px;border-top:1px solid var(--line)}
-.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
-.foot .brand{font-size:40px}
-.foot p{color:var(--muted);max-width:34ch;margin-top:18px}
-.foot h4{font:500 12px/1.4 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.legal{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
-@media (max-width:980px){
-  .nav ul,.nav .btn{display:none}
-  .burger{display:block}
-  .nav.open{background:var(--bg);flex-wrap:wrap}
-  .nav.open ul{display:grid;gap:18px;width:100%;padding:26px 0 14px;font-size:18px}
-  .tower{right:auto;left:50%;margin-left:-37.33vh;opacity:.55}
-  .fade{background:linear-gradient(0deg,var(--bg),transparent 30%),rgba(5,6,26,.3)}
-  .float-card,.scroll-cue{display:none}
-  .grid{grid-template-columns:1fr 1fr}
-  .growth,.ai-in,.why,.faq{grid-template-columns:1fr}
-  .growth-left{position:static}
-  .track{width:auto;flex-direction:column}
-  .panel{width:100%;min-height:280px}
-  .foot{grid-template-columns:1fr 1fr}
-  .foot>div:first-child{grid-column:1/-1}
+@media (max-width:560px){
+.hx-seg button{padding:0 18px;font-size:12.5px}
+.hx-seal{display:none}
 }
-@media (max-width:620px){
-  .grid,.why-cards{grid-template-columns:1fr}
-  .card{min-height:260px}
-  .cta-row .btn{flex:1 1 100%;justify-content:center}
+/* sketchy hero buttons */
+.hx-ctas:has(.sk){gap:28px}
+.hx-btn.sk{position:relative;overflow:visible;rotate:-2deg;background:var(--ink);box-shadow:6px 7px 0 #D94FC4;border-radius:999px;transition:rotate .5s cubic-bezier(.3,1.6,.4,1),translate .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.hx-btn.sk>span{position:relative;z-index:1}
+.hx-btn.sk:hover,.hx-solid:hover{color:#fff}
+.hx-btn.sk:hover{rotate:0deg;translate:-3px -3px;box-shadow:10px 11px 0 #F2C94C;transform:none}
+.sk-scrib{position:absolute;left:-7%;top:-22%;width:114%;height:144%;pointer-events:none;overflow:visible}
+.sk-scrib path{fill:none;stroke:#F2C94C;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:skdraw 1.2s cubic-bezier(.6,0,.2,1) 2.2s forwards}
+.hx-btn.sk:hover .sk-scrib path{stroke:#D94FC4;animation:skdraw2 .8s cubic-bezier(.6,0,.2,1) forwards}
+.sk-spark{position:absolute;right:-26px;top:-24px;width:34px;height:34px;fill:none;stroke:var(--royal);stroke-width:2.6;stroke-linecap:round;rotate:12deg;transition:rotate .6s cubic-bezier(.3,1.6,.4,1),scale .6s cubic-bezier(.3,1.6,.4,1)}
+.hx-btn.sk:hover .sk-spark{rotate:60deg;scale:1.2}
+.hx-btn.sk2{position:relative;overflow:visible;border:none;background:rgba(255,255,255,.4);rotate:1.5deg;border-radius:999px;transition:rotate .5s cubic-bezier(.3,1.6,.4,1),background .4s,color .4s}
+.hx-btn.sk2>span{position:relative;z-index:1}
+.sk-out{position:absolute;inset:-4px -6px;width:calc(100% + 12px);height:calc(100% + 8px);pointer-events:none;overflow:visible}
+.sk-out path{fill:none;stroke:var(--royal);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .6s cubic-bezier(.3,1.6,.4,1)}
+.sk-out path+path{transform-origin:center}
+.hx-btn.sk2:hover{rotate:-1deg;background:rgba(74,31,209,.08);color:var(--royal)}
+.hx-btn.sk2:hover .sk-out path+path{transform:translate(3px,2px) rotate(.6deg)}
+@keyframes skdraw{to{stroke-dashoffset:0}}
+@keyframes skdraw2{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.calm .sk-scrib path{stroke-dashoffset:0}
+@media (prefers-reduced-motion:reduce){.sk-scrib path{animation:none;stroke-dashoffset:0}}
+@media (max-width:860px){.sk-spark{right:-8px}}
+/* menu drawer (all screen sizes) */
+.menu-scrim{position:fixed;inset:0;z-index:99;border:none;padding:0;background:rgba(10,11,34,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;animation:scrimIn .4s ease both}
+@keyframes scrimIn{from{opacity:0}to{opacity:1}}
+@media (min-width:700px){
+.menu-panel{left:auto;width:min(520px,92vw);border-radius:32px 0 0 32px;box-shadow:-30px 0 80px -20px rgba(10,11,34,.6);padding:28px 40px 40px;animation:drawerIn .6s cubic-bezier(.2,.8,.2,1)}
+.menu-panel .ml{font-size:clamp(46px,4.6vw,72px)}
 }
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .js .lit .w{opacity:1}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
+/* cylinder gallery (helicopter) */
+.cyl{position:relative;z-index:2;height:clamp(300px,34vw,540px);overflow:hidden;overflow:clip;--w:clamp(118px,11.5vw,200px);--R:calc(var(--w) * 2.45);perspective:calc(var(--w) * 2.15);perspective-origin:50% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
+.cyl-scroll{position:absolute;left:50%;top:50%;width:var(--w);height:calc(var(--w) * 1.34);margin:calc(var(--w) * -.67) 0 0 calc(var(--w) * -.5);transform-style:preserve-3d}
+.cyl-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:cylspin 48s linear infinite}
+.cyl:hover .cyl-spin{animation-play-state:paused}
+@keyframes cylspin{to{transform:rotateY(360deg)}}
+.ccard{position:absolute;inset:0;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(10,11,34,.55);border:1px solid rgba(255,255,255,.6)}
+.ccard img{width:100%;height:100%;object-fit:cover;display:block}
+.ccard .ct{position:absolute;inset:0;padding:12%;display:flex;flex-direction:column;justify-content:space-between}
+.cyl-blur{position:absolute;top:0;bottom:0;width:20%;z-index:3;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3);pointer-events:none}
+.cyl-blur.l{left:0;-webkit-mask-image:linear-gradient(90deg,#000 20%,transparent);mask-image:linear-gradient(90deg,#000 20%,transparent)}
+.cyl-blur.r{right:0;-webkit-mask-image:linear-gradient(270deg,#000 20%,transparent);mask-image:linear-gradient(270deg,#000 20%,transparent)}
+.cyl-floor{position:absolute;left:10%;right:10%;bottom:6%;height:40px;border-radius:50%;background:radial-gradient(closest-side,rgba(74,31,209,.25),transparent);filter:blur(6px);z-index:1}
+/* extra scroll effects */
+.ob-track{display:flex;width:max-content}
+.ob-left{animation:obl 38s linear infinite}
+.ob-right{animation:obr 44s linear infinite}
+@keyframes obl{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes obr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.ob-track:hover{animation-play-state:paused}
+.outline-band{display:block;flex:none;transition:-webkit-text-stroke-color .4s,color .4s;white-space:nowrap;font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(90px,15vw,240px);line-height:.9;color:transparent;-webkit-text-stroke:1.5px rgba(74,31,209,.35)}
+@supports (animation-timeline: view()){
+.cyl-scroll{animation:cylsc linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.slide-l{animation:sl linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.slide-r{animation:sr linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.clipup{animation:clipup linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
 }
+@keyframes cylsc{from{transform:rotateY(-40deg)}to{transform:rotateY(70deg)}}
+@keyframes sl{from{transform:translateX(8%)}to{transform:translateX(-38%)}}
+@keyframes sr{from{transform:translateX(-38%)}to{transform:translateX(8%)}}
+@keyframes clipup{from{opacity:0;transform:perspective(1070px) rotateX(-72deg) translateY(50px)}to{opacity:1;transform:none}}
+.clipup{transform-origin:50% 0%}
+@media (max-width:640px){.cyl{height:300px;--w:112px}.cyl-blur{width:14%}}
+/* printed headline */
+.pline{display:block;position:relative;z-index:2;white-space:nowrap}
+.ch{position:relative;display:inline-block;opacity:0;animation:typ .22s cubic-bezier(.2,.8,.2,1) var(--d) forwards}
+.ch::after{content:"";position:absolute;right:-.05em;top:.1em;bottom:.12em;width:.055em;border-radius:.03em;background:linear-gradient(180deg,#4A1FD1,#BF0D65);opacity:0;animation:car .085s steps(1) var(--d) 1}
+.ch.last::after{animation:car .085s steps(1) var(--d) 1,blink 1s steps(1) calc(var(--d) + .085s) infinite}
+@keyframes typ{0%{opacity:0;filter:blur(6px);transform:translateY(.05em) scaleY(1.08)}60%{opacity:1;filter:blur(0)}100%{opacity:1;filter:none;transform:none}}
+@keyframes car{0%,100%{opacity:1}}
+@keyframes blink{0%{opacity:1}50%{opacity:0}}
+.calm .ch{opacity:1;animation:none}.calm .ch::after{display:none}
+@media (prefers-reduced-motion:reduce){.lx .ch{opacity:1}.lx .ch::after{display:none}}
+/* load reveals */
+.mask{display:block;overflow:hidden;padding-bottom:.04em}
+.mask>span{display:block;transform:translateY(108%);animation:rise 1.25s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+.in{opacity:0;animation:inUp 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes inUp{from{opacity:0;transform:translateY(30px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+/* smoky seam */
+.seam{position:relative;height:clamp(260px,26vw,380px);overflow:hidden;overflow:clip;margin:-2px 0;background:linear-gradient(180deg,var(--a) 0%,var(--a) 14%,var(--m) 50%,var(--b) 86%,var(--b) 100%)}
+.smoke{position:absolute;top:0;left:-10%;width:120%;height:100%;animation:smdrift 26s ease-in-out infinite alternate;pointer-events:none}
+@keyframes smdrift{from{transform:translateX(-4%)}to{transform:translateX(4%)}}
+.wisp{position:absolute;border-radius:50%;filter:blur(36px);pointer-events:none;mix-blend-mode:normal}
+.w1{width:46%;height:90%;left:-8%;top:-12%;background:radial-gradient(closest-side,var(--a),transparent);animation:smk1 17s ease-in-out infinite alternate}
+.w2{width:38%;height:80%;left:28%;top:18%;background:radial-gradient(closest-side,var(--m),transparent);animation:smk2 21s ease-in-out infinite alternate}
+.w3{width:44%;height:90%;right:-10%;bottom:-14%;background:radial-gradient(closest-side,var(--b),transparent);animation:smk1 19s ease-in-out infinite alternate-reverse}
+.w4{width:26%;height:60%;left:58%;top:14%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.7;animation:smk2 15s ease-in-out infinite alternate-reverse}
+.w5{width:30%;height:56%;left:12%;top:40%;background:radial-gradient(closest-side,rgba(255,255,255,.4),transparent);animation:smk1 23s ease-in-out infinite alternate}
+@keyframes smk1{from{transform:translate(-6%,10%) scale(1) rotate(0)}to{transform:translate(10%,-12%) scale(1.3) rotate(10deg)}}
+@keyframes smk2{from{transform:translate(8%,-8%) scale(1.15) rotate(0)}to{transform:translate(-10%,12%) scale(.9) rotate(-12deg)}}
+/* horizontal journey */
+.hs{position:relative;height:calc(5 * min(100vh, 1200px))}
+.hs-sticky{position:sticky;top:0;height:min(100vh,1200px);overflow:hidden}
+.hs-track{display:flex;height:100%;width:500vw;will-change:transform}
+.panel{position:relative;flex:none;width:100vw;height:100%;display:flex;align-items:center;overflow:visible}
+.panel-in{position:relative;z-index:4;width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,4vw,64px)}
+.hseam{position:absolute;top:0;bottom:0;right:-16vw;width:32vw;z-index:3;pointer-events:none;overflow:hidden;background:linear-gradient(90deg,var(--a) 0%,var(--a) 14%,var(--m) 50%,var(--b) 86%,var(--b) 100%)}
+.hseam svg{position:absolute;inset:-6% 0;width:100%;height:112%}
+.hseam .wisp{filter:blur(30px)}
+.hs-prog{position:absolute;left:clamp(20px,5vw,64px);right:clamp(20px,5vw,64px);bottom:32px;z-index:6;height:3px;border-radius:3px;background:rgba(10,11,34,.15);overflow:hidden}
+.hs-prog>span{position:absolute;inset:0;background:linear-gradient(90deg,#4A1FD1,#BF0D65,#F2C94C);transform-origin:left;transform:scaleX(.08)}
+.bignum{font-family:"Instrument Serif",Georgia,serif;font-style:italic;line-height:.78;font-size:clamp(180px,38vh,420px);letter-spacing:-.04em}
+@supports (animation-timeline: view()){
+.hs{view-timeline-name:--hs}
+.hs-track{animation:hsx linear both;animation-timeline:--hs;animation-range:contain 0% contain 100%}
+.hs-prog>span{animation:hsp linear both;animation-timeline:--hs;animation-range:contain 0% contain 100%}
+.pop-in{animation:popin linear both;animation-timeline:view(inline);animation-range:entry 10% cover 45%}
+}
+@keyframes hsx{to{transform:translateX(calc(-100% + 100vw))}}
+@keyframes hsp{from{transform:scaleX(.08)}to{transform:scaleX(1)}}
+@keyframes popin{from{opacity:0;transform:translateX(80px) rotate(4deg) scale(.92)}to{opacity:1;transform:none}}
+@supports not (animation-timeline: view()){
+.hs{height:auto}.hs-sticky{position:relative;height:auto;overflow-x:auto;scroll-snap-type:x mandatory}
+.panel{height:min(100vh,820px);scroll-snap-align:start}.hs-prog{display:none}
+}
+/* marquee */
+.marq{display:flex;width:max-content;animation:marq 34s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+/* ring */
+.stage{position:relative;height:clamp(620px,60vw,800px);perspective:1900px;display:flex;align-items:center;justify-content:center;--cw:clamp(210px,20vw,280px);--r:calc(var(--cw) * 1.32)}
+.tilt{transform-style:preserve-3d;transform:rotateX(-7deg);width:var(--cw);height:calc(var(--cw) * 1.92)}
+.spinner{position:absolute;inset:0;transform-style:preserve-3d;animation:ring 42s linear infinite}
+.spinner:has(.rcard:hover){animation-play-state:paused}
+@keyframes ring{to{transform:rotateY(-360deg)}}
+.rot{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.rcard{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;color:#fff;border:1px solid rgba(255,255,255,.28);box-shadow:0 40px 80px -30px rgba(5,6,40,.6);overflow:hidden}
+.rcard::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,0) 40%);pointer-events:none}
+/* book-style service cards */
+.rcard.bk{padding:calc(var(--cw) * .04);gap:0;border:none;border-radius:calc(var(--cw) * .1);box-shadow:0 40px 70px -28px rgba(5,6,40,.7);font-family:"Inter Tight",sans-serif}
+.rcard.bk::before{display:none}
+.cv{position:relative;flex:none;height:calc(var(--cw) * 1.04);border-radius:calc(var(--cw) * .065);padding:calc(var(--cw) * .05);display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.cv::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 0%,rgba(255,255,255,.18),transparent 60%);pointer-events:none}
+.cv-rib{position:absolute;top:calc(var(--cw) * .045);left:calc(var(--cw) * .045);z-index:2;padding:calc(var(--cw) * .014) calc(var(--cw) * .04);border-radius:999px;font-weight:800;font-size:calc(var(--cw) * .042);letter-spacing:.06em;text-transform:uppercase}
+.cv-kick{margin:calc(var(--cw) * .085) 0 0;padding:0 calc(var(--cw) * .13);font-weight:800;font-size:calc(var(--cw) * .04);letter-spacing:.06em;text-transform:uppercase;line-height:1.2}
+.cv-artbox{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;padding:calc(var(--cw) * .02) 0}
+.cv-art{width:92%;height:100%;overflow:visible}
+.cv-title{margin:0;font-size:calc(var(--cw) * .15);line-height:.84;letter-spacing:.01em}
+.cv-by{margin:calc(var(--cw) * .03) 0 0;font-weight:700;font-size:calc(var(--cw) * .032);letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.cv-seal{position:absolute;right:calc(var(--cw) * .035);top:calc(var(--cw) * .035);width:calc(var(--cw) * .14);height:calc(var(--cw) * .14);object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+.bk-tags{display:flex;flex-wrap:wrap;gap:calc(var(--cw) * .02);margin:calc(var(--cw) * .045) 0 calc(var(--cw) * .03)}
+.bk-tag{padding:calc(var(--cw) * .012) calc(var(--cw) * .032);border-radius:999px;font-weight:700;font-size:calc(var(--cw) * .045);line-height:1.25;white-space:nowrap}
+.bk-title{margin:0;font-weight:900;font-size:calc(var(--cw) * .108);line-height:.95;letter-spacing:-.035em}
+.bk-body{margin:calc(var(--cw) * .025) 0 0;font-family:Montserrat,sans-serif;font-size:calc(var(--cw) * .047);line-height:1.38;opacity:.92;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bk-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:calc(var(--cw) * .04);padding:calc(var(--cw) * .028) calc(var(--cw) * .02) calc(var(--cw) * .028) calc(var(--cw) * .055);border-radius:calc(var(--cw) * .03);font-weight:800;font-size:calc(var(--cw) * .048);rotate:-2deg;transition:rotate .5s cubic-bezier(.2,.8,.2,1),scale .5s cubic-bezier(.2,.8,.2,1)}
+.bk-arr{display:inline-flex;padding:calc(var(--cw) * .012) calc(var(--cw) * .025);border-left:1px solid currentColor;border-left-color:color-mix(in srgb,currentColor 35%,transparent)}
+.rcard.bk:hover .bk-btn{rotate:0deg;scale:1.06}
+.cv-bob,.cv-spin{transform-box:fill-box;transform-origin:center}
+.cv-bob{animation:cvbob 3.4s ease-in-out infinite}
+.cv-spin{animation:cvspin 9s linear infinite}
+@keyframes cvbob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-3deg)}}
+@keyframes cvspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.cv-bob,.cv-spin{animation:none}}
+/* dots */
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(242,201,76,.55) 1.2px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:radial-gradient(48% 40% at 70% 45%,#000,transparent);mask-image:radial-gradient(48% 40% at 70% 45%,#000,transparent);animation:dotp 6s ease-in-out infinite;pointer-events:none}
+@keyframes dotp{0%,100%{opacity:.5}50%{opacity:1}}
+.card{transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 40px 70px -30px rgba(74,31,209,.45)}
+details summary{list-style:none;cursor:pointer}details summary::-webkit-details-marker{display:none}
+details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl{transform:rotate(45deg)}
+/* scroll-driven */
+.bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4A1FD1,#D94FC4,#F2C94C);transform-origin:left;transform:scaleX(0);z-index:50}
+@supports (animation-timeline: view()){
+.bar{animation:gx linear both;animation-timeline:scroll(root)}
+.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+.rvs{animation:rvs linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.tilt-in{animation:tin linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+.par{animation:par linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.zoomhead{animation:zh linear both;animation-timeline:view();animation-range:entry 0% cover 50%}
+}
+@keyframes gx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rv{from{opacity:0;transform:translateY(70px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes rvs{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes tin{from{opacity:0;transform:perspective(900px) rotateX(28deg) rotateZ(-4deg) translateY(90px)}to{opacity:1;transform:none}}
+@keyframes par{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
+@keyframes zh{from{letter-spacing:.12em;opacity:.2}to{letter-spacing:-.005em;opacity:1}}
+.calm *,.calm *::before,.calm *::after{animation:none!important;transition:none!important}
+.calm .in,.calm .mask>span{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.lx *{animation:none!important;transition:none!important}.lx .in{opacity:1}.lx .mask>span{transform:none}.lx .hs{height:auto}.lx .hs-sticky{position:relative;height:auto;overflow-x:auto;scroll-snap-type:x mandatory}.lx .panel{height:min(100vh,820px);scroll-snap-align:start}}
+.calm .hs{height:auto}.calm .hs-sticky{position:relative;height:auto;overflow-x:auto;scroll-snap-type:x mandatory}.calm .panel{height:min(100vh,820px);scroll-snap-align:start}.calm .hs-prog{display:none}
+
+/* responsive: mobile menu */
+.menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center;flex:none}
+.menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes menuIn{from{clip-path:circle(0 at calc(100% - 44px) 44px)}to{clip-path:circle(150% at calc(100% - 44px) 44px)}}
+.menu-panel .ml{font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+@media (max-width:860px){.nav-desk,.nav-cta{display:none!important}.menu-btn{display:inline-flex}}
+/* responsive: small screens */
+@media (max-width:640px){
+.lx h1.serif{font-size:clamp(46px,14.5vw,76px)!important}
+.seam{height:170px}
+.lx details p{padding-right:0!important}
+.lx .btn{padding:0 22px}
+.lx .wrap{padding-left:18px;padding-right:18px}
+}
+.pl-a{font-size:clamp(64px,10.5vw,170px)}.pl-b{font-size:clamp(82px,17.4vw,282px)}
+@media (max-width:640px){.pl-a{font-size:13.4vw}.pl-b{font-size:19.4vw}.stage{--cw:190px;height:560px;perspective:1200px}}
+@supports (height:100svh){.hs{height:calc(5 * min(100svh, 1200px))}.hs-sticky{height:min(100svh,1200px)}}
+@media (max-width:760px){
+.bignum{font-size:clamp(88px,24vw,160px)}
+.panel-in{gap:6px 24px;padding-top:56px;padding-bottom:70px}
+.panel h3.serif{font-size:clamp(52px,15vw,84px)!important}
+.panel h2.serif{font-size:clamp(56px,15.5vw,96px)!important}
+.panel p{font-size:15.5px!important}
+.panel ul li{font-size:13px!important;padding:9px 14px!important}
+.hseam{width:56vw;right:-28vw}
+.hs-prog{bottom:22px}
+}
+
+/* ===== card motion system ===== */
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+.card,.plan{position:relative;isolation:isolate;transition:translate .7s cubic-bezier(.2,.8,.2,1),scale .7s cubic-bezier(.2,.8,.2,1),box-shadow .7s cubic-bezier(.2,.8,.2,1)}
+.card:hover,.plan:hover{transform:none;translate:0 -12px;scale:1.015;box-shadow:0 46px 80px -34px rgba(74,31,209,.55),0 0 0 1px rgba(255,255,255,.08)}
+.card::before,.plan::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.6px;background:conic-gradient(from var(--ang),#4A1FD1,#D94FC4,#F2C94C,#2F55F0,#4A1FD1);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s;animation:angspin 3.5s linear infinite;pointer-events:none;z-index:3}
+.card:hover::before,.plan:hover::before,.card:focus-visible::before{opacity:1}
+@keyframes angspin{to{--ang:360deg}}
+.card::after,.plan::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.3) 50%,rgba(255,255,255,0) 65%);background-size:260% 100%;background-position:140% 0;pointer-events:none;z-index:2;transition:background-position 1s cubic-bezier(.2,.8,.2,1)}
+.card:hover::after,.plan:hover::after{background-position:-40% 0}
+.card svg,.plan svg{transition:rotate .6s cubic-bezier(.2,.8,.2,1),scale .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover svg{rotate:-8deg;scale:1.12}
+.card h3,.plan h2,.plan h3{transition:letter-spacing .7s cubic-bezier(.2,.8,.2,1)}
+.card:hover h3,.plan:hover h2{letter-spacing:.012em}
+@supports (animation-timeline: view()){
+.card:nth-child(2),.plan:nth-child(2){animation-range-start:entry 8%}
+.card:nth-child(3),.plan:nth-child(3){animation-range-start:entry 16%}
+.card:nth-child(4),.plan:nth-child(4){animation-range-start:entry 24%}
+}
+.lx details{transition:background .4s}
+@media (hover:none){.card:hover,.plan:hover{translate:none;scale:none}}
+@media (prefers-reduced-motion:reduce){.card,.plan{transition:none}.card::before,.plan::before{animation:none}}
+.rcard{transition:box-shadow .5s,filter .5s}
+.rcard:hover{filter:brightness(1.12) saturate(1.1);box-shadow:0 0 0 2px #F2C94C,0 40px 90px -20px rgba(242,201,76,.55)}
+.rcard:hover h3{color:#FFF6DA}
+.panel ul li{transition:background .4s,translate .4s cubic-bezier(.2,.8,.2,1)}
+.panel ul li:hover{background:rgba(255,255,255,.22)!important;translate:0 -3px}
+.ccard{transition:filter .4s}.cyl:hover .ccard{filter:saturate(1.15)}
+
+/* ===== aardvark-inspired: fanned deck, stickers, notes, growing panel ===== */
+.hand{font-family:Caveat,"Segoe Script",cursive;font-weight:600;font-size:28px;line-height:1.1;margin:0}
+.fan{list-style:none;margin:0;padding:30px 0 10px;display:flex;justify-content:center;align-items:center}
+.fan-item{flex:none;width:clamp(230px,21vw,300px);margin-left:-46px;position:relative;z-index:var(--z);transform:rotate(var(--r)) translateY(var(--y));transition:transform .75s cubic-bezier(.2,.8,.2,1),filter .5s}
+.fan-item:first-child{margin-left:0}
+.fan-item:hover{transform:rotate(0deg) translateY(-30px) scale(1.05);z-index:20}
+.fan:hover .fan-item:not(:hover){filter:brightness(.9) saturate(.85)}
+.fan-card{height:clamp(360px,31vw,450px);border-radius:32px;padding:26px 24px 26px;display:flex;flex-direction:column;box-shadow:0 34px 70px -30px rgba(40,0,30,.65);position:relative;overflow:hidden}
+.fan-card::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.35) 50%,rgba(255,255,255,0) 65%);background-size:260% 100%;background-position:140% 0;transition:background-position 1s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.fan-item:hover .fan-card::after{background-position:-40% 0}
+.fan-artbox{color:#0A0B22;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:6px 0 10px}
+.fan-art{width:100%;height:100%;max-height:200px;overflow:visible}
+.fan-art .fa-float,.fan-art .fa-rocket{transform-box:fill-box;transform-origin:center;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.fan-item:hover .fa-float{transform:translateY(-6px) rotate(-4deg)}
+.fan-item:hover .fa-rocket{transform:translate(4px,-14px) rotate(6deg)}
+.fan-ic{transition:rotate .7s cubic-bezier(.2,.8,.2,1),scale .7s cubic-bezier(.2,.8,.2,1)}
+.fan-item:hover .fan-ic{rotate:-10deg;scale:1.12}
+.stickers{position:relative;height:clamp(380px,34vw,470px);margin:10px auto 70px;max-width:1100px}
+.badge-c{position:absolute;left:50%;top:50%;width:clamp(230px,21vw,300px);aspect-ratio:1;translate:-50% -50%}
+.sticker{position:absolute;padding:.32em .8em .4em;border-radius:999px;font-family:"Inter Tight",sans-serif;font-weight:800;font-size:clamp(20px,2.7vw,40px);letter-spacing:-.03em;white-space:nowrap;transform:rotate(var(--r));box-shadow:0 14px 30px -14px rgba(10,11,34,.45);cursor:default;transition:transform .5s cubic-bezier(.3,1.6,.4,1)}
+.sticker:hover{transform:rotate(0deg) scale(1.08)}
+@supports (animation-timeline: view()){
+.fan-deal{animation:deal linear both;animation-timeline:view();animation-range:entry 5% cover 42%}
+.sticker{animation:pop linear both;animation-timeline:view()}
+.clipgrow{animation:clipgrow linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+}
+@keyframes deal{from{opacity:0;translate:var(--dx) 70px;rotate:calc(var(--r) * -1)}to{opacity:1;translate:0 0;rotate:0deg}}
+@keyframes pop{0%{opacity:0;scale:.2}70%{opacity:1;scale:1.12}100%{opacity:1;scale:1}}
+@keyframes clipgrow{from{clip-path:inset(9% 12% round 160px)}to{clip-path:inset(0 round 40px)}}
+@media (max-width:860px){
+.fan{flex-direction:column;padding-top:10px}
+.fan-item{margin-left:0;margin-top:-70px;width:min(84vw,330px)}
+.fan-item:first-child{margin-top:0}
+.stickers{height:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding-top:0}
+.badge-c{position:relative;left:auto;top:auto;translate:none;width:220px;flex-basis:100%;max-width:220px;margin:0 calc(50% - 110px) 10px}
+.sticker{position:relative;left:auto!important;top:auto!important}
+}
+@media (prefers-reduced-motion:reduce){.fan-item,.sticker{transition:none}}
+
+/* tall frames (canvas overview, very tall screens): show the journey as a stack instead of pinning */
+@media (min-height:1300px){.hs{height:auto!important}.hs-sticky{position:relative!important;height:auto!important;overflow:visible!important}.hs-track{flex-direction:column;width:100%!important;animation:none!important;transform:none!important}.panel{width:100%;height:auto;min-height:760px}.hseam{display:none}.hs-prog{display:none}}
+/* ===== grab&go-inspired scroll motion ===== */
+@property --num{syntax:"<integer>";initial-value:0;inherits:false}
+.count{--num:var(--to);counter-reset:n var(--num)}
+.count::after{content:counter(n)}
+.count-t{animation:countup 1.8s cubic-bezier(.2,.8,.2,1) .5s both}
+@keyframes countup{from{--num:0}to{--num:var(--to)}}
+.tex{position:absolute;inset:0;width:100%;height:100%;opacity:.14;mix-blend-mode:overlay;pointer-events:none;z-index:0}
+@supports (animation-timeline: view()){
+.count:not(.count-t){animation:countup linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+.tilt3d{animation:tilt3d linear both;animation-timeline:view();animation-range:entry 0% cover 42%}
+}
+@keyframes tilt3d{from{opacity:.3;transform:perspective(1200px) rotateX(32deg) scale(.86) translateY(80px)}to{opacity:1;transform:none}}
+.calm .count{animation:none}
+
+/* ===== seamless flow: no visible section edges ===== */
+.lx > section, .lx > footer{z-index:1}
+.lx > .seam{z-index:0}
+.smoke{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
+.w2{height:58%!important;top:21%!important}
+.w4{height:46%!important;top:24%!important}
+.w5{height:40%!important;top:30%!important}
+@keyframes smk1{from{transform:translate(-6%,4%) scale(1) rotate(0)}to{transform:translate(10%,-5%) scale(1.25) rotate(10deg)}}
+@keyframes smk2{from{transform:translate(8%,-4%) scale(1.1) rotate(0)}to{transform:translate(-10%,5%) scale(.92) rotate(-12deg)}}
+.grain-fixed{position:fixed;inset:0;width:100%;height:100%;opacity:.06;mix-blend-mode:overlay;pointer-events:none;z-index:40}
+
+/* ===== FAQ open / close motion ===== */
+.lx{interpolate-size:allow-keywords}
+.lx details::details-content{height:0;overflow:clip;opacity:0;transition:height .65s cubic-bezier(.2,.8,.2,1),opacity .5s ease,content-visibility .65s allow-discrete}
+.lx details[open]::details-content{height:auto;opacity:1}
+.lx details summary{position:relative;transition:color .45s ease,padding-left .55s cubic-bezier(.2,.8,.2,1)}
+.lx details summary::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,#F2C94C,#D94FC4,#2F55F0);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.lx details[open] summary::after{transform:scaleX(1)}
+.lx details[open] summary{padding-left:12px}
+.lx details[open] summary{color:#F2C94C}
+.lx details .pl{transition:transform .7s cubic-bezier(.3,1.6,.4,1),background .4s ease,color .4s ease,border-color .4s ease}
+.lx details[open] .pl{transform:rotate(135deg);background:#F2C94C;color:#0A0B22;border-color:#F2C94C}
+.lx details[open] summary + p{animation:ansIn .75s cubic-bezier(.2,.8,.2,1) .08s both;padding-left:12px!important}
+@keyframes ansIn{from{opacity:0;transform:translateY(-14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.lx details::details-content{transition:none}}
+
+/* ===== snake ribbon ===== */
+.ribbon{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible;isolation:isolate}
+.seam-ribbon{height:clamp(380px,36vw,540px)!important}
+@media (max-width:640px){.seam-ribbon{height:300px!important}}
+@media (prefers-reduced-motion:reduce){.ribbon animate{display:none}}
+
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 10,000+ / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<div class="lx " style="position: relative; overflow: hidden; overflow: clip; min-height: 100vh">
+<div class="bar" aria-hidden="true"></div>
+<svg class="grain-fixed" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D4B4FF"/><stop offset=".45" stop-color="#A06BFF"/><stop offset=".75" stop-color="#5B7CFF"/><stop offset="1" stop-color="#3FD0FF"/></linearGradient>
-  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<!-- ============ 1 · HERO · silver / white / ice ============ -->
+<section style="position: relative; background: #EEF3FB; overflow-x: clip" data-on-mousemove="onMove" data-on-mouseleave="onLeave">
+<div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; overflow: clip">
+<div class="aurora"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(70% 60% at 28% 42%, rgba(247,250,254,.92) 0%, rgba(247,250,254,.35) 55%, rgba(247,250,254,0) 80%)"></div>
+<div class="blob" style="width: 34vw; height: 34vw; right: 4vw; top: 6vw; background: radial-gradient(circle, rgba(74,31,209,.32) 0%, rgba(74,31,209,0) 70%)"></div>
+<div class="blob" style="width: 30vw; height: 30vw; right: 22vw; top: 26vw; background: radial-gradient(circle, rgba(217,79,196,.3) 0%, rgba(217,79,196,0) 70%); animation-delay: -8s"></div>
+<div class="silk"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(520px circle at var(--spot, 50% 50%), rgba(255,255,255,.75), rgba(255,255,255,0) 65%); transition: background .2s"></div>
+<svg width="100%" height="100%" style="position: absolute; inset: 0; opacity: .09; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+</div>
+<svg width="0" height="0" aria-hidden="true" style="position: absolute"><defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#4A1FD1"></stop><stop offset=".5" stop-color="#D94FC4"></stop><stop offset="1" stop-color="#2F55F0"></stop></linearGradient>
+<filter id="smA" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.0045 0.016" numOctaves="4" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap><feGaussianBlur stdDeviation="9"></feGaussianBlur></filter>
+<filter id="smB" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.014" numOctaves="4" seed="23" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="G" yChannelSelector="R"></feDisplacementMap><feGaussianBlur stdDeviation="9"></feGaussianBlur></filter>
+<filter id="smH" x="-45%" y="-10%" width="190%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.016 0.0045" numOctaves="4" seed="11" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="220" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap><feGaussianBlur stdDeviation="8"></feGaussianBlur></filter>
 </defs></svg>
 
-<div class="loader" aria-hidden="true"><div><b>LAVEESHO</b><i></i></div></div>
+<header class="wrap in hx-top">
+<p class="hx-loc"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span>Business Bay, Dubai</span></p>
+<a href="/" aria-label="Laveesho home" class="hx-logo"><img src="/assets/logo-dark.webp" alt="Laveesho — Building Digital Future"></a>
+<button type="button" class="hx-burger" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><span></span><span></span><span></span></button>
 
-<header class="nav" id="nav">
-  <a class="brand" href="index.php" aria-label="Laveesho home">LAVEESHO<small>Building Digital Future</small></a>
-  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h18M3 16h18"/></svg></button>
-  <ul>
-    <li><a class="link" href="index.php">Home</a></li>
-    <li><a class="link" href="about.php">About</a></li>
-    <li><a class="link" href="pricing.php">Pricing</a></li>
-    <li><a class="link" href="contact.php">Contact</a></li>
-  </ul>
-  <a class="btn btn-solid" href="contact.php" data-magnetic>Let's Talk <svg aria-hidden="true"><use href="#arrow"/></svg></a>
 </header>
-
-<main id="main">
-<!-- HERO: pinned scrub, six depth layers -->
-<section class="scene hero" data-scene="hero">
-  <div class="layer depth-0 stars" data-depth="0" aria-hidden="true"></div>
-  <div class="layer depth-1" data-depth="1" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div></div>
-  <div class="layer depth-3" data-depth="3"><div class="tower" id="tower"><img src="assets/burj.jpg" width="1024" height="1536" alt="Burj Khalifa and the Dubai skyline at night"></div></div>
-  <div class="layer depth-2 fade" data-depth="2" aria-hidden="true"></div>
-  <div class="layer depth-5" data-depth="5" aria-hidden="true">
-    <div class="float-card" data-speed="-.5"><em>Your growth, our mission</em>More visibility<br>More leads<br>More revenue</div>
-  </div>
-  <div class="hero-copy depth-4" data-depth="4" id="heroCopy">
-    <p class="eyebrow"><span>Dubai, UAE</span><span>Digital &amp; technology partner</span></p>
-    <h1>
-      <span class="mask"><span>Make your</span></span>
-      <span class="mask"><span>business</span></span>
-      <span class="mask"><span class="grad">impossible</span></span>
-      <span class="mask"><span class="grad">to ignore.</span></span>
-    </h1>
-    <p class="lead">Stand out in a competitive market with impactful branding, smarter marketing and technology built around your goals.</p>
-    <div class="cta-row">
-      <a class="btn btn-solid" href="contact.php" data-magnetic>Start your project <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-      <a class="btn btn-ghost" href="#services" data-magnetic>Explore our solutions <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-    </div>
-  </div>
-  <div class="scroll-cue" aria-hidden="true">Scroll</div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee" aria-label="Strategy, digital marketing, web and app development, IT solutions, branding">
-  <div aria-hidden="true">
-    <span>Strategy<i>Smart plans. Real results.</i></span><span>Digital marketing<i>Reach. Engage. Grow.</i></span><span>Web &amp; app development<i>Ideas to interactive.</i></span><span>IT solutions<i>Secure. Scalable. Future ready.</i></span><span>Branding<i>Your brand. Our creativity.</i></span>
-    <span>Strategy<i>Smart plans. Real results.</i></span><span>Digital marketing<i>Reach. Engage. Grow.</i></span><span>Web &amp; app development<i>Ideas to interactive.</i></span><span>IT solutions<i>Secure. Scalable. Future ready.</i></span><span>Branding<i>Your brand. Our creativity.</i></span>
-  </div>
+<div data-if="menuOpen" style="display: none;">
+<button type="button" class="menu-scrim" aria-label="Close menu" data-on-click="toggleMenu"></button>
+<div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
+<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 40px; width: auto">
+<button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<nav aria-label="Mobile" style="display: flex; flex-direction: column">
+<a class="ml" href="/" style="animation-delay: 0.12s; color: #F2C94C" data-on-click="closeMenu">Home</a>
+<a class="ml" href="/services" style="animation-delay: 0.19s" data-on-click="closeMenu">Services</a>
+<a class="ml" href="/about" style="animation-delay: 0.26s" data-on-click="closeMenu">About</a>
+<a class="ml" href="/pricing" style="animation-delay: 0.33s" data-on-click="closeMenu">Pricing</a>
+<a class="ml" href="/contact" style="animation-delay: 0.40s" data-on-click="closeMenu">Contact</a>
+</nav>
+</div>
 </div>
 
-<!-- STATEMENT: word-by-word scroll lighting -->
-<section class="scene statement pad" data-scene="statement">
-  <div class="layer depth-1" data-depth="1" aria-hidden="true"><div class="glow" style="width:40vw;height:40vw;left:-14vw;top:10%;background:#5A2BEA;opacity:.22" data-speed=".25"></div></div>
-  <div class="wrap depth-4" data-depth="4">
-    <p class="eyebrow">360° digital growth</p>
-    <h2 data-reveal>One strategy. Every digital <span class="grad">touchpoint.</span></h2>
-    <p class="lit" id="lit">Laveesho brings strategy, creative, technology, SEO and digital marketing together so your brand can attract attention, build trust and turn that attention into measurable growth.</p>
-  </div>
+<div class="wrap hx-body">
+<p class="hx-proof in" style="animation-delay: .2s"><span class="hx-pi"><span class="count count-t" style="--to: 50"></span>+ campaigns delivered</span><span class="hx-pi"><span class="count count-t" style="--to: 20"></span>+ brands supported</span><span class="hx-pi"><span class="count count-t" style="--to: 5"></span>+ years of experience</span></p>
+
+<h1 class="serif hx-h1" aria-label="Make brands impossible to ignore.">
+<span class="pline" aria-hidden="true"><span class="ch " style="--d: 0.300s">M</span><span class="ch " style="--d: 0.385s">a</span><span class="ch " style="--d: 0.470s">k</span><span class="ch " style="--d: 0.555s">e</span><span class="ch " style="--d: 0.640s">&nbsp;</span><span class="ch " style="--d: 0.725s">b</span><span class="ch " style="--d: 0.810s">r</span><span class="ch " style="--d: 0.895s">a</span><span class="ch " style="--d: 0.980s">n</span><span class="ch " style="--d: 1.065s">d</span><span class="ch " style="--d: 1.150s">s</span> <span style="font-style: italic"><span class="ch " style="--d: 1.515s; color: #4A1FD1">i</span><span class="ch " style="--d: 1.600s; color: #6A1CC4">m</span><span class="ch " style="--d: 1.685s; color: #8E16A8">p</span><span class="ch " style="--d: 1.770s; color: #BF0D65">o</span><span class="ch " style="--d: 1.855s; color: #C92A92">s</span><span class="ch " style="--d: 1.940s; color: #B53DC0">s</span><span class="ch " style="--d: 2.025s; color: #8A4BE0">i</span><span class="ch " style="--d: 2.110s; color: #5E55EC">b</span><span class="ch " style="--d: 2.195s; color: #3F56F0">l</span><span class="ch " style="--d: 2.280s; color: #2F55F0">e</span></span></span>
+<span class="pline" aria-hidden="true"><span class="ch " style="--d: 2.645s">t</span><span class="ch " style="--d: 2.730s">o</span><span class="ch " style="--d: 2.815s">&nbsp;</span><span class="ch " style="--d: 2.900s">i</span><span class="ch " style="--d: 2.985s">g</span><span class="ch " style="--d: 3.070s">n</span><span class="ch " style="--d: 3.155s">o</span><span class="ch " style="--d: 3.240s">r</span><span class="ch " style="--d: 3.325s">e</span><span class="ch last" style="--d: 3.410s">.</span></span>
+</h1>
+
+<div class="hx-split">
+<div class="hx-left in" style="animation-delay: 1.5s">
+<p class="hx-state">Dubai’s <em>creative</em> agency for <em>brands</em> that refuse to blend in.</p>
+<p class="hx-small"><strong>Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai.</strong> Brand identity, social media, SEO, paid ads and websites — designed, built and measured under one roof.</p>
+</div>
+<div class="hx-ctas in" style="animation-delay: 1.75s">
+<a class="hx-btn hx-solid sk" href="/contact"><svg class="sk-scrib" viewBox="0 0 340 90" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 14C110 2 250 4 316 12c22 4 22 58 2 66C240 90 100 88 26 80 4 76 2 22 30 14c40-8 150-12 262-4"></path></svg><svg class="sk-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v9M20 28v9M3 20h9M28 20h9M8 8l6 6M26 26l6 6M32 8l-6 6M8 32l6-6"></path></svg><span>Let’s grow your brand</span><span class="hx-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+<a class="hx-btn hx-line sk2" href="https://wa.me/971503940721"><svg class="sk-out" viewBox="0 0 340 70" preserveAspectRatio="none" aria-hidden="true"><path d="M24 6C100 2 240 3 318 8c18 2 20 52 0 56C240 68 96 68 22 64 2 60 4 10 24 6z"></path><path d="M30 10C110 4 236 6 312 12c14 4 14 44-2 48C232 64 100 64 28 60 10 56 12 14 30 10z" opacity=".45"></path></svg><span>Chat on WhatsApp</span></a>
+</div>
+</div>
+</div>
+
+
 </section>
 
-<!-- SERVICES -->
-<section class="scene pad" id="services" data-scene="services" style="padding-top:0">
-  <div class="wrap depth-4" data-depth="4">
-    <p class="eyebrow" style="margin-bottom:24px">Our digital expertise</p>
-    <h2 data-reveal>Built to perform <span class="grad">and grow.</span></h2>
-    <div class="grid" id="grid">
-      <article class="card"><span class="num">01</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M8 20v8l6 2 18 8V10L14 18l-6 2Z"/><path pathLength="1" d="m14 30 3 10h5l-2-7"/><path pathLength="1" d="M38 18c2 1 3 3.500 3 6s-1 5-3 6"/></svg>
-        <h3>Digital Marketing</h3><p>Campaign strategy, paid advertising and conversion-focused marketing built around your business goals.</p></article>
-      <article class="card"><span class="num">02</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><circle pathLength="1" cx="21" cy="21" r="14"/><path pathLength="1" d="m31 31 11 11"/><path pathLength="1" d="m14 25 5-5 4 3 6-7"/></svg>
-        <h3>SEO &amp; Growth</h3><p>Search visibility, technical improvements and content direction designed to bring qualified traffic.</p></article>
-      <article class="card"><span class="num">03</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect pathLength="1" x="6" y="8" width="36" height="26" rx="8"/><path pathLength="1" d="m16 34-2 8 10-8"/><path pathLength="1" d="M24 27s-7-4-7-8.500a3.800 3.800 0 0 1 7-2 3.800 3.800 0 0 1 7 2C31 23 24 27 24 27Z"/></svg>
-        <h3>Social Media</h3><p>Content systems that make your brand consistent, relevant and easier for customers to remember.</p></article>
-      <article class="card"><span class="num">04</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="m24 5 5 14 14 5-14 5-5 14-5-14-14-5 14-5 5-14Z"/><circle pathLength="1" cx="24" cy="24" r="4"/></svg>
-        <h3>Brand Identity</h3><p>Visual identity, graphics and UI/UX that make your business look credible and distinctive.</p></article>
-      <article class="card"><span class="num">05</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect pathLength="1" x="5" y="8" width="38" height="32" rx="6"/><path pathLength="1" d="M5 17h38"/><path pathLength="1" d="m19 24-5 5 5 5"/><path pathLength="1" d="m29 24 5 5-5 5"/></svg>
-        <h3>Website Development</h3><p>Fast, responsive websites designed around user experience, trust and conversion.</p></article>
-      <article class="card"><span class="num">06</span>
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect pathLength="1" x="13" y="4" width="22" height="40" rx="6"/><path pathLength="1" d="M21 38h6"/><path pathLength="1" d="m19 22 4 4 7-8"/></svg>
-        <h3>App Development</h3><p>Modern web and mobile applications that support your customers and business operations.</p></article>
-    </div>
-  </div>
+<!-- seam silver → royal -->
+<div class="seam" aria-hidden="true" style="--a: #EEF3FB; --m: #9C8AEE; --b: #4A1FD1; --c: rgba(217,79,196,.6)">
+<svg class="smoke" viewBox="0 0 1440 360" preserveAspectRatio="none"><rect x="-200" y="-260" width="1840" height="420" style="fill: var(--a); filter: url(#smA)"></rect><rect x="-200" y="200" width="1840" height="420" style="fill: var(--b); filter: url(#smB)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span><span class="wisp w5"></span>
+</div>
+
+<!-- ============ 2 · SERVICES · royal purple → electric blue · rotating ring ============ -->
+<section id="services" style="position: relative; background: linear-gradient(180deg, #4A1FD1 0%, #3A2BE0 50%, #2F55F0 100%); color: var(--ivory); overflow-x: clip">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(50% 40% at 50% 55%, rgba(255,255,255,.14), transparent 70%)"></div>
+<div class="wrap" style="position: relative; padding-top: 40px; padding-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px">
+<div style="flex: 1 1 560px; min-width: 0">
+<p class="eyebrow rv" style="margin: 0 0 18px; color: var(--gold)">01 — What we do <span class="hand" style="display: inline-block; margin-left: 18px; font-size: 26px; letter-spacing: 0; text-transform: none; color: var(--ivory); rotate: -4deg">psst… hover a card to pause it</span></p>
+<h2 class="serif zoomhead" style="margin: 0; font-size: clamp(54px, 8vw, 128px); color: var(--ivory)">Six crafts.<br><span class="g-gold" style="font-style: italic">One brand.</span></h2>
+</div>
+<div style="flex: 1 1 340px; max-width: 440px">
+<p class="rv" style="margin: 0 0 22px; font-size: 16px; line-height: 1.7; color: var(--ivorym)">From your logo to your last ad click, every service is planned around one goal: turning attention into customers. Hover a card to pause it, or turn the ring yourself.</p>
+<div style="display: flex; gap: 12px">
+<button type="button" aria-label="Previous service" style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.5); background: transparent; color: var(--ivory); cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="prev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+<button type="button" aria-label="Next service" style="width: 52px; height: 52px; border-radius: 50%; border: none; background: var(--gold); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+</div>
+<div class="stage tilt3d">
+<div class="tilt">
+<div class="spinner">
+<div class="rot" style="transform: rotateY(var(--rot, 0deg))">
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #F2C94C; color: #0A0B22; transform: rotateY(0deg) translateZ(var(--r)) rotateZ(-2deg)">
+<div class="cv" style="--cvbg: #2A0F8F; background: #2A0F8F; color: #F2C94C">
+
+<p class="cv-kick">“Look as premium as you are.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="cv-bob"><path d="M100 18l26 40-26 52-26-52z" fill="var(--cvbg)"></path><path d="M100 18v58"></path><circle cx="100" cy="80" r="6" fill="currentColor"></circle><path d="M84 112h32v14H84z" fill="currentColor"></path></g><text x="18" y="62" font-family="Instrument Serif, Georgia, serif" font-size="44" fill="currentColor" stroke="none">Aa</text><circle cx="160" cy="40" r="11" fill="currentColor"></circle><circle cx="176" cy="66" r="11" fill="var(--cvbg)"></circle><circle cx="160" cy="92" r="11" fill="currentColor" fill-opacity=".45"></circle><path d="M22 96c10-8 22-8 32 0s22 8 32 0"></path><path d="M150 120l4 8 8 2-8 2-4 8-4-8-8-2 8-2z" fill="currentColor"></path></svg></div>
+<p class="serif cv-title">Brand<br><span style="font-style: italic">identity</span></p>
+<p class="cv-by">A Laveesho studio original</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #E0307F; color: #FFFFFF">Logo</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Guidelines</span><span class="bk-tag" style="background: #0A0B22; color: #F5EEDC">Packaging</span></div>
+<h3 class="bk-title">Brand identity</h3>
+<p class="bk-body">Logos, visual systems and brand guidelines that make you look as premium as you are.</p>
+<span class="bk-btn" style="background: #E0307F; color: #FFFFFF">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #E35BCF; color: #0A0B22; transform: rotateY(60deg) translateZ(var(--r)) rotateZ(1.5deg)">
+<div class="cv" style="--cvbg: #0A0B22; background: #0A0B22; color: #FF9BEA">
+
+<p class="cv-kick">“Stop the scroll. Start the DMs.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="72" y="14" width="56" height="112" rx="12" fill="var(--cvbg)"></rect><path d="M92 22h16"></path><path d="M84 34h32v40H84z" fill="currentColor"></path><path d="M96 48l12 6-12 6z" fill="var(--cvbg)" stroke="var(--cvbg)"></path><path d="M84 84h22M84 94h30M84 104h16"></path><g class="cv-bob"><path d="M150 46c-6-10-22-6-18 6 2 6 18 16 18 16s16-10 18-16c4-12-12-16-18-6z" fill="currentColor"></path><path d="M146 30l-2-8M160 30l4-8M170 40l8-4"></path></g><path d="M18 40h40v24H34l-8 8v-8h-8z" fill="var(--cvbg)"></path><circle cx="30" cy="52" r="2" fill="currentColor"></circle><circle cx="38" cy="52" r="2" fill="currentColor"></circle><circle cx="46" cy="52" r="2" fill="currentColor"></circle><path d="M24 98l10 4 4 10 4-10 10-4-10-4-4-10-4 10z" fill="currentColor"></path></svg></div>
+<p class="serif cv-title">Social<br><span style="font-style: italic">media</span></p>
+<p class="cv-by">Reels · content · community</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Reels</span><span class="bk-tag" style="background: #F4F8FD; color: #0A0B22">Content</span><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">Community</span></div>
+<h3 class="bk-title">Social media</h3>
+<p class="bk-body">Content calendars, scroll-stopping reels and community care that keep you top of feed.</p>
+<span class="bk-btn" style="background: #0A0B22; color: #FFFFFF">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #9DBBFF; color: #0A0B22; transform: rotateY(120deg) translateZ(var(--r)) rotateZ(-1.5deg)">
+<div class="cv" style="--cvbg: #F4F8FD; background: #F4F8FD; color: #1D3FD0">
+<span class="cv-rib" style="background: #F2C94C; color: #0A0B22">New · GEO</span>
+<p class="cv-kick">“Be the answer, not a link.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="20" width="132" height="26" rx="13" fill="var(--cvbg)"></rect><path d="M30 33h70" stroke-dasharray="2 6"></path><circle cx="132" cy="33" r="6"></circle><path d="M137 38l5 5"></path><path d="M22 122l30-26 22 12 34-36 22 8 40-34"></path><path d="M160 46l12-1-1 12"></path><g class="cv-bob"><path d="M128 70h52v34h-30l-10 10v-10h-12z" fill="currentColor"></path><text x="140" y="94" font-family="Inter Tight, sans-serif" font-weight="800" font-size="16" fill="var(--cvbg)" stroke="none">AI</text></g><path d="M40 64c0 5-2 7-7 7 5 0 7 2 7 7 0-5 2-7 7-7-5 0-7-2-7-7z" fill="currentColor"></path><path d="M22 132h160"></path></svg></div>
+<p class="serif cv-title">Found<br><span style="font-style: italic">by AI</span></p>
+<p class="cv-by">Google · ChatGPT · Gemini</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">SEO</span><span class="bk-tag" style="background: #E0307F; color: #FFFFFF">AEO</span><span class="bk-tag" style="background: #0A0B22; color: #F5EEDC">GEO</span></div>
+<h3 class="bk-title">SEO &amp; AI search</h3>
+<p class="bk-body">Rank on Google and get cited when people ask ChatGPT, Gemini and Perplexity.</p>
+<span class="bk-btn" style="background: #2F55F0; color: #FFFFFF">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #BF0D65; color: #FFFFFF; transform: rotateY(180deg) translateZ(var(--r)) rotateZ(2deg)">
+<div class="cv" style="--cvbg: #F2C94C; background: #F2C94C; color: #0A0B22">
+<span class="cv-rib" style="background: #0A0B22; color: #F2C94C">Most booked</span>
+<p class="cv-kick">“Every dirham, tracked.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="cv-bob"><path d="M30 60l70-30v80L30 80z" fill="var(--cvbg)"></path><path d="M18 58h12v24H18z" fill="currentColor"></path><path d="M34 82l8 28h14l-6-24"></path><path d="M112 52c8 6 8 30 0 36M124 42c14 12 14 44 0 56"></path></g><circle cx="160" cy="44" r="22" fill="var(--cvbg)"></circle><circle cx="160" cy="44" r="13"></circle><circle cx="160" cy="44" r="4" fill="currentColor"></circle><path d="M160 44l26-26M180 18h6v6"></path><ellipse cx="156" cy="112" rx="22" ry="7" fill="currentColor"></ellipse><ellipse cx="156" cy="102" rx="22" ry="7" fill="var(--cvbg)"></ellipse><ellipse cx="156" cy="92" rx="22" ry="7" fill="currentColor"></ellipse><path d="M66 124h50"></path></svg></div>
+<p class="serif cv-title">Paid<br><span style="font-style: italic">ads</span></p>
+<p class="cv-by">Meta · Google · retargeting</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Meta ads</span><span class="bk-tag" style="background: #F4F8FD; color: #0A0B22">Google ads</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Retargeting</span></div>
+<h3 class="bk-title">Paid ads</h3>
+<p class="bk-body">Meta and Google campaigns built to convert, reported to the last dirham.</p>
+<span class="bk-btn" style="background: #F2C94C; color: #0A0B22">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #F4F8FD; color: #0A0B22; transform: rotateY(240deg) translateZ(var(--r)) rotateZ(-1deg)">
+<div class="cv" style="--cvbg: #4A1FD1; background: #4A1FD1; color: #F5EEDC">
+
+<p class="cv-kick">“Visits in. Leads out.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="18" y="16" width="164" height="108" rx="10" fill="var(--cvbg)"></rect><path d="M18 34h164"></path><circle cx="30" cy="25" r="3" fill="currentColor"></circle><circle cx="40" cy="25" r="3"></circle><circle cx="50" cy="25" r="3"></circle><path d="M32 48h64v40H32z" fill="currentColor"></path><path d="M108 50h58M108 60h46M108 70h52"></path><rect x="108" y="80" width="40" height="14" rx="7" fill="currentColor"></rect><path d="M32 100h30v12H32zM70 100h30v12H70z"></path><g class="cv-bob"><path d="M150 94l26 10-12 4-4 12z" fill="currentColor"></path><path d="M166 112l10 10"></path></g></svg></div>
+<p class="serif cv-title">Websites<br><span style="font-style: italic">that sell</span></p>
+<p class="cv-by">Web design · e-commerce</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #4A1FD1; color: #FFFFFF">Web design</span><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">E-commerce</span><span class="bk-tag" style="background: #E35BCF; color: #0A0B22">Landing pages</span></div>
+<h3 class="bk-title">Websites</h3>
+<p class="bk-body">Fast, beautiful websites and online stores designed to turn visits into leads.</p>
+<span class="bk-btn" style="background: #4A1FD1; color: #FFFFFF">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+<a class="rcard bk" href="/services" style="text-decoration: none; background: #0A0B22; color: #F5EEDC; transform: rotateY(300deg) translateZ(var(--r)) rotateZ(1.5deg)">
+<div class="cv" style="--cvbg: #2F55F0; background: #2F55F0; color: #F5EEDC">
+
+<p class="cv-kick">“Built to scale with you.”</p>
+<div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="12" width="64" height="118" rx="14" fill="var(--cvbg)"></rect><path d="M62 20h20"></path><rect x="50" y="32" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="76" y="32" width="18" height="18" rx="5"></rect><rect x="50" y="58" width="18" height="18" rx="5"></rect><rect x="76" y="58" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="50" y="84" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="76" y="84" width="18" height="18" rx="5"></rect><path d="M66 116h12"></path><g class="cv-spin"><circle cx="150" cy="56" r="16" fill="var(--cvbg)"></circle><circle cx="150" cy="56" r="6"></circle><path d="M150 32v8M150 72v8M126 56h8M166 56h8M133 39l6 6M161 67l6 6M133 73l6-6M161 45l6-6"></path></g><path d="M118 104h20l8-12 10 22 8-10h22"></path></svg></div>
+<p class="serif cv-title">Apps<br><span style="font-style: italic">&amp; IT</span></p>
+<p class="cv-by">Web · mobile · automation</p>
+<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+</div>
+<div class="bk-tags"><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">Mobile apps</span><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Automation</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Integrations</span></div>
+<h3 class="bk-title">Apps &amp; IT</h3>
+<p class="bk-body">Web and mobile apps, integrations and automation that grow with your business.</p>
+<span class="bk-btn" style="background: #E0307F; color: #FFFFFF">Read more <span class="bk-arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</a>
+
+</div>
+</div>
+</div>
+<div aria-hidden="true" style="position: absolute; bottom: 8%; left: 50%; width: min(70%, 760px); height: 60px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(5,6,40,.45), transparent)"></div>
+</div>
 </section>
 
-<!-- GROWTH: sticky column -->
-<section class="scene pad" data-scene="growth" style="padding-top:0">
-  <div class="wrap growth depth-4" data-depth="4">
-    <div class="growth-left">
-      <p class="eyebrow">Growth strategy</p>
-      <h2 data-reveal>More visibility. More customers. <span class="grad">More growth.</span></h2>
-      <p class="lead">We don't build digital assets just to look good. Every campaign, page and creative decision should have a job: reach the right audience, earn attention and move people closer to action.</p>
-    </div>
-    <ul class="steps">
-      <li data-rise><span>Strategy</span><h3>Audience first</h3><p>Audience-first strategy aligned to your business objectives.</p></li>
-      <li data-rise><span>Creative</span><h3>Built for conversion</h3><p>Creative content and landing experiences built for conversion.</p></li>
-      <li data-rise><span>Technology</span><h3>Led by data</h3><p>Data-led optimization with clear performance reporting.</p></li>
-    </ul>
-  </div>
+<!-- seam electric → orchid -->
+<div class="seam" aria-hidden="true" style="--a: #2F55F0; --m: #6A3FD6; --b: #A3127A; --c: rgba(242,201,76,.55)">
+<svg class="smoke" viewBox="0 0 1440 360" preserveAspectRatio="none"><rect x="-200" y="-260" width="1840" height="420" style="fill: var(--a); filter: url(#smA)"></rect><rect x="-200" y="200" width="1840" height="420" style="fill: var(--b); filter: url(#smB)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span><span class="wisp w5"></span>
+</div>
+
+<!-- ============ 3 · WHY · orchid pink + gold ============ -->
+<section style="position: relative; background: linear-gradient(180deg, #A3127A 0%, #BF0D65 100%); color: var(--ivory); overflow-x: clip">
+<div class="dots" aria-hidden="true"></div>
+<div aria-hidden="true" class="blob" style="width: 40vw; height: 40vw; right: -12vw; top: -8vw; background: radial-gradient(circle, rgba(242,201,76,.5), transparent 70%); filter: blur(70px)"></div>
+<div aria-hidden="true" class="blob" style="width: 36vw; height: 36vw; left: -10vw; bottom: -10vw; background: radial-gradient(circle, rgba(217,79,196,.7), transparent 70%); filter: blur(70px); animation-delay: -7s"></div>
+<div class="wrap" style="position: relative; padding-top: 40px; padding-bottom: 10px">
+<p class="eyebrow rv" style="margin: 0 0 18px; color: var(--gold)">02 — Why Laveesho</p>
+<h2 class="serif clipup" style="margin: 0; max-width: 1100px; font-size: clamp(50px, 7.4vw, 118px)">Strategy you can <span class="g-gold" style="font-style: italic">feel.</span> Results you can measure.</h2>
+</div>
+<div class="cyl tilt3d" aria-label="A rotating gallery of Laveesho brand work" role="img">
+<div class="cyl-floor" aria-hidden="true" style="background: radial-gradient(closest-side, rgba(40,0,30,.45), transparent)"></div>
+<div class="cyl-scroll" aria-hidden="true">
+<div class="cyl-spin">
+
+<div class="ccard" style="transform: rotateY(0.0deg) translateZ(calc(var(--R) * -1)); background: #DCE8F7; color: #0A0B22">
+<img src="/assets/seal-silver.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(22.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#3A12B8); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Social</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Scroll-stopping content</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(45.0deg) translateZ(calc(var(--R) * -1)); background: #2A0F8F; color: #F5EEDC">
+<img src="/assets/seal-purple.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(67.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E0307F,#BF0D65); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">SEO &amp; GEO</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Found by Google &amp; AI</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(90.0deg) translateZ(calc(var(--R) * -1)); background: radial-gradient(circle at 50% 45%,#1E1660,#0A0B22 70%); color: #F5EEDC">
+<img src="/assets/seal-3d.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(112.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFE7A3,#F2C94C); color: #0A0B22">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Paid ads</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Every dirham tracked</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(135.0deg) translateZ(calc(var(--R) * -1)); background: #1D3FD0; color: #F5EEDC">
+<img src="/assets/seal-blue.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(157.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#141633,#0A0B22); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Websites</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Built to convert</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(180.0deg) translateZ(calc(var(--R) * -1)); background: #DCE8F7; color: #0A0B22">
+<img src="/assets/seal-silver.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(202.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#3A12B8); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Social</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Scroll-stopping content</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(225.0deg) translateZ(calc(var(--R) * -1)); background: #2A0F8F; color: #F5EEDC">
+<img src="/assets/seal-purple.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(247.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E0307F,#BF0D65); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">SEO &amp; GEO</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Found by Google &amp; AI</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(270.0deg) translateZ(calc(var(--R) * -1)); background: radial-gradient(circle at 50% 45%,#1E1660,#0A0B22 70%); color: #F5EEDC">
+<img src="/assets/seal-3d.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(292.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFE7A3,#F2C94C); color: #0A0B22">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Paid ads</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Every dirham tracked</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+<div class="ccard" style="transform: rotateY(315.0deg) translateZ(calc(var(--R) * -1)); background: #1D3FD0; color: #F5EEDC">
+<img src="/assets/seal-blue.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+
+</div>
+
+<div class="ccard" style="transform: rotateY(337.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#141633,#0A0B22); color: #F5EEDC">
+
+
+<div class="ct">
+<span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Websites</span>
+<span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Built to convert</span>
+<span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="cyl-blur l" aria-hidden="true"></div>
+<div class="cyl-blur r" aria-hidden="true"></div>
+</div>
+
+<div class="wrap" style="position: relative; padding-bottom: 100px">
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0; border-top: 1px solid rgba(245,238,220,.25)">
+
+<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 50"></span>+</p>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Campaigns and projects delivered</p>
+</div>
+
+<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 20"></span>+</p>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Brands supported across industries</p>
+</div>
+
+<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 5"></span>+</p>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Years building digital brands</p>
+</div>
+
+<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">24/7</p>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Ideas, monitoring and creativity</p>
+</div>
+
+</div>
+<div style="position: relative; margin-top: 70px">
+<p class="hand" aria-hidden="true" style="position: absolute; right: 4%; top: -46px; color: var(--gold); rotate: 4deg">four reasons, zero fluff ↓</p>
+<ol class="fan">
+
+<li class="fan-item" style="--r: -7deg; --y: 14px; --dx: 330px; --z: 1">
+<div class="fan-deal">
+<article class="fan-card" style="background: #2F55F0; color: #F5EEDC">
+<p class="hand" style="margin: 0; text-align: center; font-size: 26px; color: #F2C94C">reason #1</p>
+<div class="fan-artbox" style="--paper: #2F55F0"><svg class="fan-art" viewBox="0 0 240 190" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="fa-float"><circle cx="172" cy="78" r="52" fill="var(--paper)"></circle><circle cx="172" cy="78" r="36"></circle><circle cx="172" cy="78" r="20" fill="currentColor"></circle><circle cx="172" cy="78" r="8" fill="var(--paper)"></circle><path d="M150 136l22-6 22 6M172 130v-0"></path><path d="M160 130l-6 18M184 130l6 18"></path></g><path d="M98 92l70-14"></path><path d="M98 92l-10-8M98 92l-11 3M104 91l-9-8M104 91l-10 4"></path><path d="M126 70c4-3 9-3 13 0M122 104c5 2 10 1 14-2" stroke-dasharray="1 7"></path><path d="M30 62c-4-14 6-26 20-24 12 2 18 14 13 26-8 4-22 6-33-2z" fill="currentColor"></path><circle cx="50" cy="58" r="11" fill="var(--paper)"></circle><path d="M44 57h0M53 56h0" stroke-width="3.4"></path><path d="M46 63c2 2 5 2 7 0"></path><path d="M28 60c-10 6-12 20-4 26 6-6 6-16 4-26z" fill="currentColor"></path><path d="M50 70c-14 2-24 12-26 30l-6 34c14 6 40 6 56-2l-6-34c-2-14-8-24-18-28z" fill="var(--paper)"></path><circle cx="38" cy="96" r="3"></circle><circle cx="54" cy="110" r="3"></circle><circle cx="34" cy="120" r="3"></circle><circle cx="58" cy="90" r="3"></circle><circle cx="48" cy="126" r="3"></circle><path d="M60 82c12 2 24 6 36 10"></path><path d="M38 84c-8 10-10 20-6 28"></path><path d="M34 134l-6 30h12l4-28M60 134l4 30h12l-6-30" fill="currentColor"></path><path d="M22 166h22M60 166h22" stroke-width="4"></path></svg></div>
+<h3 class="serif" style="margin: 0 0 10px; font-size: clamp(34px, 3vw, 44px)">Purpose first</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; opacity: .9">Every campaign starts with a business goal — leads, sales or reach — not vanity metrics.</p>
+</article>
+</div>
+</li>
+
+<li class="fan-item" style="--r: -3deg; --y: 0px; --dx: 110px; --z: 2">
+<div class="fan-deal">
+<article class="fan-card" style="background: #F2C94C; color: #0A0B22">
+<p class="hand" style="margin: 0; text-align: center; font-size: 26px; color: #7A0B52">reason #2</p>
+<div class="fan-artbox" style="--paper: #F2C94C"><svg class="fan-art" viewBox="0 0 240 190" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 160h150"></path><rect x="34" y="118" width="26" height="42" fill="var(--paper)"></rect><rect x="72" y="92" width="26" height="68" fill="currentColor"></rect><rect x="110" y="62" width="26" height="98" fill="var(--paper)"></rect><path d="M38 128l18-6M38 140l18-6M38 152l18-6M114 76l18-6M114 90l18-6M114 104l18-6M114 118l18-6M114 132l18-6M114 146l18-6"></path><path d="M30 104l40-26 34 10 46-44"></path><path d="M134 42l17 -2-3 17"></path><g class="fa-float"><circle cx="150" cy="100" r="26" fill="var(--paper)"></circle><circle cx="150" cy="100" r="18"></circle><path d="M168 118l26 28" stroke-width="9"></path><path d="M141 92c3-4 8-5 12-3"></path></g><path d="M196 40c0 8-3 11-11 11 8 0 11 3 11 11 0-8 3-11 11-11-8 0-11-3-11-11z" fill="currentColor"></path><path d="M60 36c0 5-2 7-7 7 5 0 7 2 7 7 0-5 2-7 7-7-5 0-7-2-7-7z" fill="currentColor"></path><path d="M200 120c6 0 10 4 10 10s-4 10-10 10"></path><circle cx="214" cy="166" r="4"></circle></svg></div>
+<h3 class="serif" style="margin: 0 0 10px; font-size: clamp(34px, 3vw, 44px)">Proof, not guesswork</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; opacity: .9">Clear monthly reporting shows what worked, what didn't, and what changes next.</p>
+</article>
+</div>
+</li>
+
+<li class="fan-item" style="--r: 3deg; --y: 6px; --dx: -110px; --z: 3">
+<div class="fan-deal">
+<article class="fan-card" style="background: #F4F8FD; color: #0A0B22">
+<p class="hand" style="margin: 0; text-align: center; font-size: 26px; color: #BF0D65">reason #3</p>
+<div class="fan-artbox" style="--paper: #F4F8FD"><svg class="fan-art" viewBox="0 0 240 190" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 92l90-62 90 62"></path><path d="M44 84v80h152V84" fill="var(--paper)"></path><path d="M150 46V26h18v32" fill="var(--paper)"></path><path d="M156 18c4-6 10-6 14-2M164 10c4-4 10-4 14 0" stroke-dasharray="2 6"></path><rect x="60" y="104" width="54" height="40" rx="4" fill="var(--paper)"></rect><path d="M54 150h66l-6-6H60z" fill="currentColor"></path><path d="M72 116h30M72 124h22M72 132h26"></path><path d="M136 164v-40c0-10 8-16 16-16s16 6 16 16v40" fill="var(--paper)"></path><circle cx="160" cy="140" r="2.6" fill="currentColor"></circle><g class="fa-float"><path d="M182 102l18-10v34l-18-10z" fill="currentColor"></path><rect x="172" y="104" width="10" height="12" fill="var(--paper)"></rect><path d="M206 100c4 3 4 13 0 16M212 94c7 6 7 22 0 28"></path></g><g transform="rotate(-38 110 70)"><rect x="96" y="54" width="44" height="12" fill="var(--paper)"></rect><path d="M96 54l-12 6 12 6z" fill="currentColor"></path><path d="M128 54v12"></path></g><path d="M18 164h204"></path><path d="M20 60c0-8 6-12 12-10 2-6 12-8 16 0 6 0 8 6 6 10z" fill="var(--paper)"></path></svg></div>
+<h3 class="serif" style="margin: 0 0 10px; font-size: clamp(34px, 3vw, 44px)">Everything in-house</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; opacity: .9">Strategy, design, development and media under one roof — nothing lost between agencies.</p>
+</article>
+</div>
+</li>
+
+<li class="fan-item" style="--r: 7deg; --y: 20px; --dx: -330px; --z: 4">
+<div class="fan-deal">
+<article class="fan-card" style="background: #4A1FD1; color: #F5EEDC">
+<p class="hand" style="margin: 0; text-align: center; font-size: 26px; color: #F2C94C">reason #4</p>
+<div class="fan-artbox" style="--paper: #4A1FD1"><svg class="fan-art" viewBox="0 0 240 190" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 168h50v-30h40v-30h40V78h40V48h40"></path><path d="M68 168V138M108 168V108M148 168V78M188 168V48" stroke-dasharray="3 7"></path><path d="M212 48V10l20 8-20 8" fill="currentColor"></path><g class="fa-float"><circle cx="132" cy="58" r="9" fill="var(--paper)"></circle><path d="M124 54c2-8 14-10 17-2-6 2-12 3-17 2z" fill="currentColor"></path><path d="M132 68l-2 22"></path><path d="M131 74l14-10M131 76l-14 4"></path><path d="M130 90l12 14-2 4M130 90l-10 12 4 6" stroke-width="3.4"></path></g><g class="fa-rocket"><path d="M40 92c0-24 12-40 22-48 10 8 22 24 22 48z" fill="var(--paper)"></path><circle cx="62" cy="68" r="7"></circle><path d="M40 92l-10 12 12-2M84 92l10 12-12-2" fill="currentColor"></path><path d="M52 98c2 10 6 16 10 22 4-6 8-12 10-22" fill="currentColor"></path></g><path d="M18 126c0-6 6-10 12-8 2-6 12-6 14 0 6 0 8 4 8 8z" fill="var(--paper)"></path><path d="M150 30c0 5-2 7-7 7 5 0 7 2 7 7 0-5 2-7 7-7-5 0-7-2-7-7z" fill="currentColor"></path></svg></div>
+<h3 class="serif" style="margin: 0 0 10px; font-size: clamp(34px, 3vw, 44px)">Built to scale</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; opacity: .9">Plans and systems designed for the next stage of your growth, not just this month.</p>
+</article>
+</div>
+</li>
+
+</ol>
+</div>
+</div>
 </section>
 
-<!-- AI DIAL: scrubbed progress ring -->
-<section class="scene ai pad" data-scene="ai">
-  <div class="layer depth-1" data-depth="1" aria-hidden="true"><div class="glow" style="width:36vw;height:36vw;right:-8vw;top:6%;background:#2F55F0;opacity:.2"></div></div>
-  <div class="wrap ai-in depth-4" data-depth="4">
-    <div>
-      <p class="eyebrow">Smarter marketing</p>
-      <h2 data-reveal>AI-enhanced marketing, <span class="grad">human-led strategy.</span></h2>
-    </div>
-    <svg class="dial" id="dial" viewBox="-40 -20 480 440" role="img" aria-label="A four-stage cycle: strategy, create, launch, optimize">
-      <circle class="o" cx="200" cy="200" r="160"/>
-      <circle class="prog" id="prog" cx="200" cy="200" r="160" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" transform="rotate(-90 200 200)"/>
-      <circle class="n" cx="200" cy="40" r="6"/><text x="200" y="20" text-anchor="middle">01 Strategy</text>
-      <circle class="n" cx="360" cy="200" r="6"/><text x="374" y="205">02 Create</text>
-      <circle class="n" cx="200" cy="360" r="6"/><text x="200" y="392" text-anchor="middle">03 Launch</text>
-      <circle class="n" cx="40" cy="200" r="6"/><text x="26" y="205" text-anchor="end">04 Optimize</text>
-    </svg>
-  </div>
+<!-- seam orchid → silver -->
+<div class="seam" aria-hidden="true" style="--a: #BF0D65; --m: #E89AC0; --b: #F4F8FD; --c: rgba(242,201,76,.6)">
+<svg class="smoke" viewBox="0 0 1440 360" preserveAspectRatio="none"><rect x="-200" y="-260" width="1840" height="420" style="fill: var(--a); filter: url(#smA)"></rect><rect x="-200" y="200" width="1840" height="420" style="fill: var(--b); filter: url(#smB)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span><span class="wisp w5"></span>
+</div>
+
+<!-- ============ 4 · PROCESS · horizontal scroll journey ============ -->
+<section class="hs" aria-labelledby="hs-title" style="background: #F4F8FD">
+<div class="hs-sticky">
+<ol class="hs-track" style="list-style: none; margin: 0; padding: 0">
+
+<li class="panel" style="background: #F4F8FD; color: #0A0B22">
+
+<div class="panel-in">
+<div style="flex: 999 1 560px; min-width: 0">
+<p class="eyebrow" style="margin: 0 0 20px; color: var(--royal)">03 — How we work</p>
+<h2 id="hs-title" class="serif" style="margin: 0; font-size: clamp(72px, 12vw, 200px)">From idea<br><span class="g-shine" style="font-style: italic; animation: sheen 9s linear infinite">to impact.</span></h2>
+<p style="margin: 30px 0 0; max-width: 480px; font-size: 18px; line-height: 1.65; color: var(--inkm)">Four clear stages, one team. Keep scrolling — the journey moves sideways.</p>
+</div>
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px">
+<span style="width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #4A1FD1, #BF0D65); color: #fff; box-shadow: 0 30px 60px -20px rgba(74,31,209,.6)"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<p class="kick" style="margin: 0; font-size: 14px; letter-spacing: .08em; color: var(--ink)">Scroll to move right</p>
+</div>
+</div>
+
+
+
+<div class="hseam" aria-hidden="true" style="--a: #F4F8FD; --m: #9C8AEE; --b: #4A1FD1; --c: rgba(217,79,196,.55)">
+<svg viewBox="0 0 400 1000" preserveAspectRatio="none"><rect x="-300" y="-200" width="460" height="1400" style="fill: var(--a); filter: url(#smH)"></rect><rect x="240" y="-200" width="460" height="1400" style="fill: var(--b); filter: url(#smH)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span>
+</div>
+
+</li>
+
+<li class="panel" style="background: #4A1FD1; color: #F5EEDC">
+
+
+<div class="panel-in">
+<span class="bignum" aria-hidden="true" style="flex: none; color: rgba(245,238,220,.22)">01</span>
+<div style="flex: 1 1 420px; min-width: 0; max-width: 620px">
+<p class="kick" style="margin: 0 0 16px; font-size: 14px; letter-spacing: .12em; color: #F2C94C">Step 01 · Discover</p>
+<h3 class="serif" style="margin: 0; font-size: clamp(72px, 10vw, 168px)">Understand</h3>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.65; color: #E4DCEF">We learn your business, audience, offer and competitors — so every idea that follows is aimed at the right people.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Discovery workshop</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Audience &amp; competitor research</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Brand &amp; channel audit</li>
+</ul>
+</div>
+</div>
+
+
+<div class="hseam" aria-hidden="true" style="--a: #4A1FD1; --m: #3A3AE6; --b: #2F55F0; --c: rgba(217,79,196,.5)">
+<svg viewBox="0 0 400 1000" preserveAspectRatio="none"><rect x="-300" y="-200" width="460" height="1400" style="fill: var(--a); filter: url(#smH)"></rect><rect x="240" y="-200" width="460" height="1400" style="fill: var(--b); filter: url(#smH)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span>
+</div>
+
+</li>
+
+<li class="panel" style="background: #2F55F0; color: #F5EEDC">
+
+
+<div class="panel-in">
+<span class="bignum" aria-hidden="true" style="flex: none; color: rgba(245,238,220,.22)">02</span>
+<div style="flex: 1 1 420px; min-width: 0; max-width: 620px">
+<p class="kick" style="margin: 0 0 16px; font-size: 14px; letter-spacing: .12em; color: #F2C94C">Step 02 · Strategy</p>
+<h3 class="serif" style="margin: 0; font-size: clamp(72px, 10vw, 168px)">Plan</h3>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.65; color: #E1E7FF">Goals become a practical, prioritised roadmap with clear KPIs, budget and a content and campaign calendar.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Growth roadmap</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">KPIs &amp; budget</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Content calendar</li>
+</ul>
+</div>
+</div>
+
+
+<div class="hseam" aria-hidden="true" style="--a: #2F55F0; --m: #7A3AB8; --b: #BF0D65; --c: rgba(242,201,76,.5)">
+<svg viewBox="0 0 400 1000" preserveAspectRatio="none"><rect x="-300" y="-200" width="460" height="1400" style="fill: var(--a); filter: url(#smH)"></rect><rect x="240" y="-200" width="460" height="1400" style="fill: var(--b); filter: url(#smH)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span>
+</div>
+
+</li>
+
+<li class="panel" style="background: #BF0D65; color: #F5EEDC">
+
+
+<div class="panel-in">
+<span class="bignum" aria-hidden="true" style="flex: none; color: rgba(245,238,220,.22)">03</span>
+<div style="flex: 1 1 420px; min-width: 0; max-width: 620px">
+<p class="kick" style="margin: 0 0 16px; font-size: 14px; letter-spacing: .12em; color: #F2C94C">Step 03 · Execute</p>
+<h3 class="serif" style="margin: 0; font-size: clamp(72px, 10vw, 168px)">Build</h3>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.65; color: #F6DCEB">Brand, content, website and campaigns launch together under one creative direction — no hand-offs between agencies.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Brand &amp; creative production</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Website &amp; landing pages</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(245,238,220,.3); background: rgba(255,255,255,.08); font-size: 14px; font-weight: 500">Campaign launch</li>
+</ul>
+</div>
+</div>
+
+
+<div class="hseam" aria-hidden="true" style="--a: #BF0D65; --m: #E77E5C; --b: #F2C94C; --c: rgba(255,255,255,.4)">
+<svg viewBox="0 0 400 1000" preserveAspectRatio="none"><rect x="-300" y="-200" width="460" height="1400" style="fill: var(--a); filter: url(#smH)"></rect><rect x="240" y="-200" width="460" height="1400" style="fill: var(--b); filter: url(#smH)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span>
+</div>
+
+</li>
+
+<li class="panel" style="background: #F2C94C; color: #0A0B22">
+
+
+<div class="panel-in">
+<span class="bignum" aria-hidden="true" style="flex: none; color: rgba(10,11,34,.14)">04</span>
+<div style="flex: 1 1 420px; min-width: 0; max-width: 620px">
+<p class="kick" style="margin: 0 0 16px; font-size: 14px; letter-spacing: .12em; color: #7A0B52">Step 04 · Optimise</p>
+<h3 class="serif" style="margin: 0; font-size: clamp(72px, 10vw, 168px)">Grow</h3>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.65; color: #3A2E0A">We measure what matters, learn from the data and improve the next move — every week, reported every month.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,11,34,.25); background: rgba(255,255,255,.35); font-size: 14px; font-weight: 500">Weekly optimisation</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,11,34,.25); background: rgba(255,255,255,.35); font-size: 14px; font-weight: 500">Monthly reporting</li><li style="padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,11,34,.25); background: rgba(255,255,255,.35); font-size: 14px; font-weight: 500">Test &amp; scale</li>
+</ul>
+</div>
+</div>
+
+
+</li>
+
+</ol>
+<div class="hs-prog" aria-hidden="true"><span></span></div>
+</div>
 </section>
 
-<!-- PROCESS: horizontal pinned -->
-<section class="scene proc" id="proc" data-scene="process">
-  <div class="wrap proc-head depth-4" data-depth="4">
-    <p class="eyebrow">How we work</p>
-    <h2 data-reveal>From idea <span class="grad">to impact.</span></h2>
-  </div>
-  <div class="track" id="track">
-    <article class="panel"><span class="eyebrow">01 / Discover</span><div><h3>Understand</h3><p>We learn about your business, audience, offer and competitive landscape.</p></div></article>
-    <article class="panel"><span class="eyebrow">02 / Strategy</span><div><h3>Plan</h3><p>We turn business goals into a practical digital growth roadmap.</p></div></article>
-    <article class="panel"><span class="eyebrow">03 / Execute</span><div><h3>Build</h3><p>Creative, development, SEO and campaigns come together under one direction.</p></div></article>
-    <article class="panel"><span class="eyebrow">04 / Optimize</span><div><h3>Grow</h3><p>We measure what matters, learn from the data and improve the next move.</p></div></article>
-  </div>
+<div class="seam seam-ribbon" aria-hidden="true" style="--a: #F2C94C; --m: #F8E3A8; --b: #F4F8FD; --c: rgba(217,79,196,.45)">
+<svg class="smoke" viewBox="0 0 1440 360" preserveAspectRatio="none"><rect x="-200" y="-260" width="1840" height="420" style="fill: var(--a); filter: url(#smA)"></rect><rect x="-200" y="200" width="1840" height="420" style="fill: var(--b); filter: url(#smB)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span><span class="wisp w5"></span>
+
+<svg class="ribbon" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="rbDom" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="480"><stop offset="0" stop-color="#9A2390"></stop><stop offset="1" stop-color="#C9862E"></stop></linearGradient>
+<path id="rbPath" d="M-200,300 C 140,150 440,150 720,255 S 1220,380 1640,190"><animate attributeName="d" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" keyTimes="0;.5;1" values="M-200,300 C 140,150 440,150 720,255 S 1220,380 1640,190;M-200,215 C 140,350 440,350 720,235 S 1220,120 1640,300;M-200,300 C 140,150 440,150 720,255 S 1220,380 1640,190"></animate></path>
+</defs>
+<use href="#rbPath" fill="none" stroke="url(#rbDom)" stroke-width="170" stroke-linecap="butt"></use>
+<text font-family="Instrument Serif, Georgia, serif" font-size="112" fill="#F5EEDC" dominant-baseline="central" style="text-transform: uppercase" textLength="12400" lengthAdjust="spacing"><textPath href="#rbPath" startOffset="0">BRANDING<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Social media</tspan><tspan fill="#F2C94C"> ✦ </tspan>SEO &amp; GEO<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Paid ads</tspan><tspan fill="#F2C94C"> ✦ </tspan>WEBSITES<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Apps</tspan><tspan fill="#F2C94C"> ✦ </tspan>BRANDING<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Social media</tspan><tspan fill="#F2C94C"> ✦ </tspan>SEO &amp; GEO<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Paid ads</tspan><tspan fill="#F2C94C"> ✦ </tspan>WEBSITES<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Apps</tspan><tspan fill="#F2C94C"> ✦ </tspan>BRANDING<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Social media</tspan><tspan fill="#F2C94C"> ✦ </tspan>SEO &amp; GEO<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Paid ads</tspan><tspan fill="#F2C94C"> ✦ </tspan>WEBSITES<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Apps</tspan><tspan fill="#F2C94C"> ✦ </tspan>BRANDING<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Social media</tspan><tspan fill="#F2C94C"> ✦ </tspan>SEO &amp; GEO<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Paid ads</tspan><tspan fill="#F2C94C"> ✦ </tspan>WEBSITES<tspan fill="#F2C94C"> ✦ </tspan><tspan font-style="italic">Apps</tspan><tspan fill="#F2C94C"> ✦ </tspan><animate attributeName="startOffset" from="0" to="-6200" dur="40s" repeatCount="indefinite"></animate></textPath></text>
+</svg>
+</div>
+
+<!-- ============ 5 · PLANS teaser · ice ============ -->
+<section style="position: relative; background: linear-gradient(180deg, #F4F8FD 0%, #DCE8F7 100%)">
+<div class="wrap" style="padding-top: 20px; padding-bottom: 110px">
+<div style="text-align: center; margin-bottom: 52px">
+<p class="eyebrow rv" style="margin: 0 0 18px; color: var(--royal)">04 — Growth plans</p>
+<h2 class="serif clipup" style="margin: 0 auto; max-width: 900px; font-size: clamp(48px, 6.6vw, 104px)">Simple plans. <span class="g-pp" style="font-style: italic">Serious growth.</span></h2>
+<p class="rv" style="margin: 20px auto 0; max-width: 560px; font-size: 16px; line-height: 1.7; color: var(--inkm)">Monthly digital marketing plans in Dubai from AED 3,000. No long setup, clear monthly reporting, and room to scale.</p>
+</div>
+<div class="stickers">
+<div class="badge-c" aria-hidden="true">
+<svg class="halo" viewBox="0 0 300 300" style="position: absolute; inset: 0; width: 100%; height: 100%"><defs><path id="bc" d="M150,150 m-118,0 a118,118 0 1,1 236,0 a118,118 0 1,1 -236,0"></path></defs><text font-family="Instrument Serif" font-size="27" letter-spacing="3" fill="#0A0B22"><textPath href="#bc">WHY BRANDS CHOOSE LAVEESHO? · WHY BRANDS CHOOSE LAVEESHO? ·</textPath></text></svg>
+<span style="position: absolute; inset: 20%; display: flex; align-items: center; justify-content: center"><img src="/assets/seal-3d.webp" alt="Laveesho 3D wax seal" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 18px 28px rgba(74,31,209,.45))"></span>
+</div>
+
+<span class="sticker" style="--r: -7deg; left: 2%; top: 12%; background: #BF0D65; color: #F5EEDC; animation-range: entry 10% cover 30%">Luxury design</span>
+
+<span class="sticker" style="--r: 6deg; left: 68%; top: 6%; background: #F2C94C; color: #0A0B22; animation-range: entry 14% cover 34%">Data-driven</span>
+
+<span class="sticker" style="--r: 4deg; left: 6%; top: 54%; background: #4A1FD1; color: #F5EEDC; animation-range: entry 18% cover 38%">One team</span>
+
+<span class="sticker" style="--r: -5deg; left: 66%; top: 48%; background: #2F55F0; color: #F5EEDC; animation-range: entry 22% cover 42%">AI-search ready</span>
+
+<span class="sticker" style="--r: -3deg; left: 14%; top: 82%; background: #0A0B22; color: #F5EEDC; animation-range: entry 26% cover 46%">Monthly reports</span>
+
+<span class="sticker" style="--r: 5deg; left: 60%; top: 84%; background: #D8C6FF; color: #0A0B22; animation-range: entry 30% cover 50%">Business Bay, Dubai</span>
+
+<p class="hand" aria-hidden="true" style="position: absolute; left: 50%; bottom: -10px; translate: -50% 0; color: #4A1FD1; rotate: -3deg; white-space: nowrap">pick a plan, we'll do the rest</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px; align-items: stretch">
+
+<article class="card rv" style="position: relative; padding: 34px 30px; border-radius: 28px; background: #FFFFFF; color: #0A0B22; border: 1px solid rgba(10,11,34,.08); display: flex; flex-direction: column; gap: 14px">
+<p class="kick" style="margin: 0; font-size: 13px; letter-spacing: .06em; opacity: .85">Starter</p>
+<h3 class="serif" style="margin: 0; font-size: 56px">Launch</h3>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span class="serif" style="font-size: 64px; line-height: 1">3,000</span><span style="font-size: 14px; opacity: .8">AED / month</span></p>
+<p style="margin: 0; font-size: 14.5px; line-height: 1.6; opacity: .9">For businesses building their digital presence: social management, 8 posts, design and monthly reporting.</p>
+<a class="btn" href="/pricing" style="margin-top: auto; align-self: flex-start; background: #0A0B22; color: #FFFFFF">See what's included</a>
+</article>
+
+<article class="card rv" style="position: relative; padding: 34px 30px; border-radius: 28px; background: linear-gradient(160deg,#4A1FD1,#2F55F0); color: #F5EEDC; border: 1px solid rgba(10,11,34,.08); display: flex; flex-direction: column; gap: 14px">
+<p class="kick" style="margin: 0; font-size: 13px; letter-spacing: .06em; opacity: .85">Growth · Most popular</p>
+<h3 class="serif" style="margin: 0; font-size: 56px">Scale</h3>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span class="serif" style="font-size: 64px; line-height: 1">5,000</span><span style="font-size: 14px; opacity: .8">AED / month</span></p>
+<p style="margin: 0; font-size: 14.5px; line-height: 1.6; opacity: .9">For growing brands: 12 posts, SEO, website content, Meta &amp; Google ads and priority support.</p>
+<a class="btn" href="/pricing" style="margin-top: auto; align-self: flex-start; background: #F2C94C; color: #0A0B22">See what's included</a>
+</article>
+
+<article class="card rv" style="position: relative; padding: 34px 30px; border-radius: 28px; background: linear-gradient(160deg,#9A2390,#C9862E); color: #F5EEDC; border: 1px solid rgba(10,11,34,.08); display: flex; flex-direction: column; gap: 14px">
+<p class="kick" style="margin: 0; font-size: 13px; letter-spacing: .06em; opacity: .85">Premium</p>
+<h3 class="serif" style="margin: 0; font-size: 56px">Dominate</h3>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span class="serif" style="font-size: 64px; line-height: 1">10,000</span><span style="font-size: 14px; opacity: .8">AED / month</span></p>
+<p style="margin: 0; font-size: 14.5px; line-height: 1.6; opacity: .9">For brands scaling hard: full strategy, 20 posts, SEO &amp; Google Business Profile, ads and dedicated support.</p>
+<a class="btn" href="/pricing" style="margin-top: auto; align-self: flex-start; background: #F5EEDC; color: #0A0B22">See what's included</a>
+</article>
+
+</div>
+</div>
+<div aria-hidden="true" style="overflow: hidden; overflow: clip; padding: 10px 0 70px">
+<div class="slide-l"><div class="ob-track ob-left"><span class="outline-band">Branding · Social · SEO · Ads · Websites · Apps ·&nbsp;</span><span class="outline-band">Branding · Social · SEO · Ads · Websites · Apps ·&nbsp;</span></div></div>
+<div class="slide-r"><div class="ob-track ob-right"><span class="outline-band" style="-webkit-text-stroke-color: rgba(191,13,101,.4)">Building digital future · Laveesho · Dubai ·&nbsp;</span><span class="outline-band" style="-webkit-text-stroke-color: rgba(191,13,101,.4)">Building digital future · Laveesho · Dubai ·&nbsp;</span></div></div>
+</div>
 </section>
 
-<!-- WHY: light section, clip-path birth -->
-<section class="scene light pad" id="why" data-scene="why">
-  <div class="wrap depth-4" data-depth="4">
-    <div class="why">
-      <div><p class="eyebrow">Why Laveesho</p><h2 data-reveal>Everything you need to grow <span class="grad">online.</span></h2></div>
-      <p class="lead">From strategy and design to development and digital marketing, Laveesho brings everything together to create digital experiences that help your business move forward.</p>
-    </div>
-    <div class="why-cards">
-      <article data-rise><h3>Strategy that delivers</h3><p>We understand your goals and create digital strategies focused on reaching your audience.</p></article>
-      <article data-rise><h3>Creative &amp; modern solutions</h3><p>Websites, applications, branding and UI/UX designed to make your business stand out.</p></article>
-    </div>
-  </div>
+<!-- seam ice → navy -->
+<div class="seam" aria-hidden="true" style="--a: #DCE8F7; --m: #5D5FC8; --b: #0B1A5C; --c: rgba(217,79,196,.5)">
+<svg class="smoke" viewBox="0 0 1440 360" preserveAspectRatio="none"><rect x="-200" y="-260" width="1840" height="420" style="fill: var(--a); filter: url(#smA)"></rect><rect x="-200" y="200" width="1840" height="420" style="fill: var(--b); filter: url(#smB)"></rect></svg>
+<span class="wisp w1"></span><span class="wisp w2"></span><span class="wisp w3"></span><span class="wisp w4"></span><span class="wisp w5"></span>
+</div>
+
+<!-- ============ 6 · FAQ · navy ============ -->
+<section style="position: relative; background: #0B1A5C; color: var(--ivory)">
+<div class="wrap" style="padding-top: 20px; padding-bottom: 100px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 340px; min-width: 0">
+<p class="eyebrow rv" style="margin: 0 0 18px; color: var(--gold)">05 — Questions</p>
+<h2 class="serif clipup" style="margin: 0 0 22px; font-size: clamp(50px, 6vw, 96px)">Straight <span class="g-gold" style="font-style: italic">answers.</span></h2>
+<p class="rv" style="margin: 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">Can't find yours? <a href="/contact" style="color: var(--gold); text-underline-offset: 4px">Ask our team</a> — we reply within 24 hours.</p>
+</div>
+<div style="flex: 999 1 560px; min-width: 0; border-top: 1px solid rgba(245,238,220,.2)">
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">What does Laveesho do?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai. We offer brand identity, social media marketing, SEO and AI search optimisation, paid Meta and Google ads, website and e-commerce development, and app development.</p>
+</details>
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">How much does digital marketing cost in Dubai?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">Our monthly plans start at AED 3,000 (Launch), with Scale at AED 5,000 and Dominate at AED 10,000. Custom plans are available if you need a specific mix of services.</p>
+</details>
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">What is GEO, and can you get my brand into AI answers?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">GEO (generative engine optimisation) means structuring your website and content so AI assistants like ChatGPT, Gemini and Perplexity can understand, trust and cite your brand. We combine it with classic SEO so you show up in both search results and AI answers.</p>
+</details>
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">How long does SEO take to show results?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">SEO builds over time. Technical fixes and Google Business Profile improvements can show early movement within weeks, while competitive keyword rankings usually take several months of consistent work.</p>
+</details>
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">Do you build websites and apps as well as marketing?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">Yes. Our team designs and develops websites, e-commerce stores and web or mobile apps, so your brand, platform and campaigns are built by one team.</p>
+</details>
+
+<details class="rv" style="border-bottom: 1px solid rgba(245,238,220,.2)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; min-height: 44px"><span class="serif" style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">How do I start working with Laveesho?</span><span class="pl" aria-hidden="true" style="flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,238,220,.35); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0; padding: 0 60px 26px 0; font-size: 16px; line-height: 1.7; color: #C9CCE8">Message us on WhatsApp at +971 50 394 0721, email business@laveesho.com or fill in the contact form. We reply within 24 hours and start with a free discovery call.</p>
+</details>
+
+</div>
+</div>
 </section>
 
-<!-- FAQ -->
-<section class="scene pad" data-scene="faq">
-  <div class="wrap faq depth-4" data-depth="4">
-    <div><p class="eyebrow">FAQ</p><h2 data-reveal>Common <span class="grad">questions.</span></h2></div>
-    <div>
-      <details><summary>What services does Laveesho provide?</summary><p>We provide complete digital solutions including website development, application development, SEO, digital marketing, graphic design, UI/UX design, e-commerce solutions and custom web development.</p></details>
-      <details><summary>Can you build a website according to my business requirements?</summary><p>Yes. We create custom, responsive websites based on your brand, business goals, target audience and specific requirements.</p></details>
-      <details><summary>Do you provide SEO and digital marketing services?</summary><p>Yes. Our services include SEO, social media marketing, content strategy, paid advertising and other digital marketing solutions designed to improve your online presence.</p></details>
-      <details><summary>Can you develop mobile or web applications?</summary><p>Yes. We develop custom web and mobile applications with a focus on performance, usability, security and scalability.</p></details>
-    </div>
-  </div>
+<!-- ============ 7 · CTA + FOOTER ============ -->
+<section style="position: relative; background: #0B1A5C; padding: 0 clamp(16px, 4vw, 48px) 80px">
+<div class="clipgrow" style="position: relative; max-width: 1320px; margin: 0 auto; border-radius: 40px; overflow: hidden; overflow: clip; padding: clamp(56px, 8vw, 120px) clamp(24px, 6vw, 96px); background: linear-gradient(120deg, #4A1FD1 0%, #9A2390 55%, #C9862E 100%); color: var(--ivory); text-align: center">
+<div aria-hidden="true" class="blob" style="width: 520px; height: 520px; right: -140px; top: -200px; background: radial-gradient(circle, rgba(242,201,76,.6), transparent 70%)"></div>
+<div aria-hidden="true" class="silk" style="opacity: .5"></div>
+<p class="kick" style="position: relative; margin: 0 0 22px; font-size: 15px; color: var(--gold)">Ready when you are</p>
+<h2 class="serif" style="position: relative; margin: 0 auto 28px; max-width: 1000px; font-size: clamp(56px, 8.6vw, 140px)">Let's build your <span style="font-style: italic">digital future.</span></h2>
+<p style="position: relative; margin: 0 auto 40px; max-width: 540px; font-size: 18px; line-height: 1.6; color: #F3E6F2">Tell us what you're building. We'll come back within 24 hours with a clear first step.</p>
+<div style="position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
+<a class="btn" href="/contact" style="background: var(--ivory); color: var(--ink)">Start a project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn" href="https://wa.me/971503940721" style="color: var(--ivory); border: 1.5px solid rgba(245,238,220,.5)">WhatsApp +971 50 394 0721</a>
+</div>
+</div>
 </section>
-
-<!-- CTA: circle iris -->
-<section class="scene cta" id="cta" data-scene="cta">
-  <div class="cta-in depth-4" data-depth="4">
-    <p class="eyebrow">Start your growth</p>
-    <h2>Ready to build your <span class="mask" style="display:inline-block"><span>digital future?</span></span></h2>
-    <p class="lead">Tell us what you're building. We'll help turn your idea, brand or existing digital presence into a clearer path toward growth.</p>
-    <div class="cta-row">
-      <a class="btn btn-solid" href="contact.php" data-magnetic>Let's talk <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-      <a class="btn btn-ghost" href="https://wa.me/971503940721" data-magnetic>WhatsApp us</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div><a class="brand" href="index.php">LAVEESHO</a><p>We turn digital attention into meaningful growth for ambitious brands.</p></div>
-      <div><h4>Company</h4><ul><li><a class="link" href="index.php">Home</a></li><li><a class="link" href="about.php">About</a></li><li><a class="link" href="pricing.php">Pricing</a></li><li><a class="link" href="terms&amp;condition.php">Terms &amp; conditions</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a class="link" href="contact.php">Contact</a></li><li><a class="link" href="https://wa.me/971503940721">WhatsApp</a></li><li><a class="link" href="mailto:business@laveesho.com">business@laveesho.com</a></li></ul></div>
-    </div>
-    <div class="legal"><span>© 2026 Laveesho. All rights reserved.</span><span>Dubai, UAE</span></div>
-  </div>
+<footer style="background: #070F3D; color: #C9CCE8">
+<div class="wrap" style="padding-top: 64px; padding-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 18px">
+<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 58px; width: auto; align-self: flex-start">
+<p style="margin: 0; max-width: 340px; font-size: 14.5px; line-height: 1.7">Creative branding and digital marketing agency. The Citadel Tower, Marasi Drive, Business Bay, Dubai, UAE.</p>
+</div>
+<nav aria-label="Footer" style="flex: 2 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 4px"><p class="eyebrow" style="margin: 0 0 10px; font-size: 11px; color: var(--gold)">Company</p><a class="nl" href="/about">About</a><a class="nl" href="/pricing">Pricing</a><a class="nl" href="/contact">Contact</a></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><p class="eyebrow" style="margin: 0 0 10px; font-size: 11px; color: var(--gold)">Services</p><a class="nl" href="/services">Branding</a><a class="nl" href="/services">Social media</a><a class="nl" href="/services">SEO &amp; AI search</a><a class="nl" href="/services">Websites</a></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><p class="eyebrow" style="margin: 0 0 10px; font-size: 11px; color: var(--gold)">Connect</p><a class="nl" href="mailto:business@laveesho.com">business@laveesho.com</a><a class="nl" href="https://wa.me/971503940721">+971 50 394 0721</a><a class="nl" href="https://www.laveesho.com">laveesho.com</a></div>
+</nav>
+</div>
+<div class="wrap" style="padding-top: 20px; padding-bottom: 28px; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 13px">
+<span>© 2026 Laveesho. All rights reserved.</span>
+<a class="nl" href="https://www.laveesho.com/terms&amp;condition.php" style="padding: 0">Terms &amp; Conditions</a>
+</div>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
-<script>
-(function(){
-  var loader=document.querySelector('.loader');
-  function hideLoader(){if(loader)loader.style.display='none'}
-  var lit=document.getElementById('lit');
-  lit.innerHTML=lit.textContent.split(' ').map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
-
-  // Nav and menu work even if the animation library fails to load
-  var nav=document.getElementById('nav'),burger=document.getElementById('burger');
-  burger.addEventListener('click',function(){
-    var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);
-    burger.setAttribute('aria-label',o?'Close menu':'Open menu');
-  });
-  var last=0;
-  addEventListener('scroll',function(){
-    var y=scrollY;
-    nav.classList.toggle('solid',y>40);
-    nav.classList.toggle('hide',y>last&&y>500&&!nav.classList.contains('open'));
-    last=y;
-  },{passive:true});
-
-  if(!window.gsap||!window.ScrollTrigger){
-    hideLoader();
-    document.querySelectorAll('.lit .w').forEach(function(w){w.style.opacity=1});
-    return;
-  }
-  gsap.registerPlugin(ScrollTrigger);
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce){
-    hideLoader();
-    document.querySelectorAll('.lit .w').forEach(function(w){w.style.opacity=1});
-    return;
-  }
-
-  // Smooth scroll, on fine pointers only
-  var fine=matchMedia('(pointer: fine)').matches;
-  if(fine&&window.Lenis){
-    var lenis=new Lenis({lerp:.1});
-    lenis.on('scroll',ScrollTrigger.update);
-    gsap.ticker.add(function(t){lenis.raf(t*1000)});
-    gsap.ticker.lagSmoothing(0);
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t)}});
-    });
-  }
-
-  // Intro
-  var intro=gsap.timeline({delay:.9,onStart:function(){gsap.to(loader,{yPercent:-100,duration:.8,ease:'power4.inOut',onComplete:hideLoader})}});
-  intro.from('.hero h1 .mask>span',{yPercent:110,duration:1.1,stagger:.09,ease:'power4.out'},.25)
-       .from('.hero .eyebrow,.hero .lead,.hero .cta-row',{y:24,autoAlpha:0,duration:.8,stagger:.1,ease:'power3.out'},.75)
-       .from('#tower',{yPercent:12,scale:.92,autoAlpha:0,duration:1.6,ease:'power3.out'},.15);
-
-  // Hero: pinned scrub, each depth moves at its own rate
-  var desktop=matchMedia('(min-width:981px)').matches;
-  gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:desktop?'+=90%':'bottom top',scrub:true,pin:desktop}})
-    .to('.stars',{yPercent:-6,ease:'none'},0)
-    .to('.g1',{yPercent:30,ease:'none'},0)
-    .to('#tower',{scale:1.16,yPercent:-5,ease:'none'},0)
-    .to('.float-card',{y:-120,autoAlpha:0,ease:'none'},0)
-    .to('#heroCopy',{yPercent:-16,autoAlpha:0,ease:'none'},.15)
-    .to('.scroll-cue',{autoAlpha:0,ease:'none',duration:.15},0);
-
-  // Heading reveals: words rise out of a mask
-  gsap.utils.toArray('[data-reveal]').forEach(function(h){
-    gsap.from(h,{y:44,autoAlpha:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 86%',once:true}});
-  });
-  gsap.utils.toArray('[data-rise]').forEach(function(el){
-    gsap.from(el,{y:50,autoAlpha:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
-  });
-  gsap.utils.toArray('[data-speed]').forEach(function(el){
-    if(el.closest('.hero'))return;
-    gsap.to(el,{yPercent:parseFloat(el.dataset.speed)*100,ease:'none',scrollTrigger:{trigger:el.closest('section'),scrub:true}});
-  });
-
-  // Word-by-word lighting
-  gsap.to('#lit .w',{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:'#lit',start:'top 82%',end:'bottom 52%',scrub:true}});
-
-  // Cards rise in, then tilt under the cursor
-  gsap.from('.card',{y:70,autoAlpha:0,duration:.9,stagger:.08,ease:'power3.out',clearProps:'transform,opacity,visibility',scrollTrigger:{trigger:'#grid',start:'top 82%',once:true}});
-  if(fine){
-    document.querySelectorAll('.card').forEach(function(c){
-      c.addEventListener('pointermove',function(e){
-        var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-        c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
-        c.style.transform='rotateX('+((.5-y)*7)+'deg) rotateY('+((x-.5)*7)+'deg) translateZ(8px)';
-      });
-      c.addEventListener('pointerleave',function(){c.style.transform=''});
-    });
-    // Magnetic buttons
-    document.querySelectorAll('[data-magnetic]').forEach(function(b){
-      var xTo=gsap.quickTo(b,'x',{duration:.5,ease:'power3'}),yTo=gsap.quickTo(b,'y',{duration:.5,ease:'power3'});
-      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();xTo((e.clientX-r.left-r.width/2)*.22);yTo((e.clientY-r.top-r.height/2)*.3)});
-      b.addEventListener('pointerleave',function(){xTo(0);yTo(0)});
-    });
-  }
-
-  // Dial progress
-  gsap.fromTo('#prog',{attr:{'stroke-dashoffset':1}},{attr:{'stroke-dashoffset':0},ease:'none',scrollTrigger:{trigger:'#dial',start:'top 80%',end:'bottom 45%',scrub:true}});
-
-  // Horizontal process, desktop only
-  if(desktop){
-    var track=document.getElementById('track');
-    gsap.to(track,{x:function(){return -(track.scrollWidth-innerWidth)},ease:'none',scrollTrigger:{trigger:'#proc',start:'top top',end:function(){return '+='+(track.scrollWidth-innerWidth)},scrub:true,pin:true,invalidateOnRefresh:true,anticipatePin:1}});
-  }else{
-    gsap.utils.toArray('.panel').forEach(function(p){gsap.from(p,{y:50,autoAlpha:0,duration:.9,scrollTrigger:{trigger:p,start:'top 88%',once:true}})});
-  }
-
-  // Light section is born from the top edge
-  gsap.fromTo('#why',{clipPath:'inset(10% 6% 0 6% round 40px)'},{clipPath:'inset(0% 0% 0 0% round 0px)',ease:'none',scrollTrigger:{trigger:'#why',start:'top 95%',end:'top 35%',scrub:true}});
-
-  // Circle iris CTA
-  gsap.fromTo('#cta',{clipPath:'circle(16% at 50% 50%)'},{clipPath:'circle(90% at 50% 50%)',ease:'none',scrollTrigger:{trigger:'#cta',start:'top 90%',end:'top 15%',scrub:true}});
-
-  addEventListener('load',function(){ScrollTrigger.refresh()});
-})();
-</script>
+</div>
+<script src="/site.js" defer></script>
 </body>
 </html>
