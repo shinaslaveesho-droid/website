@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/index.php", "destination": "/", "permanent": true },
+    { "source": "/about.php", "destination": "/about", "permanent": true },
+    { "source": "/pricing.php", "destination": "/pricing", "permanent": true },
+    { "source": "/contact.php", "destination": "/contact", "permanent": true },
+    { "source": "/services.php", "destination": "/services", "permanent": true },
+    { "source": "/:path*.php", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
