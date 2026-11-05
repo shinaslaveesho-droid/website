@@ -17,21 +17,22 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@500;600;700;800&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
-<style>
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* self-hosted fonts (latin) + size-matched fallbacks to stop layout jumps */@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif.woff2) format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif-italic.woff2) format('woff2');font-style:italic;font-weight:400;font-display:swap}@font-face{font-family:'Inter Tight';src:url(/assets/fonts/inter-tight.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Montserrat';src:url(/assets/fonts/montserrat.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Caveat';src:url(/assets/fonts/caveat.woff2) format('woff2');font-style:normal;font-weight:400 700;font-display:swap}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Times New Roman'),local('Noto Serif'),local('DejaVu Serif');font-style:normal;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia Italic'),local('Georgia-Italic'),local('Times New Roman Italic'),local('NotoSerif-Italic');font-style:italic;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Inter Tight Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:96.5%;ascent-override:100%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Montserrat Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:110%;ascent-override:88%;descent-override:23%;line-gap-override:0%}
 body{margin:0}
 a{color:inherit}a:hover{color:inherit}
-.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--orchid:#BF0D65;--gold:#F2C94C;--silver:#F4F8FD;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--silver)}
+.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--orchid:#BF0D65;--gold:#F2C94C;--silver:#F4F8FD;font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:var(--ink);background:var(--silver)}
 .lx *{box-sizing:border-box}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
-.kick{font-family:"Inter Tight",Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+.serif{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
+.kick{font-family:"Inter Tight",'Inter Tight Fallback',Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
 .wrap{max-width:1320px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
 .g-pp{background:linear-gradient(100deg,#4A1FD1 0%,#BF0D65 50%,#2F55F0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .g-gold{background:linear-gradient(100deg,#FFE7A3 0%,#F2C94C 50%,#E79BD9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:15px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:15px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(74,31,209,.5)}
 .nl{text-decoration:none;font-size:14px;font-weight:500;padding:12px 2px;position:relative}
 .nl::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1.5px;background:linear-gradient(90deg,#4A1FD1,#D94FC4);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
@@ -80,7 +81,7 @@ a{color:inherit}a:hover{color:inherit}
 .menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center;flex:none}
 .menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .6s cubic-bezier(.2,.8,.2,1)}
 @keyframes menuIn{from{clip-path:circle(0 at calc(100% - 44px) 44px)}to{clip-path:circle(150% at calc(100% - 44px) 44px)}}
-.menu-panel .ml{font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+.menu-panel .ml{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
 @media (max-width:860px){.nav-desk,.nav-cta{display:none!important}.menu-btn{display:inline-flex}}
 /* responsive: small screens */
 @media (max-width:640px){
@@ -144,27 +145,13 @@ a{color:inherit}a:hover{color:inherit}
 <div class="silk"></div>
 </div>
 <header class="wrap in" style="position: relative; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; padding-top: 22px; padding-bottom: 22px">
-<a href="/" aria-label="Laveesho home" style="display: flex"><img src="/assets/logo-dark.webp" alt="Laveesho — Building Digital Future" style="height: 46px; width: auto; display: block"></a>
+<a href="/" aria-label="Laveesho home" style="display: flex"><img width="600" height="161" fetchpriority="high" src="/assets/logo-dark-600.webp" alt="Laveesho — Building Digital Future" style="height: 46px; width: auto; display: block"></a>
 <nav aria-label="Primary" class="nav-desk" style="display: flex; flex-wrap: wrap; gap: 4px 30px">
 <a class="nl" href="/">Home</a><a class="nl" href="/services">Services</a><a class="nl" href="/about" aria-current="page" style="color: var(--royal)">About</a><a class="nl" href="/pricing">Pricing</a><a class="nl" href="/contact">Contact</a>
 </nav>
 <a class="btn nav-cta" href="/contact" style="background: var(--ink); color: #fff; min-height: 48px; padding: 0 22px">Start a project</a>
 <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
-<div data-if="menuOpen" style="display: none;">
-<div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 40px; width: auto">
-<button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-</div>
-<nav aria-label="Mobile" style="display: flex; flex-direction: column">
-<a class="ml" href="/" style="animation-delay: 0.12s" data-on-click="closeMenu">Home</a>
-<a class="ml" href="/services" style="animation-delay: 0.19s" data-on-click="closeMenu">Services</a>
-<a class="ml" href="/about" style="animation-delay: 0.26s; color: #F2C94C" data-on-click="closeMenu">About</a>
-<a class="ml" href="/pricing" style="animation-delay: 0.33s" data-on-click="closeMenu">Pricing</a>
-<a class="ml" href="/contact" style="animation-delay: 0.40s" data-on-click="closeMenu">Contact</a>
-</nav>
-</div>
-</div>
+
 </header>
 <div class="wrap" style="position: relative; z-index: 2; padding-top: clamp(40px, 7vw, 100px); padding-bottom: clamp(60px, 8vw, 110px); display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
 <div style="flex: 999 1 600px; min-width: 0">
@@ -179,7 +166,7 @@ a{color:inherit}a:hover{color:inherit}
 <div class="in" style="flex: 1 1 340px; display: flex; justify-content: center; animation-delay: .3s">
 <div style="position: relative; width: min(100%, 420px); aspect-ratio: 1">
 <svg class="spin" viewBox="0 0 400 400" aria-hidden="true" style="position: absolute; inset: -6%; width: 112%; height: 112%"><circle cx="200" cy="200" r="194" fill="none" stroke="#4A1FD1" stroke-width="1" stroke-dasharray="2 10"></circle></svg>
-<img class="float3d" src="/assets/seal-3d.webp" alt="Laveesho LA monogram 3D wax seal in blue and purple" style="position: absolute; inset: 2%; width: 96%; height: 96%; object-fit: contain; filter: drop-shadow(0 50px 60px rgba(74,31,209,.45))">
+<img width="900" height="900" fetchpriority="high" class="float3d" src="/assets/seal-3d.webp" alt="Laveesho LA monogram 3D wax seal in blue and purple" style="position: absolute; inset: 2%; width: 96%; height: 96%; object-fit: contain; filter: drop-shadow(0 50px 60px rgba(74,31,209,.45))">
 </div>
 </div>
 </div>
@@ -236,7 +223,7 @@ a{color:inherit}a:hover{color:inherit}
 <div aria-hidden="true" class="blob" style="width: 40vw; height: 40vw; right: -10vw; top: 0; background: radial-gradient(circle, rgba(242,201,76,.45), transparent 70%); filter: blur(70px)"></div>
 <div class="wrap" style="position: relative; padding-top: 30px; padding-bottom: 110px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
 <div class="tilt-in" style="flex: 1 1 360px; display: flex; justify-content: center">
-<img src="/assets/seal-purple.webp" alt="Laveesho iridescent wax seal" style="width: min(100%, 440px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 50px 100px -30px rgba(40,0,30,.6)">
+<img loading="lazy" decoding="async" src="/assets/seal-purple.webp" alt="Laveesho iridescent wax seal" style="width: min(100%, 440px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 50px 100px -30px rgba(40,0,30,.6)">
 </div>
 <div style="flex: 999 1 520px; min-width: 0">
 <p class="eyebrow rv" style="margin: 0 0 18px; color: var(--gold)">The Laveesho seal</p>
@@ -310,11 +297,26 @@ a{color:inherit}a:hover{color:inherit}
 </section>
 <footer style="background: #070F3D; color: #C9CCE8">
 <div class="wrap" style="padding-top: 40px; padding-bottom: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; font-size: 13px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 44px; width: auto">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 44px; width: auto">
 <span>The Citadel Tower, Business Bay, Dubai · business@laveesho.com · +971 50 394 0721</span>
 <span>© 2026 Laveesho</span>
 </div>
 </footer>
+</div>
+<div data-if="menuOpen" style="display: none;">
+<div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 40px; width: auto">
+<button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<nav aria-label="Mobile" style="display: flex; flex-direction: column">
+<a class="ml" href="/" style="animation-delay: 0.12s" data-on-click="closeMenu">Home</a>
+<a class="ml" href="/services" style="animation-delay: 0.19s" data-on-click="closeMenu">Services</a>
+<a class="ml" href="/about" style="animation-delay: 0.26s; color: #F2C94C" data-on-click="closeMenu">About</a>
+<a class="ml" href="/pricing" style="animation-delay: 0.33s" data-on-click="closeMenu">Pricing</a>
+<a class="ml" href="/contact" style="animation-delay: 0.40s" data-on-click="closeMenu">Contact</a>
+</nav>
+</div>
 </div>
 <script src="/site.js" defer></script>
 </body>

@@ -17,20 +17,21 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@500;600;700;800&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
-<style>
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* self-hosted fonts (latin) + size-matched fallbacks to stop layout jumps */@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif.woff2) format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif-italic.woff2) format('woff2');font-style:italic;font-weight:400;font-display:swap}@font-face{font-family:'Inter Tight';src:url(/assets/fonts/inter-tight.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Montserrat';src:url(/assets/fonts/montserrat.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Caveat';src:url(/assets/fonts/caveat.woff2) format('woff2');font-style:normal;font-weight:400 700;font-display:swap}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Times New Roman'),local('Noto Serif'),local('DejaVu Serif');font-style:normal;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia Italic'),local('Georgia-Italic'),local('Times New Roman Italic'),local('NotoSerif-Italic');font-style:italic;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Inter Tight Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:96.5%;ascent-override:100%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Montserrat Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:110%;ascent-override:88%;descent-override:23%;line-gap-override:0%}
 body{margin:0}
 a{color:inherit}a:hover{color:inherit}
-.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--electric:#2F55F0;--orchid:#BF0D65;--gold:#F2C94C;--silver:#F4F8FD;--navy:#0B1A5C;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--silver)}
+.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--electric:#2F55F0;--orchid:#BF0D65;--gold:#F2C94C;--silver:#F4F8FD;--navy:#0B1A5C;font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:var(--ink);background:var(--silver)}
 .lx *{box-sizing:border-box}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
-.kick{font-family:"Inter Tight",Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+.serif{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
+.kick{font-family:"Inter Tight",'Inter Tight Fallback',Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
 .wrap{max-width:1320px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
 .g-gold{background:linear-gradient(100deg,#FFE7A3 0%,#F2C94C 50%,#E79BD9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:15px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:15px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(10,11,34,.45)}
 .nl{text-decoration:none;font-size:14px;font-weight:500;padding:12px 2px;position:relative}
 .nl::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1.5px;background:linear-gradient(90deg,#F2C94C,#D94FC4);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
@@ -79,7 +80,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 .menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center;flex:none}
 .menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .6s cubic-bezier(.2,.8,.2,1)}
 @keyframes menuIn{from{clip-path:circle(0 at calc(100% - 44px) 44px)}to{clip-path:circle(150% at calc(100% - 44px) 44px)}}
-.menu-panel .ml{font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+.menu-panel .ml{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
 @media (max-width:860px){.nav-desk,.nav-cta{display:none!important}.menu-btn{display:inline-flex}}
 /* responsive: small screens */
 @media (max-width:640px){
@@ -153,27 +154,13 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <div aria-hidden="true" class="blob" style="width: 46vw; height: 46vw; right: -12vw; top: -10vw; background: radial-gradient(circle, rgba(217,79,196,.55), transparent 70%)"></div>
 <div aria-hidden="true" class="blob" style="width: 34vw; height: 34vw; left: -8vw; bottom: -12vw; background: radial-gradient(circle, rgba(242,201,76,.35), transparent 70%); animation-delay: -8s"></div>
 <header class="wrap in" style="position: relative; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; padding-top: 22px; padding-bottom: 22px">
-<a href="/" aria-label="Laveesho home" style="display: flex"><img src="/assets/logo-light.webp" alt="Laveesho — Building Digital Future" style="height: 46px; width: auto; display: block"></a>
+<a href="/" aria-label="Laveesho home" style="display: flex"><img width="660" height="175" fetchpriority="high" src="/assets/logo-light-660.webp" alt="Laveesho — Building Digital Future" style="height: 46px; width: auto; display: block"></a>
 <nav aria-label="Primary" class="nav-desk" style="display: flex; flex-wrap: wrap; gap: 4px 30px">
 <a class="nl" href="/">Home</a><a class="nl" href="/services" aria-current="page" style="color: var(--gold)">Services</a><a class="nl" href="/about">About</a><a class="nl" href="/pricing">Pricing</a><a class="nl" href="/contact">Contact</a>
 </nav>
 <a class="btn nav-cta" href="/contact" style="background: var(--ivory); color: var(--ink); min-height: 48px; padding: 0 22px">Start a project</a>
 <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
-<div data-if="menuOpen" style="display: none;">
-<div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 40px; width: auto">
-<button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-</div>
-<nav aria-label="Mobile" style="display: flex; flex-direction: column">
-<a class="ml" href="/" style="animation-delay: 0.12s" data-on-click="closeMenu">Home</a>
-<a class="ml" href="/services" style="animation-delay: 0.19s; color: #F2C94C" data-on-click="closeMenu">Services</a>
-<a class="ml" href="/about" style="animation-delay: 0.26s" data-on-click="closeMenu">About</a>
-<a class="ml" href="/pricing" style="animation-delay: 0.33s" data-on-click="closeMenu">Pricing</a>
-<a class="ml" href="/contact" style="animation-delay: 0.40s" data-on-click="closeMenu">Contact</a>
-</nav>
-</div>
-</div>
+
 </header>
 <div class="wrap" style="position: relative; z-index: 2; padding-top: clamp(40px, 7vw, 100px); padding-bottom: clamp(60px, 8vw, 120px)">
 <p class="eyebrow in" style="margin: 0 0 22px; color: var(--gold)">Services · Dubai, UAE</p>
@@ -202,7 +189,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #4A1FD1">01 — Brand identity</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">Brand identity &amp; design</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #3E4366">Brand identity is the visual and verbal system that makes your business recognisable — your logo, colours, typography, tone of voice and brand guidelines. Laveesho designs identities that look premium on every screen, sign and social post.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #4A1FD1">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">New businesses, rebrands, and companies preparing to raise prices or enter new markets.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #4A1FD1">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">New businesses, rebrands, and companies preparing to raise prices or enter new markets.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #0A0B22; color: #FFFFFF">Talk to us about branding</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.7); border: 1px solid rgba(10,11,34,.12); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -238,7 +225,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #F2C94C">02 — Social media</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">Social media marketing</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #E4DCEF">Social media marketing builds awareness and demand through consistent content on Instagram, TikTok, LinkedIn and Facebook. We plan, design, write and publish your content, manage your community and report on what drives followers, leads and sales.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Brands that want to stay visible every week without building an in-house content team.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Brands that want to stay visible every week without building an in-house content team.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #F5EEDC; color: #0A0B22">Talk to us about social media</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.1); border: 1px solid rgba(245,238,220,.22); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -274,7 +261,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #F2C94C">03 — SEO &amp; AI search</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">SEO, AEO &amp; GEO</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #E4DCEF">SEO gets your website ranking on Google. AEO (answer engine optimisation) structures your content so it appears in featured snippets and voice answers. GEO (generative engine optimisation) helps AI assistants like ChatGPT, Gemini and Perplexity understand and cite your brand.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Businesses that want steady, compounding leads from search instead of paying for every click.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Businesses that want steady, compounding leads from search instead of paying for every click.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #F5EEDC; color: #0A0B22">Talk to us about SEO</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.1); border: 1px solid rgba(245,238,220,.22); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -310,7 +297,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #8A3A00">04 — Paid ads</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">Performance advertising</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #3E4366">Performance advertising uses paid campaigns on Meta (Instagram and Facebook) and Google to reach people ready to buy. We handle targeting, creative, landing pages and tracking, then optimise weekly for cost per lead and return on ad spend.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #8A3A00">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">Brands launching offers, filling sales pipelines fast, or scaling what already works.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #8A3A00">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">Brands launching offers, filling sales pipelines fast, or scaling what already works.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #0A0B22; color: #FFFFFF">Talk to us about paid ads</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.7); border: 1px solid rgba(10,11,34,.12); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -346,7 +333,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #F2C94C">05 — Websites</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">Website &amp; e-commerce</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #E4DCEF">A website is your brand’s most important sales asset. Laveesho designs and develops fast, responsive websites and online stores built for search, trust and conversion, with content management your team can update.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Businesses whose current site looks dated, loads slowly or doesn’t turn visitors into enquiries.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #F2C94C">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #E4DCEF">Businesses whose current site looks dated, loads slowly or doesn’t turn visitors into enquiries.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #F5EEDC; color: #0A0B22">Talk to us about your website</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.1); border: 1px solid rgba(245,238,220,.22); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -382,7 +369,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <p class="eyebrow rv" style="margin: 0 0 18px; color: #BF0D65">06 — Apps &amp; IT</p>
 <h2 class="serif rv" style="margin: 0; font-size: clamp(52px, 7vw, 112px)">Apps &amp; IT solutions</h2>
 <p class="rv" style="margin: 28px 0 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #3E4366">Custom web and mobile apps, integrations and automation that remove manual work and give your customers a better experience. We scope, design, build and support secure, scalable solutions.</p>
-<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #BF0D65">Best for · <span style="font-family: Montserrat, sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">Growing businesses with processes that have outgrown spreadsheets or off-the-shelf tools.</span></p>
+<p class="kick rv" style="margin: 26px 0 0; font-size: 13px; letter-spacing: .04em; color: #BF0D65">Best for · <span style="font-family: Montserrat,'Montserrat Fallback', sans-serif; font-weight: 500; text-transform: none; letter-spacing: 0; color: #3E4366">Growing businesses with processes that have outgrown spreadsheets or off-the-shelf tools.</span></p>
 <a class="btn rv" href="/contact" style="margin-top: 32px; background: #0A0B22; color: #FFFFFF">Talk to us about your app</a>
 </div>
 <div class="card tilt-in" style="flex: 1 1 380px; min-width: 0; padding: 32px 30px; border-radius: 28px; background: rgba(255,255,255,.7); border: 1px solid rgba(10,11,34,.12); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
@@ -458,11 +445,26 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 </section>
 <footer style="background: #070F3D; color: #C9CCE8">
 <div class="wrap" style="padding-top: 40px; padding-bottom: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; font-size: 13px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 44px; width: auto">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 44px; width: auto">
 <span>The Citadel Tower, Business Bay, Dubai · business@laveesho.com · +971 50 394 0721</span>
 <span>© 2026 Laveesho</span>
 </div>
 </footer>
+</div>
+<div data-if="menuOpen" style="display: none;">
+<div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 40px; width: auto">
+<button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<nav aria-label="Mobile" style="display: flex; flex-direction: column">
+<a class="ml" href="/" style="animation-delay: 0.12s" data-on-click="closeMenu">Home</a>
+<a class="ml" href="/services" style="animation-delay: 0.19s; color: #F2C94C" data-on-click="closeMenu">Services</a>
+<a class="ml" href="/about" style="animation-delay: 0.26s" data-on-click="closeMenu">About</a>
+<a class="ml" href="/pricing" style="animation-delay: 0.33s" data-on-click="closeMenu">Pricing</a>
+<a class="ml" href="/contact" style="animation-delay: 0.40s" data-on-click="closeMenu">Contact</a>
+</nav>
+</div>
 </div>
 <script src="/site.js" defer></script>
 </body>

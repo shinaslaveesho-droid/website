@@ -17,21 +17,22 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@500;600;700;800;900&amp;family=Montserrat:wght@400;500;600&amp;family=Caveat:wght@500;600&amp;display=swap">
-<style>
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* self-hosted fonts (latin) + size-matched fallbacks to stop layout jumps */@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif.woff2) format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Instrument Serif';src:url(/assets/fonts/instrument-serif-italic.woff2) format('woff2');font-style:italic;font-weight:400;font-display:swap}@font-face{font-family:'Inter Tight';src:url(/assets/fonts/inter-tight.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Montserrat';src:url(/assets/fonts/montserrat.woff2) format('woff2');font-style:normal;font-weight:100 900;font-display:swap}@font-face{font-family:'Caveat';src:url(/assets/fonts/caveat.woff2) format('woff2');font-style:normal;font-weight:400 700;font-display:swap}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Times New Roman'),local('Noto Serif'),local('DejaVu Serif');font-style:normal;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia Italic'),local('Georgia-Italic'),local('Times New Roman Italic'),local('NotoSerif-Italic');font-style:italic;size-adjust:71%;ascent-override:139%;descent-override:44%;line-gap-override:0%}@font-face{font-family:'Inter Tight Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:96.5%;ascent-override:100%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Montserrat Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');size-adjust:110%;ascent-override:88%;descent-override:23%;line-gap-override:0%}
 body{margin:0}
 a{color:inherit}a:hover{color:inherit}
-.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--electric:#2F55F0;--orchid:#BF0D65;--pink:#D94FC4;--gold:#F2C94C;--silver:#F4F8FD;--ice:#DCE8F7;--navy:#0B1A5C;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--silver)}
+.lx{--ink:#0A0B22;--inkm:#3E4366;--ivory:#F5EEDC;--ivorym:#E4DCEF;--royal:#4A1FD1;--electric:#2F55F0;--orchid:#BF0D65;--pink:#D94FC4;--gold:#F2C94C;--silver:#F4F8FD;--ice:#DCE8F7;--navy:#0B1A5C;font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:var(--ink);background:var(--silver)}
 .lx *{box-sizing:border-box}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
-.kick{font-family:"Inter Tight",Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:1}
+.serif{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.86}
+.kick{font-family:"Inter Tight",'Inter Tight Fallback',Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:1}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
 .wrap{max-width:1320px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
 .g-pp{background:linear-gradient(100deg,#4A1FD1 0%,#B02D97 45%,#2F55F0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .g-gold{background:linear-gradient(100deg,#FFE7A3 0%,#F2C94C 50%,#E79BD9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:15px;letter-spacing:-.01em;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.01em;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(74,31,209,.55)}
 .btn svg{transition:transform .45s cubic-bezier(.2,.8,.2,1)}.btn:hover svg{transform:translateX(4px) rotate(-45deg)}
 .nl{text-decoration:none;font-size:14px;font-weight:500;padding:12px 2px;position:relative}
@@ -53,7 +54,7 @@ a{color:inherit}a:hover{color:inherit}
 .irid-glow{position:absolute;inset:-4%;border-radius:50%;background:conic-gradient(from 0deg,#4A1FD1,#D94FC4,#F2C94C,#2F55F0,#4A1FD1);filter:blur(42px);opacity:.55;animation:spin 12s linear infinite}
 .orbit{position:absolute;inset:-16%;animation:spin 30s linear infinite;pointer-events:none}
 .orbit>span{position:absolute;transform:translate(-50%,-50%)}
-.orbit>span>span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 16px 30px -16px rgba(10,11,34,.35);font-family:"Inter Tight",sans-serif;font-weight:700;font-size:13px;color:#0A0B22;animation:spin 30s linear infinite reverse}
+.orbit>span>span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 16px 30px -16px rgba(10,11,34,.35);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:13px;color:#0A0B22;animation:spin 30s linear infinite reverse}
 .orbit i{width:8px;height:8px;border-radius:50%;display:inline-block}
 .orb-pos{position:absolute;right:clamp(16px,5vw,80px);top:clamp(-10px,0vw,10px);width:clamp(220px,27vw,430px);aspect-ratio:1;z-index:3;perspective:1100px}
 .tiltme{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
@@ -65,16 +66,16 @@ a{color:inherit}a:hover{color:inherit}
 @keyframes cue{to{top:100%}}
 /* hero v3 — reference structure */
 .hx-top{position:relative;z-index:6;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-top:20px;padding-bottom:8px}
-.hx-loc{margin:0;display:flex;align-items:center;gap:10px;font-family:"Inter Tight",sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
+.hx-loc{margin:0;display:flex;align-items:center;gap:10px;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
 .hx-logo{justify-self:center;display:flex}.hx-logo img{height:clamp(54px,6vw,78px);width:auto;display:block}
 .hx-burger{justify-self:end;width:56px;height:44px;border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0;color:var(--ink)}
 .hx-burger span{display:block;height:3px;border-radius:2px;background:currentColor;transition:width .4s cubic-bezier(.2,.8,.2,1)}
 .hx-burger span:nth-child(2){width:78%;align-self:flex-end}.hx-burger:hover span:nth-child(2){width:100%}
 .hx-body{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:14px;padding-bottom:clamp(64px,7vw,110px)}
 .hx-seg{display:inline-flex;padding:6px;border-radius:999px;border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)) padding-box,linear-gradient(100deg,#4A1FD1,#D94FC4,#F2C94C) border-box;box-shadow:0 18px 40px -18px rgba(74,31,209,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx-seg button{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border:none;border-radius:999px;background:transparent;color:var(--ink);font-family:"Inter Tight",sans-serif;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .45s,color .45s,box-shadow .45s}
+.hx-seg button{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border:none;border-radius:999px;background:transparent;color:var(--ink);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .45s,color .45s,box-shadow .45s}
 .hx-seg button.on{background:linear-gradient(100deg,#4A1FD1,#BF0D65);color:#fff;box-shadow:0 10px 22px -10px rgba(191,13,101,.7)}
-.hx-proof{margin:clamp(30px,3.6vw,56px) 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 0;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:clamp(11px,1vw,14px);letter-spacing:.24em;text-transform:uppercase;color:var(--inkm)}
+.hx-proof{margin:clamp(30px,3.6vw,56px) 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 0;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:clamp(11px,1vw,14px);letter-spacing:.24em;text-transform:uppercase;color:var(--inkm)}
 .hx-pi{display:inline-flex;align-items:center}
 .hx-pi:first-child{color:var(--royal)}
 .hx-pi+.hx-pi::before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#D94FC4,#F2C94C);margin:0 clamp(14px,2vw,26px)}
@@ -82,12 +83,12 @@ a{color:inherit}a:hover{color:inherit}
 .hx-h1 .pline{white-space:normal}
 .hx-h1 .pline>span{display:inline-block;white-space:nowrap}
 .hx-split{width:100%;margin-top:clamp(44px,5.5vw,84px);padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(10,11,34,.12);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px clamp(32px,6vw,96px);align-items:start;text-align:left}
-.hx-state{margin:0;font-family:Montserrat,sans-serif;font-weight:500;font-size:clamp(26px,2.9vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--ink)}
-.hx-state em{font-family:"Instrument Serif",Georgia,serif;font-size:1.12em;font-style:italic;font-weight:400;background:linear-gradient(100deg,#4A1FD1,#BF0D65 55%,#D94FC4);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.04em}
+.hx-state{margin:0;font-family:Montserrat,'Montserrat Fallback',sans-serif;font-weight:500;font-size:clamp(26px,2.9vw,42px);line-height:1.18;letter-spacing:-.015em;color:var(--ink)}
+.hx-state em{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-size:1.12em;font-style:italic;font-weight:400;background:linear-gradient(100deg,#4A1FD1,#BF0D65 55%,#D94FC4);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.04em}
 .hx-small{margin:clamp(22px,2.6vw,40px) 0 0;max-width:560px;font-size:15px;line-height:1.65;color:var(--inkm)}
 .hx-small strong{color:var(--ink);font-weight:600}
 .hx-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding-top:clamp(0px,1vw,14px)}
-.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-width:min(100%,320px);min-height:64px;padding:0 30px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,background .4s,color .4s}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-width:min(100%,320px);min-height:64px;padding:0 30px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,background .4s,color .4s}
 .hx-solid{background:var(--ink);color:#fff;box-shadow:0 22px 40px -18px rgba(10,11,34,.6)}
 .hx-solid:hover{transform:translateY(-3px);box-shadow:0 26px 46px -16px rgba(74,31,209,.6)}
 .hx-ring{width:34px;height:34px;border-radius:50%;border:1.5px solid currentColor;display:inline-flex;align-items:center;justify-content:center;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
@@ -101,10 +102,10 @@ a{color:inherit}a:hover{color:inherit}
 .hx-tile::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 120% at var(--hx,90%) 50%,rgba(255,255,255,.16),transparent 60%);opacity:0;transition:opacity .5s}
 .hx-tile:hover{transform:translateY(-6px)}.hx-tile:hover::before{opacity:1}
 .hx-tile>*{position:relative}
-.hx-tn{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(34px,3.4vw,52px);line-height:1;color:var(--gold);flex:none}
+.hx-tn{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-style:italic;font-size:clamp(34px,3.4vw,52px);line-height:1;color:var(--gold);flex:none}
 .hx-tile.t2 .hx-tn{color:#FFE7A3}
 .hx-tt{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1;text-align:left}
-.hx-tl{font-family:"Inter Tight",sans-serif;font-weight:800;font-size:clamp(18px,1.9vw,28px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05}
+.hx-tl{font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:800;font-size:clamp(18px,1.9vw,28px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05}
 .hx-ts{font-size:13.5px;line-height:1.5;opacity:.8}
 .hx-tc{flex:none;width:clamp(52px,4.4vw,64px);aspect-ratio:1;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;transition:transform .55s cubic-bezier(.2,.8,.2,1),background .4s,color .4s}
 .hx-tile:hover .hx-tc{transform:rotate(45deg);background:var(--gold);color:var(--ink);border-color:var(--gold)}
@@ -179,7 +180,7 @@ a{color:inherit}a:hover{color:inherit}
 @keyframes obl{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes obr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .ob-track:hover{animation-play-state:paused}
-.outline-band{display:block;flex:none;transition:-webkit-text-stroke-color .4s,color .4s;white-space:nowrap;font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(90px,15vw,240px);line-height:.9;color:transparent;-webkit-text-stroke:1.5px rgba(74,31,209,.35)}
+.outline-band{display:block;flex:none;transition:-webkit-text-stroke-color .4s,color .4s;white-space:nowrap;font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;text-transform:uppercase;font-size:clamp(90px,15vw,240px);line-height:.9;color:transparent;-webkit-text-stroke:1.5px rgba(74,31,209,.35)}
 @supports (animation-timeline: view()){
 .cyl-scroll{animation:cylsc linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
 .slide-l{animation:sl linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
@@ -231,7 +232,7 @@ a{color:inherit}a:hover{color:inherit}
 .hseam .wisp{filter:blur(30px)}
 .hs-prog{position:absolute;left:clamp(20px,5vw,64px);right:clamp(20px,5vw,64px);bottom:32px;z-index:6;height:3px;border-radius:3px;background:rgba(10,11,34,.15);overflow:hidden}
 .hs-prog>span{position:absolute;inset:0;background:linear-gradient(90deg,#4A1FD1,#BF0D65,#F2C94C);transform-origin:left;transform:scaleX(.08)}
-.bignum{font-family:"Instrument Serif",Georgia,serif;font-style:italic;line-height:.78;font-size:clamp(180px,38vh,420px);letter-spacing:-.04em}
+.bignum{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-style:italic;line-height:.78;font-size:clamp(180px,38vh,420px);letter-spacing:-.04em}
 @supports (animation-timeline: view()){
 .hs{view-timeline-name:--hs}
 .hs-track{animation:hsx linear both;animation-timeline:--hs;animation-range:contain 0% contain 100%}
@@ -258,7 +259,7 @@ a{color:inherit}a:hover{color:inherit}
 .rcard{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;color:#fff;border:1px solid rgba(255,255,255,.28);box-shadow:0 40px 80px -30px rgba(5,6,40,.6);overflow:hidden}
 .rcard::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,0) 40%);pointer-events:none}
 /* book-style service cards */
-.rcard.bk{padding:calc(var(--cw) * .04);gap:0;border:none;border-radius:calc(var(--cw) * .1);box-shadow:0 40px 70px -28px rgba(5,6,40,.7);font-family:"Inter Tight",sans-serif}
+.rcard.bk{padding:calc(var(--cw) * .04);gap:0;border:none;border-radius:calc(var(--cw) * .1);box-shadow:0 40px 70px -28px rgba(5,6,40,.7);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif}
 .rcard.bk::before{display:none}
 .cv{position:relative;flex:none;height:calc(var(--cw) * 1.04);border-radius:calc(var(--cw) * .065);padding:calc(var(--cw) * .05);display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
 .cv::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 0%,rgba(255,255,255,.18),transparent 60%);pointer-events:none}
@@ -272,7 +273,7 @@ a{color:inherit}a:hover{color:inherit}
 .bk-tags{display:flex;flex-wrap:wrap;gap:calc(var(--cw) * .02);margin:calc(var(--cw) * .045) 0 calc(var(--cw) * .03)}
 .bk-tag{padding:calc(var(--cw) * .012) calc(var(--cw) * .032);border-radius:999px;font-weight:700;font-size:calc(var(--cw) * .045);line-height:1.25;white-space:nowrap}
 .bk-title{margin:0;font-weight:900;font-size:calc(var(--cw) * .108);line-height:.95;letter-spacing:-.035em}
-.bk-body{margin:calc(var(--cw) * .025) 0 0;font-family:Montserrat,sans-serif;font-size:calc(var(--cw) * .047);line-height:1.38;opacity:.92;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bk-body{margin:calc(var(--cw) * .025) 0 0;font-family:Montserrat,'Montserrat Fallback',sans-serif;font-size:calc(var(--cw) * .047);line-height:1.38;opacity:.92;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .bk-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:calc(var(--cw) * .04);padding:calc(var(--cw) * .028) calc(var(--cw) * .02) calc(var(--cw) * .028) calc(var(--cw) * .055);border-radius:calc(var(--cw) * .03);font-weight:800;font-size:calc(var(--cw) * .048);rotate:-2deg;transition:rotate .5s cubic-bezier(.2,.8,.2,1),scale .5s cubic-bezier(.2,.8,.2,1)}
 .bk-arr{display:inline-flex;padding:calc(var(--cw) * .012) calc(var(--cw) * .025);border-left:1px solid currentColor;border-left-color:color-mix(in srgb,currentColor 35%,transparent)}
 .rcard.bk:hover .bk-btn{rotate:0deg;scale:1.06}
@@ -314,7 +315,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center;flex:none}
 .menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .6s cubic-bezier(.2,.8,.2,1)}
 @keyframes menuIn{from{clip-path:circle(0 at calc(100% - 44px) 44px)}to{clip-path:circle(150% at calc(100% - 44px) 44px)}}
-.menu-panel .ml{font-family:"Instrument Serif",Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+.menu-panel .ml{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
 @media (max-width:860px){.nav-desk,.nav-cta{display:none!important}.menu-btn{display:inline-flex}}
 /* responsive: small screens */
 @media (max-width:640px){
@@ -385,7 +386,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .fan-item:hover .fan-ic{rotate:-10deg;scale:1.12}
 .stickers{position:relative;height:clamp(380px,34vw,470px);margin:10px auto 70px;max-width:1100px}
 .badge-c{position:absolute;left:50%;top:50%;width:clamp(230px,21vw,300px);aspect-ratio:1;translate:-50% -50%}
-.sticker{position:absolute;padding:.32em .8em .4em;border-radius:999px;font-family:"Inter Tight",sans-serif;font-weight:800;font-size:clamp(20px,2.7vw,40px);letter-spacing:-.03em;white-space:nowrap;transform:rotate(var(--r));box-shadow:0 14px 30px -14px rgba(10,11,34,.45);cursor:default;transition:transform .5s cubic-bezier(.3,1.6,.4,1)}
+.sticker{position:absolute;padding:.32em .8em .4em;border-radius:999px;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:800;font-size:clamp(20px,2.7vw,40px);letter-spacing:-.03em;white-space:nowrap;transform:rotate(var(--r));box-shadow:0 14px 30px -14px rgba(10,11,34,.45);cursor:default;transition:transform .5s cubic-bezier(.3,1.6,.4,1)}
 .sticker:hover{transform:rotate(0deg) scale(1.08)}
 @supports (animation-timeline: view()){
 .fan-deal{animation:deal linear both;animation-timeline:view();animation-range:entry 5% cover 42%}
@@ -480,7 +481,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 
 <header class="wrap in hx-top">
 <p class="hx-loc"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span>Business Bay, Dubai</span></p>
-<a href="/" aria-label="Laveesho home" class="hx-logo"><img src="/assets/logo-dark.webp" alt="Laveesho — Building Digital Future"></a>
+<a href="/" aria-label="Laveesho home" class="hx-logo"><img width="600" height="161" fetchpriority="high" src="/assets/logo-dark-600.webp" alt="Laveesho — Building Digital Future"></a>
 <button type="button" class="hx-burger" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><span></span><span></span><span></span></button>
 
 </header>
@@ -488,7 +489,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <button type="button" class="menu-scrim" aria-label="Close menu" data-on-click="toggleMenu"></button>
 <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 40px; width: auto">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 40px; width: auto">
 <button type="button" aria-label="Close menu" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(245,238,220,.6); background: transparent; color: #F5EEDC; cursor: pointer; display: flex; align-items: center; justify-content: center" data-on-click="toggleMenu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 <nav aria-label="Mobile" style="display: flex; flex-direction: column">
@@ -558,7 +559,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="cv-bob"><path d="M100 18l26 40-26 52-26-52z" fill="var(--cvbg)"></path><path d="M100 18v58"></path><circle cx="100" cy="80" r="6" fill="currentColor"></circle><path d="M84 112h32v14H84z" fill="currentColor"></path></g><text x="18" y="62" font-family="Instrument Serif, Georgia, serif" font-size="44" fill="currentColor" stroke="none">Aa</text><circle cx="160" cy="40" r="11" fill="currentColor"></circle><circle cx="176" cy="66" r="11" fill="var(--cvbg)"></circle><circle cx="160" cy="92" r="11" fill="currentColor" fill-opacity=".45"></circle><path d="M22 96c10-8 22-8 32 0s22 8 32 0"></path><path d="M150 120l4 8 8 2-8 2-4 8-4-8-8-2 8-2z" fill="currentColor"></path></svg></div>
 <p class="serif cv-title">Brand<br><span style="font-style: italic">identity</span></p>
 <p class="cv-by">A Laveesho studio original</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #E0307F; color: #FFFFFF">Logo</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Guidelines</span><span class="bk-tag" style="background: #0A0B22; color: #F5EEDC">Packaging</span></div>
 <h3 class="bk-title">Brand identity</h3>
@@ -573,7 +574,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="72" y="14" width="56" height="112" rx="12" fill="var(--cvbg)"></rect><path d="M92 22h16"></path><path d="M84 34h32v40H84z" fill="currentColor"></path><path d="M96 48l12 6-12 6z" fill="var(--cvbg)" stroke="var(--cvbg)"></path><path d="M84 84h22M84 94h30M84 104h16"></path><g class="cv-bob"><path d="M150 46c-6-10-22-6-18 6 2 6 18 16 18 16s16-10 18-16c4-12-12-16-18-6z" fill="currentColor"></path><path d="M146 30l-2-8M160 30l4-8M170 40l8-4"></path></g><path d="M18 40h40v24H34l-8 8v-8h-8z" fill="var(--cvbg)"></path><circle cx="30" cy="52" r="2" fill="currentColor"></circle><circle cx="38" cy="52" r="2" fill="currentColor"></circle><circle cx="46" cy="52" r="2" fill="currentColor"></circle><path d="M24 98l10 4 4 10 4-10 10-4-10-4-4-10-4 10z" fill="currentColor"></path></svg></div>
 <p class="serif cv-title">Social<br><span style="font-style: italic">media</span></p>
 <p class="cv-by">Reels · content · community</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Reels</span><span class="bk-tag" style="background: #F4F8FD; color: #0A0B22">Content</span><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">Community</span></div>
 <h3 class="bk-title">Social media</h3>
@@ -588,7 +589,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="20" width="132" height="26" rx="13" fill="var(--cvbg)"></rect><path d="M30 33h70" stroke-dasharray="2 6"></path><circle cx="132" cy="33" r="6"></circle><path d="M137 38l5 5"></path><path d="M22 122l30-26 22 12 34-36 22 8 40-34"></path><path d="M160 46l12-1-1 12"></path><g class="cv-bob"><path d="M128 70h52v34h-30l-10 10v-10h-12z" fill="currentColor"></path><text x="140" y="94" font-family="Inter Tight, sans-serif" font-weight="800" font-size="16" fill="var(--cvbg)" stroke="none">AI</text></g><path d="M40 64c0 5-2 7-7 7 5 0 7 2 7 7 0-5 2-7 7-7-5 0-7-2-7-7z" fill="currentColor"></path><path d="M22 132h160"></path></svg></div>
 <p class="serif cv-title">Found<br><span style="font-style: italic">by AI</span></p>
 <p class="cv-by">Google · ChatGPT · Gemini</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">SEO</span><span class="bk-tag" style="background: #E0307F; color: #FFFFFF">AEO</span><span class="bk-tag" style="background: #0A0B22; color: #F5EEDC">GEO</span></div>
 <h3 class="bk-title">SEO &amp; AI search</h3>
@@ -603,7 +604,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="cv-bob"><path d="M30 60l70-30v80L30 80z" fill="var(--cvbg)"></path><path d="M18 58h12v24H18z" fill="currentColor"></path><path d="M34 82l8 28h14l-6-24"></path><path d="M112 52c8 6 8 30 0 36M124 42c14 12 14 44 0 56"></path></g><circle cx="160" cy="44" r="22" fill="var(--cvbg)"></circle><circle cx="160" cy="44" r="13"></circle><circle cx="160" cy="44" r="4" fill="currentColor"></circle><path d="M160 44l26-26M180 18h6v6"></path><ellipse cx="156" cy="112" rx="22" ry="7" fill="currentColor"></ellipse><ellipse cx="156" cy="102" rx="22" ry="7" fill="var(--cvbg)"></ellipse><ellipse cx="156" cy="92" rx="22" ry="7" fill="currentColor"></ellipse><path d="M66 124h50"></path></svg></div>
 <p class="serif cv-title">Paid<br><span style="font-style: italic">ads</span></p>
 <p class="cv-by">Meta · Google · retargeting</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Meta ads</span><span class="bk-tag" style="background: #F4F8FD; color: #0A0B22">Google ads</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Retargeting</span></div>
 <h3 class="bk-title">Paid ads</h3>
@@ -618,7 +619,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="18" y="16" width="164" height="108" rx="10" fill="var(--cvbg)"></rect><path d="M18 34h164"></path><circle cx="30" cy="25" r="3" fill="currentColor"></circle><circle cx="40" cy="25" r="3"></circle><circle cx="50" cy="25" r="3"></circle><path d="M32 48h64v40H32z" fill="currentColor"></path><path d="M108 50h58M108 60h46M108 70h52"></path><rect x="108" y="80" width="40" height="14" rx="7" fill="currentColor"></rect><path d="M32 100h30v12H32zM70 100h30v12H70z"></path><g class="cv-bob"><path d="M150 94l26 10-12 4-4 12z" fill="currentColor"></path><path d="M166 112l10 10"></path></g></svg></div>
 <p class="serif cv-title">Websites<br><span style="font-style: italic">that sell</span></p>
 <p class="cv-by">Web design · e-commerce</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #4A1FD1; color: #FFFFFF">Web design</span><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">E-commerce</span><span class="bk-tag" style="background: #E35BCF; color: #0A0B22">Landing pages</span></div>
 <h3 class="bk-title">Websites</h3>
@@ -633,7 +634,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cv-artbox"><svg class="cv-art" viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="12" width="64" height="118" rx="14" fill="var(--cvbg)"></rect><path d="M62 20h20"></path><rect x="50" y="32" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="76" y="32" width="18" height="18" rx="5"></rect><rect x="50" y="58" width="18" height="18" rx="5"></rect><rect x="76" y="58" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="50" y="84" width="18" height="18" rx="5" fill="currentColor"></rect><rect x="76" y="84" width="18" height="18" rx="5"></rect><path d="M66 116h12"></path><g class="cv-spin"><circle cx="150" cy="56" r="16" fill="var(--cvbg)"></circle><circle cx="150" cy="56" r="6"></circle><path d="M150 32v8M150 72v8M126 56h8M166 56h8M133 39l6 6M161 67l6 6M133 73l6-6M161 45l6-6"></path></g><path d="M118 104h20l8-12 10 22 8-10h22"></path></svg></div>
 <p class="serif cv-title">Apps<br><span style="font-style: italic">&amp; IT</span></p>
 <p class="cv-by">Web · mobile · automation</p>
-<img class="cv-seal" src="/assets/seal-3d.webp" alt="">
+<img width="120" height="120" loading="lazy" decoding="async" class="cv-seal" src="/assets/seal-3d-120.webp" alt="">
 </div>
 <div class="bk-tags"><span class="bk-tag" style="background: #2F55F0; color: #FFFFFF">Mobile apps</span><span class="bk-tag" style="background: #F2C94C; color: #0A0B22">Automation</span><span class="bk-tag" style="background: #B9A5FF; color: #0A0B22">Integrations</span></div>
 <h3 class="bk-title">Apps &amp; IT</h3>
@@ -669,7 +670,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cyl-spin">
 
 <div class="ccard" style="transform: rotateY(0.0deg) translateZ(calc(var(--R) * -1)); background: #DCE8F7; color: #0A0B22">
-<img src="/assets/seal-silver.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="608" loading="lazy" decoding="async" src="/assets/seal-silver-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -685,7 +686,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(45.0deg) translateZ(calc(var(--R) * -1)); background: #2A0F8F; color: #F5EEDC">
-<img src="/assets/seal-purple.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="535" loading="lazy" decoding="async" src="/assets/seal-purple-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -701,7 +702,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(90.0deg) translateZ(calc(var(--R) * -1)); background: radial-gradient(circle at 50% 45%,#1E1660,#0A0B22 70%); color: #F5EEDC">
-<img src="/assets/seal-3d.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
+<img width="420" height="420" loading="lazy" decoding="async" src="/assets/seal-3d-420.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
 
 </div>
 
@@ -717,7 +718,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(135.0deg) translateZ(calc(var(--R) * -1)); background: #1D3FD0; color: #F5EEDC">
-<img src="/assets/seal-blue.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="535" loading="lazy" decoding="async" src="/assets/seal-blue-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -733,7 +734,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(180.0deg) translateZ(calc(var(--R) * -1)); background: #DCE8F7; color: #0A0B22">
-<img src="/assets/seal-silver.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="608" loading="lazy" decoding="async" src="/assets/seal-silver-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -749,7 +750,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(225.0deg) translateZ(calc(var(--R) * -1)); background: #2A0F8F; color: #F5EEDC">
-<img src="/assets/seal-purple.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="535" loading="lazy" decoding="async" src="/assets/seal-purple-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -765,7 +766,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(270.0deg) translateZ(calc(var(--R) * -1)); background: radial-gradient(circle at 50% 45%,#1E1660,#0A0B22 70%); color: #F5EEDC">
-<img src="/assets/seal-3d.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
+<img width="420" height="420" loading="lazy" decoding="async" src="/assets/seal-3d-420.webp" alt="" style="object-fit: contain; padding: 12%; box-sizing: border-box">
 
 </div>
 
@@ -781,7 +782,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(315.0deg) translateZ(calc(var(--R) * -1)); background: #1D3FD0; color: #F5EEDC">
-<img src="/assets/seal-blue.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
+<img width="540" height="535" loading="lazy" decoding="async" src="/assets/seal-blue-540.webp" alt="" style="object-fit: cover; padding: 0; box-sizing: border-box">
 
 </div>
 
@@ -1030,7 +1031,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="stickers">
 <div class="badge-c" aria-hidden="true">
 <svg class="halo" viewBox="0 0 300 300" style="position: absolute; inset: 0; width: 100%; height: 100%"><defs><path id="bc" d="M150,150 m-118,0 a118,118 0 1,1 236,0 a118,118 0 1,1 -236,0"></path></defs><text font-family="Instrument Serif" font-size="27" letter-spacing="3" fill="#0A0B22"><textPath href="#bc">WHY BRANDS CHOOSE LAVEESHO? · WHY BRANDS CHOOSE LAVEESHO? ·</textPath></text></svg>
-<span style="position: absolute; inset: 20%; display: flex; align-items: center; justify-content: center"><img src="/assets/seal-3d.webp" alt="Laveesho 3D wax seal" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 18px 28px rgba(74,31,209,.45))"></span>
+<span style="position: absolute; inset: 20%; display: flex; align-items: center; justify-content: center"><img srcset="/assets/seal-3d-420.webp 420w, /assets/seal-3d.webp 900w" sizes="180px" width="420" height="420" loading="lazy" decoding="async" src="/assets/seal-3d-420.webp" alt="Laveesho 3D wax seal" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 18px 28px rgba(74,31,209,.45))"></span>
 </div>
 
 <span class="sticker" style="--r: -7deg; left: 2%; top: 12%; background: #BF0D65; color: #F5EEDC; animation-range: entry 10% cover 30%">Luxury design</span>
@@ -1148,7 +1149,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <footer style="background: #070F3D; color: #C9CCE8">
 <div class="wrap" style="padding-top: 64px; padding-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 18px">
-<img src="/assets/logo-light.webp" alt="Laveesho" style="height: 58px; width: auto; align-self: flex-start">
+<img width="660" height="175" loading="lazy" decoding="async" src="/assets/logo-light-660.webp" alt="Laveesho" style="height: 58px; width: auto; align-self: flex-start">
 <p style="margin: 0; max-width: 340px; font-size: 14.5px; line-height: 1.7">Creative branding and digital marketing agency. The Citadel Tower, Marasi Drive, Business Bay, Dubai, UAE.</p>
 </div>
 <nav aria-label="Footer" style="flex: 2 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px">
