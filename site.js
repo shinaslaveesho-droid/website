@@ -2,6 +2,17 @@
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---- account link: "Log in" becomes "My account" when a saved session exists ----
+  // Reads only the presence of Supabase's session key, so no auth library loads on normal pages.
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      if (/^sb-.+-auth-token$/.test(localStorage.key(i) || '')) {
+        document.querySelectorAll('[data-auth-link]').forEach(function (a) { a.textContent = 'My account'; a.href = '/account'; });
+        break;
+      }
+    }
+  } catch (e) { /* storage blocked: keep "Log in" */ }
+
   function flag(name, on) {
     document.querySelectorAll('[data-if="' + name + '"]').forEach(function (el) {
       el.style.display = on ? 'contents' : 'none';
