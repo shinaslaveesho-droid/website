@@ -13,6 +13,31 @@
     }
   } catch (e) { /* storage blocked: keep "Log in" */ }
 
+  // ---- anonymous live-visitor heartbeat (admin dashboard) ----
+  // A random id stays in this browser; no name, email or IP is sent. Pings every 30s while the tab is visible.
+  (function () {
+    if (navigator.webdriver || /bot|crawl|spider|lighthouse/i.test(navigator.userAgent)) return;
+    var id;
+    try { id = localStorage.getItem('lv-visitor'); } catch (e) {}
+    if (!id || !/^[0-9a-f-]{36}$/.test(id)) {
+      id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+        : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+      try { localStorage.setItem('lv-visitor', id); } catch (e) {}
+    }
+    var KEY = 'sb_publishable_Epp3JeJzP42a1ORQAnLV_w_qZbEUX_M';
+    function ping() {
+      if (document.hidden) return;
+      fetch('https://gmqcrxeylvexxlobavfo.supabase.co/rest/v1/rpc/track_visit', {
+        method: 'POST', keepalive: true,
+        headers: { 'Content-Type': 'application/json', apikey: KEY },
+        body: JSON.stringify({ p_visitor: id, p_path: location.pathname })
+      }).catch(function () {});
+    }
+    setTimeout(ping, 1500);
+    setInterval(ping, 30000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) ping(); });
+  })();
+
   function flag(name, on) {
     document.querySelectorAll('[data-if="' + name + '"]').forEach(function (el) {
       el.style.display = on ? 'contents' : 'none';

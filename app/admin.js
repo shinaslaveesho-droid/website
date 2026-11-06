@@ -1,6 +1,6 @@
 // Admin page: confirm plan requests, extend or cancel live plans, see every customer.
 // Every action here is also checked inside the database (assert_admin), so hiding the page is not the security.
-import { supabase, h, fmtDate, dubaiToday, daysBetween, friendlyError, setStatus, requireSession, signOut } from './auth.js';
+import { supabase, h, fmtDate, fmtAED, dubaiToday, daysBetween, friendlyError, setStatus, requireSession, signOut } from './auth.js';
 
 const $ = (id) => document.getElementById(id);
 const status = $('admin-status');
@@ -37,6 +37,7 @@ async function act(fn, args, done) {
   if (error) return setStatus(status, friendlyError(error), 'error');
   setStatus(status, done, 'ok');
   refresh();
+  loadStats();
 }
 
 function renderPending() {
@@ -96,6 +97,41 @@ function renderCustomers() {
   }) : [h('li', { class: 'adm-empty' }, 'No customers match your search.')]));
 }
 
+
+// ---- dashboard: live visitors, revenue, packages, registrations (refreshes every 15s) ----
+const n = (v) => Number(v || 0).toLocaleString('en-AE');
+function tile(label, value, sub, money) {
+  return h('div', { class: 'dash-tile' + (money ? ' money' : '') }, h('span', { class: 'dash-l' }, label), h('span', { class: 'serif dash-v' }, value), sub ? h('span', { class: 'dash-s' }, sub) : null);
+}
+async function loadStats() {
+  const { data: st, error } = await supabase.rpc('admin_stats');
+  if (error) { $('dash-updated').textContent = 'Stats unavailable: ' + friendlyError(error); return; }
+  $('st-live').textContent = n(st.live_visitors);
+  $('st-pages').textContent = st.live_pages.length ? 'Now viewing: ' + st.live_pages.map((p) => `${p.path} (${p.n})`).join(' · ') : '';
+  $('dash-grid').replaceChildren(
+    tile('Visitors today', n(st.visitors_today)),
+    tile('Sign-ups today', n(st.signups_today), `${n(st.customers_total)} accounts in total`),
+    tile("Today's customers", n(st.customers_today), 'Plans made live today'),
+    tile('Revenue today', fmtAED(st.revenue_today), null, true),
+    tile('Revenue this month', fmtAED(st.revenue_month), null, true),
+    tile('Overall revenue', fmtAED(st.revenue_all), 'All time, excl. VAT', true),
+    tile('Packages sold', n(st.packages_sold), `${n(st.renewals)} renewals`),
+    tile('Live plans', n(st.plans_live), `${n(st.requests_pending)} requests waiting`));
+  const max = Math.max(1, ...st.daily.map((d) => Math.max(d.signups, d.visitors)));
+  $('dash-chart').replaceChildren(...st.daily.map((d, i) => h('div', { class: 'dash-col', title: `${fmtDate(d.day)}: ${d.signups} sign-ups, ${d.visitors} visitors, ${fmtAED(d.revenue)}` },
+    h('i', { style: `height:${(d.signups / max) * 100}%;background:#4A1FD1` }),
+    h('i', { style: `height:${(d.visitors / max) * 100}%;background:#F2C94C` }),
+    i % 2 === 1 || i === 13 ? h('span', {}, new Date(d.day + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })) : null)));
+  $('dash-plans').replaceChildren(...st.by_plan.map((p) => h('li', {}, h('span', {}, h('b', {}, p.plan.replace('Laveesho ', '')), ` · ${n(p.sold)} sold`), h('span', {}, fmtAED(p.revenue)))));
+  $('dash-updated').textContent = 'Updated ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' · refreshes every 15s';
+}
+let statsTimer = 0;
+function startStats() {
+  loadStats();
+  clearInterval(statsTimer);
+  statsTimer = setInterval(() => { if (!document.hidden) loadStats(); }, 15000);
+}
+
 function render() { renderPending(); renderActive(); renderCustomers(); }
 
 async function refresh() {
@@ -114,6 +150,7 @@ if (session) {
   } else {
     $('admin-app').hidden = false;
     await refresh();
+    startStats();
   }
   document.body.classList.add('acct-ready');
 }

@@ -160,6 +160,15 @@ a{color:inherit}a:hover{color:inherit}
 
 <div id="admin-app" style="display: grid; gap: 24px" hidden>
 <p id="admin-status" class="auth-status" role="status" aria-live="polite" hidden></p>
+<section class="acct-card dash" aria-labelledby="dash-title">
+<div class="dash-head"><h2 id="dash-title" class="serif adm-h2">Dashboard</h2><span class="dash-upd" id="dash-updated">Loading…</span></div>
+<div class="dash-live"><span class="dash-dot" aria-hidden="true"></span><span><b id="st-live" class="serif">–</b> <span>people on the website right now</span></span><span id="st-pages" class="dash-pages"></span></div>
+<div class="dash-grid" id="dash-grid"></div>
+<div class="dash-two">
+<div><h3 class="dash-h3">Last 14 days</h3><div class="dash-legend"><span><i style="background:#4A1FD1"></i>Sign-ups</span><span><i style="background:#F2C94C"></i>Visitors</span></div><div class="dash-chart" id="dash-chart" role="img" aria-label="Daily sign-ups and visitors for the last 14 days"></div></div>
+<div><h3 class="dash-h3">Packages sold</h3><ul class="dash-plans" id="dash-plans"></ul></div>
+</div>
+</section>
 <div class="adm-tools"><div class="field"><label for="admin-search">Search customers</label><input id="admin-search" type="search" placeholder="Name, email or company" autocomplete="off"></div></div>
 
 <div class="acct-card" role="region" aria-labelledby="pending-title">
