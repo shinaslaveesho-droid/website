@@ -454,6 +454,14 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 @media (max-width:640px){.seam-ribbon{height:300px!important}}
 @media (prefers-reduced-motion:reduce){.ribbon animate{display:none}}
 
+/* home: numbers in one centred row on phones */
+@media (max-width:640px){
+.hm-stats{grid-template-columns:repeat(4,1fr)!important;text-align:center}
+.hm-stat{padding:24px 4px 20px!important;display:flex;flex-direction:column;align-items:center}
+.hm-stat+.hm-stat{border-left:1px solid rgba(245,238,220,.22)}
+.hm-stat p:first-child{font-size:clamp(28px,8.6vw,40px)!important;white-space:nowrap}
+.hm-stat p:last-child{margin-top:8px!important;font-size:12px!important;line-height:1.35!important}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 </head>
@@ -829,24 +837,24 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="wrap" style="position: relative; padding-bottom: 100px">
-<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0; border-top: 1px solid rgba(245,238,220,.25)">
+<div class="hm-stats" style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0; border-top: 1px solid rgba(245,238,220,.25)">
 
-<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<div class="rv hm-stat" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
 <p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 50"></span>+</p>
 <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Campaigns and projects delivered</p>
 </div>
 
-<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<div class="rv hm-stat" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
 <p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 20"></span>+</p>
 <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Brands supported across industries</p>
 </div>
 
-<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<div class="rv hm-stat" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
 <p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9"><span class="count" style="--to: 5"></span>+</p>
 <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Years building digital brands</p>
 </div>
 
-<div class="rv" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
+<div class="rv hm-stat" style="padding: 34px 24px 30px 0; border-bottom: 1px solid rgba(245,238,220,.25)">
 <p class="serif g-gold" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">24/7</p>
 <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--ivorym)">Ideas, monitoring and creativity</p>
 </div>
