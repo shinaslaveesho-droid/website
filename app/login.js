@@ -59,15 +59,6 @@ supabase.auth.onAuthStateChange((event, session) => {
 document.querySelectorAll('[data-tab]').forEach((t) => t.addEventListener('click', () => show(t.dataset.tab)));
 document.querySelectorAll('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); show(a.dataset.go); }));
 
-$('google-btn').addEventListener('click', async () => {
-  setStatus(status, 'Opening Google…');
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: { redirectTo: location.origin + '/login?next=' + encodeURIComponent(next) },
-  });
-  if (error) setStatus(status, friendlyError(error), 'error');
-});
-
 $('form-login').addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.currentTarget;
@@ -119,7 +110,7 @@ $('form-reset').addEventListener('submit', async (e) => {
   location.replace('/account');
 });
 
-// Errors returned in the URL by Supabase (expired links, cancelled Google sign-in).
+// Errors returned in the URL by Supabase (expired or invalid links).
 const urlErr = params.get('error_description') || new URLSearchParams(location.hash.slice(1)).get('error_description');
 show(recovering ? 'reset' : params.get('mode') === 'signup' ? 'signup' : 'login');
 if (urlErr) setStatus(status, /expired|invalid/i.test(urlErr) ? 'That link has expired. Please request a new one.' : 'Sign-in was cancelled or failed. Please try again.', 'error');
