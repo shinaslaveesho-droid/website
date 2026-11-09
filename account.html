@@ -169,7 +169,9 @@ a{color:inherit}a:hover{color:inherit}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px">
 <div class="field"><label for="p-phone">Phone / WhatsApp</label><input id="p-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="+971"></div>
 <div class="field"><label for="p-company">Company</label><input id="p-company" name="company" type="text" autocomplete="organization" maxlength="120"></div>
+<div class="field"><label for="p-gender">Gender</label><select id="p-gender" name="gender" autocomplete="sex"><option value="">Not set</option><option value="female">Female</option><option value="male">Male</option><option value="prefer_not_to_say">Prefer not to say</option></select></div>
 </div>
+<div class="field"><label for="p-address">Address</label><textarea id="p-address" name="address" autocomplete="street-address" maxlength="300" rows="2" placeholder="Building, street, area, city"></textarea></div>
 <button type="submit" class="btn" style="background: var(--ink); color: #fff">Save profile</button>
 </form>
 </div>

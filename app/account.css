@@ -118,3 +118,14 @@
 .dash-plans b{font-weight:700}
 @media (max-width:820px){.dash-two{grid-template-columns:1fr}.dash-col span{font-size:9px}}
 @media (prefers-reduced-motion:reduce){.dash-dot{animation:none}}
+
+/* password show / hide */
+.pw{position:relative;display:flex}
+.pw input{flex:1;min-width:0;padding-right:96px}
+.pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border:0;border-radius:12px;background:transparent;color:var(--royal);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.pw-toggle:hover{background:rgba(74,31,209,.08)}
+.pw-toggle:focus-visible{outline:3px solid var(--royal);outline-offset:1px}
+.pw-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.field .opt{font-weight:400;color:var(--inkm)}
+.field textarea{resize:vertical;min-height:72px}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230A0B22' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}

@@ -21,8 +21,33 @@ function show(name) {
   if (first && document.activeElement !== document.body) first.focus();
 }
 
+// Show / hide password button on every password field.
+const EYE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const EYE_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-3.2 4.2M6.6 6.6C3.9 8.4 2 12 2 12s3.6 7 10 7c1.9 0 3.6-.6 5-1.5M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
+document.querySelectorAll('input[type=password]').forEach((input) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'pw';
+  input.parentNode.insertBefore(wrap, input);
+  wrap.appendChild(input);
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'pw-toggle';
+  btn.setAttribute('aria-controls', input.id);
+  const set = (shown) => {
+    input.type = shown ? 'text' : 'password';
+    btn.innerHTML = (shown ? EYE_OFF : EYE) + `<span>${shown ? 'Hide' : 'Show'}</span>`;
+    btn.setAttribute('aria-label', shown ? 'Hide password' : 'Show password');
+    btn.setAttribute('aria-pressed', shown ? 'true' : 'false');
+  };
+  set(false);
+  btn.addEventListener('click', () => { const pos = input.selectionStart; set(input.type === 'password'); input.focus(); try { input.setSelectionRange(pos, pos); } catch {} });
+  wrap.appendChild(btn);
+  // Hide the password again when the form is sent, so the browser never saves it as plain text.
+  input.form?.addEventListener('submit', () => set(false), true);
+});
+
 function busy(form, on) {
-  form.querySelectorAll('button, input').forEach((el) => (el.disabled = on));
+  form.querySelectorAll('button, input, select, textarea').forEach((el) => (el.disabled = on));
   form.setAttribute('aria-busy', on ? 'true' : 'false');
 }
 
@@ -55,12 +80,15 @@ $('form-login').addEventListener('submit', async (e) => {
 $('form-signup').addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.currentTarget;
+  const phone = f.phone.value.trim();
+  if (!f.full_name.value.trim()) return setStatus(status, 'Please enter your full name.', 'error');
+  if (phone.replace(/\D/g, '').length < 7 || !/^[+\d\s()-]+$/.test(phone)) { f.phone.focus(); return setStatus(status, 'Please enter a valid contact number, for example +971 50 123 4567.', 'error'); }
   if (f.password.value.length < 8) return setStatus(status, 'Your password needs at least 8 characters.', 'error');
   busy(f, true);
   const { data, error } = await supabase.auth.signUp({
     email: f.email.value.trim(),
     password: f.password.value,
-    options: { data: { full_name: f.full_name.value.trim() }, emailRedirectTo: location.origin + '/login?next=' + encodeURIComponent(next) },
+    options: { data: { full_name: f.full_name.value.trim(), phone: phone.slice(0, 30), gender: f.gender.value || null, address: f.address.value.trim().slice(0, 300) || null }, emailRedirectTo: location.origin + '/login?next=' + encodeURIComponent(next) },
   });
   busy(f, false);
   if (error) return setStatus(status, friendlyError(error), 'error');

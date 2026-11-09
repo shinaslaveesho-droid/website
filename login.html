@@ -176,6 +176,9 @@ a{color:inherit}a:hover{color:inherit}
 <form id="form-signup" novalidate>
 <div class="field"><label for="s-name">Full name</label><input id="s-name" name="full_name" type="text" autocomplete="name" required maxlength="120" placeholder="Your name"></div>
 <div class="field"><label for="s-email">Email</label><input id="s-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
+<div class="field"><label for="s-phone">Contact number</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" placeholder="+971 50 123 4567"></div>
+<div class="field"><label for="s-gender">Gender <span class="opt">(optional)</span></label><select id="s-gender" name="gender" autocomplete="sex"><option value="">Choose</option><option value="female">Female</option><option value="male">Male</option><option value="prefer_not_to_say">Prefer not to say</option></select></div>
+<div class="field"><label for="s-address">Address <span class="opt">(optional)</span></label><textarea id="s-address" name="address" autocomplete="street-address" maxlength="300" rows="2" placeholder="Building, street, area, city"></textarea></div>
 <div class="field"><label for="s-pass">Password</label><input id="s-pass" name="password" type="password" autocomplete="new-password" required minlength="8" aria-describedby="s-pass-hint"><p id="s-pass-hint" class="auth-hint">At least 8 characters.</p></div>
 <button type="submit" class="btn" style="background: linear-gradient(100deg, #4A1FD1, #BF0D65); color: #fff; width: 100%">Create account</button>
 <p class="auth-fine">We only use your details to manage your plan and contact you about it.</p>

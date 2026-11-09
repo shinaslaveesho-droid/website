@@ -14,8 +14,9 @@ const num = (v) => Number(v || 0).toLocaleString('en-US');
 const aedShort = (v) => { v = Number(v || 0); return v >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : v >= 1e3 ? (v / 1e3).toFixed(1).replace(/\.0$/, '') + 'k' : String(Math.round(v)); };
 const dayShort = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
 const planName = (id) => (plans.find((p) => p.id === id) || {}).name?.replace('Laveesho ', '') || id;
+const GENDER = { female: 'Female', male: 'Male', prefer_not_to_say: 'Gender not given' };
 const person = (id) => people.find((p) => p.id === id) || { full_name: '', email: '' };
-const matches = (p) => !query || `${p.full_name} ${p.email} ${p.company || ''}`.toLowerCase().includes(query);
+const matches = (p) => !query || `${p.full_name} ${p.email} ${p.company || ''} ${p.phone || ''} ${p.address || ''}`.toLowerCase().includes(query);
 
 function s(tag, attrs = {}, ...kids) {
   const el = document.createElementNS(SVG, tag);
@@ -225,7 +226,8 @@ function monthSelect(name) {
 }
 function who(p) {
   return h('div', { class: 'who' }, h('strong', {}, p.full_name || '(no name)'), h('a', { href: 'mailto:' + p.email }, p.email),
-    p.phone ? h('a', { href: 'https://wa.me/' + p.phone.replace(/[^\d]/g, '') }, p.phone) : null, p.company ? h('span', {}, p.company) : null);
+    p.phone ? h('a', { href: 'https://wa.me/' + p.phone.replace(/[^\d]/g, '') }, p.phone) : null, p.company ? h('span', {}, p.company) : null,
+    p.gender ? h('span', {}, GENDER[p.gender] || '') : null, p.address ? h('span', {}, p.address) : null);
 }
 async function act(fn, args, done) {
   setStatus(status, 'Saving…');
@@ -296,7 +298,7 @@ function renderLists() { renderPending(); renderActive(); renderCustomers(); }
 async function loadLists() {
   const [pl, pr, sb] = await Promise.all([
     supabase.from('plans').select('id, name, price_aed').order('sort'),
-    supabase.from('profiles').select('id, email, full_name, phone, company, created_at').order('created_at', { ascending: false }).limit(1000),
+    supabase.from('profiles').select('id, email, full_name, phone, company, address, gender, created_at').order('created_at', { ascending: false }).limit(1000),
     supabase.from('subscriptions').select('id, user_id, plan_id, status, note, requested_at, starts_on, ends_on').order('requested_at', { ascending: false }).limit(2000),
   ]);
   const err = pl.error || pr.error || sb.error;

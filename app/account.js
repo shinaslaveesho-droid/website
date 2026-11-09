@@ -9,7 +9,7 @@ const STATUS_LABEL = { pending: 'Waiting for confirmation', active: 'Live', expi
 
 async function load() {
   const [p, pl, s] = await Promise.all([
-    supabase.from('profiles').select('id, email, full_name, phone, company, is_admin, created_at').eq('id', session.user.id).single(),
+    supabase.from('profiles').select('id, email, full_name, phone, company, address, gender, is_admin, created_at').eq('id', session.user.id).single(),
     supabase.from('plans').select('id, name, price_aed').order('sort'),
     supabase.from('subscriptions').select('id, plan_id, status, note, requested_at, starts_on, ends_on').eq('user_id', session.user.id).order('requested_at', { ascending: false }),
   ]);
@@ -28,6 +28,8 @@ function renderProfile() {
   f.email.value = profile.email;
   f.phone.value = profile.phone || '';
   f.company.value = profile.company || '';
+  f.address.value = profile.address || '';
+  f.gender.value = profile.gender || '';
   $('admin-link').hidden = !profile.is_admin;
 }
 
@@ -142,6 +144,8 @@ $('form-profile').addEventListener('submit', async (e) => {
     full_name: f.full_name.value.trim().slice(0, 120),
     phone: f.phone.value.trim().slice(0, 30) || null,
     company: f.company.value.trim().slice(0, 120) || null,
+    address: f.address.value.trim().slice(0, 300) || null,
+    gender: f.gender.value || null,
   }).eq('id', session.user.id);
   btn.disabled = false;
   if (error) return setStatus(status, friendlyError(error), 'error');
