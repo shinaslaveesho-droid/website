@@ -125,6 +125,14 @@ a{color:inherit}a:hover{color:inherit}
 @keyframes smk2{from{transform:translate(8%,-4%) scale(1.1) rotate(0)}to{transform:translate(-10%,5%) scale(.92) rotate(-12deg)}}
 .grain-fixed{position:fixed;inset:0;width:100%;height:100%;opacity:.06;mix-blend-mode:overlay;pointer-events:none;z-index:40}
 
+/* about: numbers row on phones (one centred horizontal row) */
+@media (max-width:640px){
+.ab-stats{grid-template-columns:repeat(4,1fr)!important;text-align:center}
+.ab-stat{padding:22px 4px 18px!important;display:flex;flex-direction:column;align-items:center}
+.ab-stat+.ab-stat{border-left:1px solid rgba(10,11,34,.12)}
+.ab-stat p:first-child{font-size:clamp(28px,8.6vw,40px)!important;white-space:nowrap}
+.ab-stat p:last-child{margin-top:8px!important;font-size:12px!important;line-height:1.35}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 </head>
@@ -243,24 +251,24 @@ a{color:inherit}a:hover{color:inherit}
 <section style="background: #F4F8FD">
 <div class="wrap" style="padding-top: 20px; padding-bottom: 110px">
 <h2 class="serif rv" style="margin: 0 0 48px; font-size: clamp(50px, 7vw, 112px)">Five years. <span class="g-pp" style="font-style: italic">Fifty campaigns.</span></h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: 1px solid rgba(10,11,34,.15)">
+<div class="ab-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: 1px solid rgba(10,11,34,.15)">
 
-<div class="rv" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
+<div class="rv ab-stat" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
 <p class="serif g-pp" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">50+</p>
 <p style="margin: 10px 0 0; font-size: 15px; color: var(--inkm)">Campaigns and projects</p>
 </div>
 
-<div class="rv" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
+<div class="rv ab-stat" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
 <p class="serif g-pp" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">20+</p>
 <p style="margin: 10px 0 0; font-size: 15px; color: var(--inkm)">Brands supported</p>
 </div>
 
-<div class="rv" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
+<div class="rv ab-stat" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
 <p class="serif g-pp" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">5+</p>
 <p style="margin: 10px 0 0; font-size: 15px; color: var(--inkm)">Years of experience</p>
 </div>
 
-<div class="rv" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
+<div class="rv ab-stat" style="padding: 32px 24px 28px 0; border-bottom: 1px solid rgba(10,11,34,.15)">
 <p class="serif g-pp" style="margin: 0; font-size: clamp(64px, 7vw, 104px); line-height: .9">24/7</p>
 <p style="margin: 10px 0 0; font-size: 15px; color: var(--inkm)">Ideas and creativity</p>
 </div>
