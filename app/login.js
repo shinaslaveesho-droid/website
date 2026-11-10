@@ -1,5 +1,5 @@
 // Login / sign-up / forgot-password page.
-import { supabase, friendlyError, setStatus, safeNext } from './auth.js';
+import { supabase, friendlyError, setStatus, safeNext, phoneOnly, validPhone } from './auth.js';
 
 const params = new URLSearchParams(location.search);
 const next = safeNext(params.get('next'));
@@ -68,12 +68,14 @@ $('form-login').addEventListener('submit', async (e) => {
   if (error) setStatus(status, friendlyError(error), 'error');
 });
 
+phoneOnly($('s-phone'));
+
 $('form-signup').addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.currentTarget;
   const phone = f.phone.value.trim();
   if (!f.full_name.value.trim()) return setStatus(status, 'Please enter your full name.', 'error');
-  if (phone.replace(/\D/g, '').length < 7 || !/^[+\d\s()-]+$/.test(phone)) { f.phone.focus(); return setStatus(status, 'Please enter a valid contact number, for example +971 50 123 4567.', 'error'); }
+  if (!validPhone(phone)) { f.phone.focus(); return setStatus(status, 'Please enter a valid contact number, for example +971 50 123 4567.', 'error'); }
   if (f.password.value.length < 8) return setStatus(status, 'Your password needs at least 8 characters.', 'error');
   busy(f, true);
   const { data, error } = await supabase.auth.signUp({

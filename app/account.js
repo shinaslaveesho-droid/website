@@ -1,5 +1,5 @@
 // "My account" page: profile, current plan, plan request and history.
-import { supabase, h, fmtDate, fmtAED, dubaiToday, daysBetween, friendlyError, setStatus, requireSession, signOut, WHATSAPP } from './auth.js';
+import { supabase, h, fmtDate, fmtAED, dubaiToday, daysBetween, friendlyError, setStatus, requireSession, signOut, WHATSAPP, phoneOnly, validPhone } from './auth.js';
 
 const $ = (id) => document.getElementById(id);
 const status = $('acct-status');
@@ -138,6 +138,7 @@ async function cancelRequest(id) {
 $('form-profile').addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.currentTarget;
+  if (f.phone.value.trim() && !validPhone(f.phone.value)) { f.phone.focus(); return setStatus(status, 'Please enter a valid contact number, for example +971 50 123 4567.', 'error'); }
   const btn = f.querySelector('button[type=submit]');
   btn.disabled = true;
   const { error } = await supabase.from('profiles').update({
@@ -154,6 +155,7 @@ $('form-profile').addEventListener('submit', async (e) => {
 });
 
 $('logout').addEventListener('click', signOut);
+phoneOnly($('p-phone'));
 
 session = await requireSession('/account');
 if (session) {

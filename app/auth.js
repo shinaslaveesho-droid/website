@@ -85,3 +85,27 @@ export async function signOut() {
   await supabase.auth.signOut();
   location.href = '/';
 }
+
+// Contact number fields: allow only digits, one leading +, spaces, brackets and dashes.
+export function phoneOnly(input) {
+  if (!input) return;
+  input.setAttribute('inputmode', 'tel');
+  input.setAttribute('pattern', '\\+?[0-9 ()\\-]{7,30}');
+  const clean = () => {
+    const v = input.value;
+    let c = v.replace(/[^\d+\s()-]/g, '');
+    c = c.charAt(0) + c.slice(1).replace(/\+/g, '');
+    if (c !== v) {
+      const pos = Math.max(0, (input.selectionStart || c.length) - (v.length - c.length));
+      input.value = c;
+      try { input.setSelectionRange(pos, pos); } catch {}
+    }
+  };
+  input.addEventListener('input', clean);
+  clean();
+}
+export function validPhone(v) {
+  const t = (v || '').trim();
+  const digits = t.replace(/\D/g, '').length;
+  return /^\+?[\d\s()-]+$/.test(t) && digits >= 7 && digits <= 15;
+}
