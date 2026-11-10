@@ -1,9 +1,12 @@
 // Daily job (Vercel Cron, 05:00 UTC = 09:00 Dubai):
 //  1. mark finished plans as expired
 //  2. email customers 7 days and 1 day before their plan ends (each reminder is sent once)
-//  3. email the admin a digest of plan requests from the last 24 hours
+//  3. remind customers who chose a plan 2+ days ago but have not paid
+//  4. email the admin a digest of plan requests from the last 24 hours
 // Safe to run more than once a day: reminders are flagged in the database after sending, and each
 // email carries an idempotency key so a retry after a crash does not send a duplicate.
+
+import { payReminderEmail } from './_payments.mjs';
 
 const env = (k, fallback) => process.env[k] ?? fallback;
 const SUPABASE_URL = env('SUPABASE_URL');
@@ -99,6 +102,18 @@ export async function run() {
       summary.reminders.push({ id: r.subscription_id, kind: r.kind });
     } catch (err) {
       summary.failed.push({ id: r.subscription_id, kind: r.kind, error: String(err.message).slice(0, 160) });
+    }
+  }
+
+  summary.payReminders = 0;
+  const unpaid = (await rpc('due_payment_reminders')) || [];
+  for (const r of unpaid) {
+    try {
+      await sendEmail({ to: r.email, ...payReminderEmail(r, SITE), key: `pay-reminder-${r.subscription_id}` });
+      if (!summary.dryRun) await rpc('mark_payment_reminder_sent', { p_subscription: r.subscription_id });
+      summary.payReminders++;
+    } catch (err) {
+      summary.failed.push({ id: r.subscription_id, kind: 'payment', error: String(err.message).slice(0, 160) });
     }
   }
 

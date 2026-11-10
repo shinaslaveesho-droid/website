@@ -236,26 +236,74 @@ async function act(fn, args, done) {
   setStatus(status, done, 'ok');
   await refreshAll();
 }
+const PAY_LABEL = { awaiting: 'Not paid yet', submitted: 'Receipt to check', rejected: 'Asked to re-check', verified: 'Paid' };
+const PAY_KIND = { awaiting: 'soon', submitted: 'check', rejected: 'ended', verified: 'live' };
+const withVat = (n) => Math.round(n * 105) / 100;
+const money = (n) => 'AED ' + Number(n).toLocaleString('en-US', { maximumFractionDigits: 2 });
+
+async function openReceipt(path, btn) {
+  btn.disabled = true;
+  const { data, error } = await supabase.storage.from('payment-proofs').createSignedUrl(path, 600);
+  btn.disabled = false;
+  if (error) return setStatus(status, 'Could not open the receipt. Please try again.', 'error');
+  window.open(data.signedUrl, '_blank', 'noopener');
+}
+
+async function emailCustomer(event, id) {
+  try {
+    const { data } = await supabase.auth.getSession();
+    const r = await fetch('/api/payment-event', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ event, subscription_id: id }) });
+    return r.ok;
+  } catch { return false; }
+}
+
+async function decide(fn, args, event, id, done) {
+  setStatus(status, 'Saving…');
+  const { error } = await supabase.rpc(fn, args);
+  if (error) return setStatus(status, friendlyError(error), 'error');
+  const sent = await emailCustomer(event, id);
+  setStatus(status, done + (sent ? ' The customer has been emailed.' : ' (The email could not be sent — please message the customer.)'), sent ? 'ok' : 'error');
+  await refreshAll();
+}
+
 function renderPending() {
-  const all = subs.filter((x) => x.status === 'pending');
-  const rows = all.filter((x) => matches(person(x.user_id)));
+  const order = { submitted: 0, rejected: 1, awaiting: 2, verified: 3 };
+  const all = subs.filter((x) => x.status === 'pending').sort((a, b) => (order[a.pay_status] ?? 9) - (order[b.pay_status] ?? 9));
+  const rows = all.filter((x) => matches(person(x.user_id)) || (query && (x.ref_no || '').toLowerCase().includes(query)));
+  const toCheck = all.filter((x) => x.pay_status === 'submitted').length;
   $('pending-count').textContent = String(all.length);
-  const badge = $('nav-pending'); badge.textContent = String(all.length); badge.toggleAttribute('data-zero', !all.length);
+  const badge = $('nav-pending'); badge.textContent = String(toCheck || all.length); badge.toggleAttribute('data-zero', !all.length);
   $('pending-list').replaceChildren(...(rows.length ? rows.map((x) => {
     const p = person(x.user_id);
     const price = (plans.find((pl) => pl.id === x.plan_id) || {}).price_aed || 0;
-    const form = h('form', { class: 'acts', onsubmit: (e) => {
-      e.preventDefault(); const f = e.currentTarget;
-      act('confirm_subscription', { p_subscription: x.id, p_starts_on: f.start.value, p_months: Number(f.months.value) }, `${planName(x.plan_id)} is now live for ${p.full_name || p.email}. Sale recorded.`);
+    const months = x.months || 1;
+    const total = withVat(price * months);
+    const who2 = p.full_name || p.email;
+    const startInput = h('input', { type: 'date', name: 'start', required: true, value: dubaiToday() });
+    const acts = h('form', { class: 'acts', onsubmit: (e) => {
+      e.preventDefault();
+      if (!confirm(`Confirm you received ${money(total)} for ${x.ref_no} in the bank?`)) return;
+      decide('verify_payment', { p_subscription: x.id, p_starts_on: startInput.value }, 'verified', x.id, `Payment received. ${planName(x.plan_id)} is now live for ${who2}. Sale recorded.`);
     } },
-      h('label', {}, 'Start', h('input', { type: 'date', name: 'start', required: true, value: dubaiToday() })),
-      h('label', {}, 'Length', monthSelect('months')),
-      h('button', { type: 'submit', class: 'b' }, 'Confirm & go live'),
+      h('label', {}, 'Start', startInput),
+      h('button', { type: 'submit', class: 'b' }, 'Payment received ✓'),
+      x.pay_status === 'submitted' ? h('button', { type: 'button', class: 'b b-ghost', onclick: () => {
+        const reason = prompt(`Payment ${x.ref_no} not found. Optional note for the customer (e.g. "No transfer with this reference yet"):`, '');
+        if (reason === null) return;
+        decide('reject_payment', { p_subscription: x.id, p_reason: reason }, 'rejected', x.id, `Marked as not received. ${who2} was asked to check the transfer.`);
+      } }, 'Not received') : null,
       h('button', { type: 'button', class: 'b b-danger', onclick: () => confirm('Decline this request?') && act('cancel_subscription', { p_subscription: x.id }, 'Request declined.') }, 'Decline'));
-    return h('li', { class: 'row' }, who(p),
-      h('div', { class: 'plan' }, h('span', { class: 'plan-n' }, planName(x.plan_id)), h('span', {}, `${fmtAED(price)} / month · requested ${fmtDate(x.requested_at)}`), x.note ? h('q', {}, x.note) : null),
-      form);
-  }) : [h('li', { class: 'empty' }, query ? 'No pending requests match your search.' : 'No pending requests. You are all caught up.')]));
+    return h('li', { class: 'row' + (x.pay_status === 'submitted' ? ' row-hot' : '') }, who(p),
+      h('div', { class: 'plan' },
+        h('span', { class: 'plan-n' }, `${planName(x.plan_id)} · ${months === 1 ? '1 month' : months + ' months'}`),
+        h('span', {}, h('strong', {}, money(total)), ` incl. VAT · Ref `, h('strong', {}, x.ref_no || '—')),
+        h('span', { class: 'pill', 'data-kind': PAY_KIND[x.pay_status] || 'soon' }, PAY_LABEL[x.pay_status] || x.pay_status),
+        x.proof_path ? h('button', { type: 'button', class: 'b b-ghost b-sm', onclick: (e) => openReceipt(x.proof_path, e.currentTarget) }, 'View receipt') : null,
+        x.proof_note ? h('q', {}, x.proof_note) : null,
+        x.note ? h('q', {}, x.note) : null,
+        h('span', { class: 'muted' }, `Requested ${fmtDate(x.requested_at)}${x.proof_submitted_at ? ' · receipt ' + fmtDate(x.proof_submitted_at) : ''}`)),
+      acts);
+  }) : [h('li', { class: 'empty' }, query ? 'No requests match your search.' : 'No plan requests or payments waiting. You are all caught up.')]));
 }
 function renderActive() {
   const today = dubaiToday();
@@ -287,7 +335,7 @@ function renderCustomers() {
     const open = mine.find((x) => x.status === 'active' || x.status === 'pending');
     const last = mine[0];
     let label = 'No plan yet';
-    if (open) label = `${planName(open.plan_id)} · ${open.status === 'active' ? 'live until ' + fmtDate(open.ends_on) : 'waiting for you'}`;
+    if (open) label = `${planName(open.plan_id)} · ${open.status === 'active' ? 'live until ' + fmtDate(open.ends_on) : (PAY_LABEL[open.pay_status] || 'waiting').toLowerCase()}`;
     else if (last) label = `${planName(last.plan_id)} · ${last.status}`;
     return h('li', { class: 'row row-sm' }, who(p), h('span', {}, `Joined ${fmtDate(p.created_at)}`), h('span', {}, label));
   }) : [h('li', { class: 'empty' }, 'No customers match your search.')]));
@@ -299,7 +347,7 @@ async function loadLists() {
   const [pl, pr, sb] = await Promise.all([
     supabase.from('plans').select('id, name, price_aed').order('sort'),
     supabase.from('profiles').select('id, email, full_name, phone, company, address, gender, created_at').order('created_at', { ascending: false }).limit(1000),
-    supabase.from('subscriptions').select('id, user_id, plan_id, status, note, requested_at, starts_on, ends_on').order('requested_at', { ascending: false }).limit(2000),
+    supabase.from('subscriptions').select('id, user_id, plan_id, status, note, requested_at, starts_on, ends_on, months, ref_no, pay_status, proof_path, proof_note, proof_submitted_at, reject_reason').order('requested_at', { ascending: false }).limit(2000),
   ]);
   const err = pl.error || pr.error || sb.error;
   if (err) throw err;
