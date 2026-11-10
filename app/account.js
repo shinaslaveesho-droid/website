@@ -4,7 +4,7 @@ import { supabase, h, fmtDate, fmtAED, dubaiToday, daysBetween, friendlyError, s
 
 const $ = (id) => document.getElementById(id);
 const status = $('acct-status');
-let session, profile, plans = [], subs = [];
+let session, profile, plans = [], subs = [], docs = [];
 
 const STATUS_LABEL = { pending: 'Waiting for confirmation', active: 'Live', expired: 'Expired', cancelled: 'Cancelled' };
 
@@ -17,6 +17,8 @@ async function load() {
   const err = p.error || pl.error || s.error;
   if (err) throw err;
   profile = p.data; plans = pl.data; subs = s.data;
+  const d = await supabase.from('documents').select('subscription_id, invoice_no, receipt_no, invoice_path, receipt_path, issued_on').eq('user_id', session.user.id);
+  docs = d.error ? [] : d.data;
 }
 
 const planName = (id) => (plans.find((p) => p.id === id) || {}).name || id;
@@ -66,7 +68,8 @@ function renderPlan() {
         stat(started ? 'Days left' : 'Starts in', started ? String(Math.max(0, left + 1)) : `${daysBetween(today, open.starts_on)} days`, true)),
       h('div', { class: 'acct-bar', role: 'progressbar', 'aria-label': 'Plan time used', 'aria-valuemin': '0', 'aria-valuemax': String(total), 'aria-valuenow': String(started ? used : 0) },
         h('span', { style: `width: ${started ? Math.round((used / total) * 100) : 0}%` })),
-      h('p', { class: 'acct-fine' }, 'We’ll email you 7 days and 1 day before your plan ends.'));
+      h('p', { class: 'acct-fine' }, 'We’ll email you 7 days and 1 day before your plan ends.'),
+      docButtons(open.id));
     return;
   }
 
@@ -209,6 +212,23 @@ async function notify(event, id) {
   } catch { /* emails are best effort */ }
 }
 
+// ---------- invoice & receipt downloads ----------
+async function download(path, name, btn) {
+  btn.disabled = true;
+  const { data, error } = await supabase.storage.from('documents').createSignedUrl(path, 300, { download: name });
+  btn.disabled = false;
+  if (error) return setStatus(status, 'Could not open the document. Please try again.', 'error');
+  location.href = data.signedUrl;
+}
+function docButtons(subId, small) {
+  const d = docs.find((x) => x.subscription_id === subId);
+  if (!d || !d.invoice_path) return null;
+  const b = (label, path, name) => h('button', { type: 'button', class: small ? 'acct-doc acct-doc-sm' : 'acct-doc', onclick: (e) => download(path, name, e.currentTarget) }, label);
+  return h('div', { class: 'acct-docs' },
+    b(`Invoice ${d.invoice_no}`, d.invoice_path, `Laveesho-Tax-Invoice-${d.invoice_no}.pdf`),
+    d.receipt_path ? b(`Receipt ${d.receipt_no}`, d.receipt_path, `Laveesho-Payment-Receipt-${d.receipt_no}.pdf`) : null);
+}
+
 function renderHistory() {
   const past = subs.filter((s) => s.status === 'expired' || s.status === 'cancelled');
   $('history').hidden = past.length === 0;
@@ -216,7 +236,8 @@ function renderHistory() {
     h('li', { class: 'acct-hist' },
       h('span', { class: 'acct-hist-name' }, planName(s.plan_id)),
       h('span', {}, s.starts_on ? `${fmtDate(s.starts_on)} – ${fmtDate(s.ends_on)}` : `Requested ${fmtDate(s.requested_at)}`),
-      h('span', { class: 'acct-pill', 'data-kind': s.status }, STATUS_LABEL[s.status]))));
+      h('span', { class: 'acct-pill', 'data-kind': s.status }, STATUS_LABEL[s.status]),
+      docButtons(s.id, true))));
 }
 
 function render() { renderProfile(); renderPlan(); renderHistory(); }

@@ -67,12 +67,13 @@ export function receivedDetailsEmail(r, site) {
 }
 
 // To the customer, when an admin clicks "Payment received".
-export function paymentConfirmedEmail(r, site) {
+export function paymentConfirmedEmail(r, site, doc) {
   return build(`Payment received ✅ Welcome to ${r.plan_name}`, {
     heading: `Payment received. Thank you, ${firstName(r.full_name)}!`,
     paragraphs: [`Your ${r.plan_name} plan is now confirmed${r.starts_on ? `, starting ${fmtDate(r.starts_on)}` : ''}.`,
-      'Our team will contact you within 24 hours to plan your first steps together.'],
-    rows: summaryRows(r),
+      'Our team will contact you within 24 hours to plan your first steps together.',
+      ...(doc ? [`Your tax invoice (${doc.invoice_no}) and payment receipt (${doc.receipt_no}) are attached. You can also download them any time from your account.`] : [])],
+    rows: doc ? [...summaryRows(r), ['Invoice', doc.invoice_no], ['Receipt', doc.receipt_no]] : summaryRows(r),
     button: { label: 'See your plan', href: `${site}/account` },
     footerNote: 'Questions? Reply to this email or WhatsApp us on +971 50 394 0721.',
   });

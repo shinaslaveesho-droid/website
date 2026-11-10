@@ -7,7 +7,7 @@ const status = $('admin-status');
 const tip = $('tip');
 const SVG = 'http://www.w3.org/2000/svg';
 const S = { s1: '#5B3BE8', s2: '#E0559F', s3: '#E8A317', s4: '#A9A6BA' };
-let plans = [], people = [], subs = [], stats = null, query = '';
+let plans = [], people = [], subs = [], stats = null, query = '', docs = [];
 
 const MONTHS = [1, 3, 6, 12];
 const num = (v) => Number(v || 0).toLocaleString('en-US');
@@ -253,7 +253,8 @@ async function emailCustomer(event, id) {
   try {
     const { data } = await supabase.auth.getSession();
     const r = await fetch('/api/payment-event', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ event, subscription_id: id }) });
-    return r.ok;
+    if (!r.ok) return false;
+    return (await r.json().catch(() => ({ ok: true }))) || { ok: true };
   } catch { return false; }
 }
 
@@ -262,6 +263,7 @@ async function decide(fn, args, event, id, done) {
   const { error } = await supabase.rpc(fn, args);
   if (error) return setStatus(status, friendlyError(error), 'error');
   const sent = await emailCustomer(event, id);
+  if (sent && event === 'verified') done += sent.invoice_no ? ` Invoice ${sent.invoice_no} and receipt ${sent.receipt_no} sent.` : ' (Invoice could not be created — please tell your web team.)';
   setStatus(status, done + (sent ? ' The customer has been emailed.' : ' (The email could not be sent — please message the customer.)'), sent ? 'ok' : 'error');
   await refreshAll();
 }
@@ -305,6 +307,20 @@ function renderPending() {
       acts);
   }) : [h('li', { class: 'empty' }, query ? 'No requests match your search.' : 'No plan requests or payments waiting. You are all caught up.')]));
 }
+async function openDoc(path, btn) {
+  btn.disabled = true;
+  const { data, error } = await supabase.storage.from('documents').createSignedUrl(path, 600);
+  btn.disabled = false;
+  if (error) return setStatus(status, 'Could not open the document. Please try again.', 'error');
+  window.open(data.signedUrl, '_blank', 'noopener');
+}
+function docLinks(subId) {
+  const d = docs.find((x) => x.subscription_id === subId);
+  if (!d || !d.invoice_path) return null;
+  return h('span', { class: 'doc-links' },
+    h('button', { type: 'button', class: 'b b-ghost b-sm', onclick: (e) => openDoc(d.invoice_path, e.currentTarget) }, d.invoice_no),
+    d.receipt_path ? h('button', { type: 'button', class: 'b b-ghost b-sm', onclick: (e) => openDoc(d.receipt_path, e.currentTarget) }, d.receipt_no) : null);
+}
 function renderActive() {
   const today = dubaiToday();
   const all = subs.filter((x) => x.status === 'active');
@@ -323,7 +339,8 @@ function renderActive() {
     return h('li', { class: 'row' }, who(p),
       h('div', { class: 'plan' }, h('span', { class: 'plan-n' }, planName(x.plan_id)),
         h('span', {}, `${fmtDate(x.starts_on)} – ${fmtDate(x.ends_on)}`),
-        h('span', { class: 'pill', 'data-kind': left <= 0 ? 'ended' : left <= 7 ? 'soon' : 'live' }, left <= 0 ? 'Ended' : `${left} day${left === 1 ? '' : 's'} left`)),
+        h('span', { class: 'pill', 'data-kind': left <= 0 ? 'ended' : left <= 7 ? 'soon' : 'live' }, left <= 0 ? 'Ended' : `${left} day${left === 1 ? '' : 's'} left`),
+        docLinks(x.id)),
       form);
   }) : [h('li', { class: 'empty' }, query ? 'No live plans match your search.' : 'No live plans yet.')]));
 }
@@ -352,6 +369,8 @@ async function loadLists() {
   const err = pl.error || pr.error || sb.error;
   if (err) throw err;
   plans = pl.data; people = pr.data; subs = sb.data;
+  const dc = await supabase.from('documents').select('subscription_id, invoice_no, receipt_no, invoice_path, receipt_path').limit(2000);
+  docs = dc.error ? [] : dc.data;
 }
 async function loadStats() {
   const { data, error } = await supabase.rpc('admin_stats');

@@ -160,3 +160,10 @@
 .pay .acct-plan-head{flex-wrap:wrap}
 .pay .acct-plan-name{font-size:clamp(40px,11vw,72px)}
 .pay-upload input[type=file]{width:100%;min-width:0;font-size:14px}
+/* invoice & receipt downloads */
+.acct-docs{display:flex;flex-wrap:wrap;gap:8px}
+.acct-doc{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(74,31,209,.35);background:#fff;color:var(--royal);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.acct-doc::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11M7 10l5 5 5-5M5 20h14'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11M7 10l5 5 5-5M5 20h14'/%3E%3C/svg%3E") center/contain no-repeat}
+.acct-doc:hover{background:rgba(74,31,209,.06)}
+.acct-doc:focus-visible{outline:3px solid var(--royal);outline-offset:2px}
+.acct-doc-sm{min-height:36px;padding:0 12px;font-size:13px}
