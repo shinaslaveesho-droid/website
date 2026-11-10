@@ -154,3 +154,9 @@
 .pay-upload input[type=file]{padding:12px;background:#fff;cursor:pointer}
 .pay-done{display:grid;gap:6px;padding:16px 18px;border-radius:18px;background:#DDF5E8;color:#0E5C35;font-size:15px;line-height:1.55}
 .pay-done strong{font-size:17px}
+/* keep the plan / payment box inside narrow screens */
+#plan-box{grid-template-columns:minmax(0,1fr);min-width:0}
+#plan-box>*,.pay>*{min-width:0}
+.pay .acct-plan-head{flex-wrap:wrap}
+.pay .acct-plan-name{font-size:clamp(40px,11vw,72px)}
+.pay-upload input[type=file]{width:100%;min-width:0;font-size:14px}
