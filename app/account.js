@@ -73,7 +73,7 @@ function renderPlan() {
       h('div', { class: 'acct-bar', role: 'progressbar', 'aria-label': 'Plan time used', 'aria-valuemin': '0', 'aria-valuemax': String(total), 'aria-valuenow': String(started ? used : 0) },
         h('span', { style: `width: ${started ? Math.round((used / total) * 100) : 0}%` })),
       h('p', { class: 'acct-fine' }, open.plan_id === 'sprint' ? 'We’ll remind you the day before your sprint ends.' : 'We’ll email you 7 days and 1 day before your plan ends.'),
-      docButtons(open.id));
+      ...[docButtons(open.id)].filter(Boolean));
     return;
   }
 
