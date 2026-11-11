@@ -49,6 +49,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const fmt = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export function reminderEmail(r) {
+  if (/sprint/i.test(r.plan_name || '')) return sprintEndingEmail(r);
   const first = (r.full_name || '').trim().split(/\s+/)[0] || 'there';
   const when = r.days_left <= 0 ? 'today' : r.days_left === 1 ? 'tomorrow' : `in ${r.days_left} days`;
   const subject = r.kind === '1d'
@@ -76,6 +77,27 @@ export function reminderEmail(r) {
 <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#454A6E">Renew now to keep your content and campaigns running without a break.</p>
 <a href="${esc(renew)}" style="display:inline-block;background:#0A0B22;color:#ffffff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:999px">Renew on WhatsApp</a>
 <p style="margin:24px 0 0;font-size:14px"><a href="${esc(SITE)}/account" style="color:#4A1FD1">See your plan</a></p>
+</td></tr>
+<tr><td style="padding:20px 32px;border-top:1px solid #E6E9F5;font-size:12px;color:#6B7094">Laveesho · The Citadel Tower, Business Bay, Dubai · +971 50 394 0721</td></tr>
+</table></td></tr></table></body></html>`;
+  return { subject, text, html };
+}
+
+function sprintEndingEmail(r) {
+  const first = (r.full_name || '').trim().split(/\s+/)[0] || 'there';
+  const when = r.days_left <= 0 ? 'today' : 'tomorrow';
+  const subject = `Your free Growth Sprint ends ${when}`;
+  const plans = `${SITE}/pricing`;
+  const text = [`Hi ${first},`, '', `Your free 7-Day Growth Sprint ends ${when}.`, 'We hope you enjoyed working with us. Choose a plan to keep the momentum going.', '', `See plans: ${plans}`, '', 'Laveesho · The Citadel Tower, Business Bay, Dubai · +971 50 394 0721'].join('\n');
+  const html = `<!doctype html><html><body style="margin:0;background:#F4F8FD;font-family:Arial,Helvetica,sans-serif;color:#0A0B22">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:20px;overflow:hidden">
+<tr><td style="background:linear-gradient(120deg,#4A1FD1,#BF0D65);background-color:#4A1FD1;padding:28px 32px;color:#F5EEDC;font-size:13px;letter-spacing:2px;font-weight:bold">LAVEESHO</td></tr>
+<tr><td style="padding:32px">
+<p style="margin:0 0 16px;font-size:16px">Hi ${esc(first)},</p>
+<p style="margin:0 0 12px;font-size:22px;line-height:1.3;font-weight:bold">Your free 7-Day Growth Sprint ends ${esc(when)}.</p>
+<p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#454A6E">We hope you enjoyed working with us. Choose a plan to keep the momentum going.</p>
+<a href="${esc(plans)}" style="display:inline-block;background:#0A0B22;color:#ffffff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:999px">Choose a plan</a>
 </td></tr>
 <tr><td style="padding:20px 32px;border-top:1px solid #E6E9F5;font-size:12px;color:#6B7094">Laveesho · The Citadel Tower, Business Bay, Dubai · +971 50 394 0721</td></tr>
 </table></td></tr></table></body></html>`;

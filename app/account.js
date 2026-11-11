@@ -51,7 +51,11 @@ function renderPlan() {
     const total = daysBetween(open.starts_on, open.ends_on) + 1;
     const used = Math.min(total, Math.max(0, daysBetween(open.starts_on, today) + 1));
     const started = daysBetween(open.starts_on, today) >= 0;
-    if (started && left <= 7) {
+    if (open.plan_id === 'sprint') {
+      box.append(h('div', { class: 'acct-banner', role: 'status' },
+        h('strong', {}, left <= 0 ? 'Your free sprint ends today.' : `Your free sprint ends in ${left + 1} days.`),
+        ' Like the results? Choose a plan to keep growing. ', h('a', { href: '/pricing' }, 'See plans')));
+    } else if (started && left <= 7) {
       box.append(h('div', { class: 'acct-banner', role: 'status' },
         h('strong', {}, left <= 0 ? 'Your plan ends today.' : `Your plan ends in ${left} day${left === 1 ? '' : 's'}.`),
         ' Renew now to keep your campaigns running without a break. ',
@@ -68,8 +72,22 @@ function renderPlan() {
         stat(started ? 'Days left' : 'Starts in', started ? String(Math.max(0, left + 1)) : `${daysBetween(today, open.starts_on)} days`, true)),
       h('div', { class: 'acct-bar', role: 'progressbar', 'aria-label': 'Plan time used', 'aria-valuemin': '0', 'aria-valuemax': String(total), 'aria-valuenow': String(started ? used : 0) },
         h('span', { style: `width: ${started ? Math.round((used / total) * 100) : 0}%` })),
-      h('p', { class: 'acct-fine' }, 'We’ll email you 7 days and 1 day before your plan ends.'),
+      h('p', { class: 'acct-fine' }, open.plan_id === 'sprint' ? 'We’ll remind you the day before your sprint ends.' : 'We’ll email you 7 days and 1 day before your plan ends.'),
       docButtons(open.id));
+    return;
+  }
+
+  if (open && open.status === 'pending' && open.plan_id === 'sprint') {
+    box.append(
+      h('div', { class: 'acct-plan-head' },
+        h('div', {}, h('p', { class: 'kick acct-kick' }, 'Free · 7 days'), h('h3', { class: 'serif acct-plan-name' }, '7-Day Growth Sprint')),
+        h('span', { class: 'acct-pill', 'data-kind': 'pending' }, 'Requested')),
+      h('div', { class: 'pay-done', role: 'status' },
+        h('strong', {}, 'Your free sprint is booked.'),
+        h('span', {}, 'Our team will contact you within 24 hours to collect your details and start your 7 days.')),
+      h('div', { class: 'acct-actions' },
+        h('a', { class: 'btn', href: WHATSAPP + '?text=' + encodeURIComponent('Hi Laveesho, I just requested the free 7-Day Growth Sprint.'), style: 'background: var(--ink); color: #fff' }, 'Say hi on WhatsApp'),
+        h('button', { type: 'button', class: 'btn acct-ghost', onclick: () => cancelRequest(open.id) }, 'Cancel request')));
     return;
   }
 
@@ -82,10 +100,16 @@ function renderPlan() {
   const last = subs[0];
   if (last && last.status === 'expired') box.append(h('div', { class: 'acct-banner', role: 'status' }, h('strong', {}, `Your ${planName(last.plan_id)} plan ended on ${fmtDate(last.ends_on)}.`), ' Choose a plan below to start again.'));
   const fromUrl = new URLSearchParams(location.search).get('plan');
-  const wanted = plans.some((p) => p.id === fromUrl) ? fromUrl : plans.some((p) => p.id === 'growth') ? 'growth' : (plans[0] || {}).id;
+  const sprintOk = !subs.some((x) => (x.plan_id !== 'sprint' && (x.status === 'active' || x.status === 'expired')) || (x.plan_id === 'sprint' && x.status !== 'cancelled'));
+  if (fromUrl === 'sprint') {
+    if (sprintOk) { box.append(sprintForm()); return; }
+    box.append(h('div', { class: 'acct-banner', role: 'status' }, h('strong', {}, 'The free sprint is for new customers. '), 'You can choose a plan below.'));
+  }
+  const paidPlans = plans.filter((p) => p.id !== 'sprint');
+  const wanted = paidPlans.some((p) => p.id === fromUrl) ? fromUrl : paidPlans.some((p) => p.id === 'growth') ? 'growth' : (paidPlans[0] || {}).id;
   const form = h('form', { class: 'acct-choose', onsubmit: requestPlan },
     h('fieldset', {}, h('legend', { class: 'kick acct-kick' }, 'Choose your plan'),
-      h('div', { class: 'acct-options' }, plans.map((p, i) =>
+      h('div', { class: 'acct-options' }, paidPlans.map((p, i) =>
         h('label', { class: 'acct-option' },
           h('input', { type: 'radio', name: 'plan', value: p.id, required: true, checked: p.id === wanted, onchange: () => updateTotal(form) }),
           h('span', { class: 'serif acct-option-name' }, p.name.replace('Laveesho ', '')),
@@ -98,8 +122,38 @@ function renderPlan() {
       h('textarea', { id: 'plan-note', name: 'note', rows: '3', maxlength: '500', placeholder: 'Your goals, preferred start date, questions' })),
     h('button', { type: 'submit', class: 'btn', style: 'background: linear-gradient(100deg, #4A1FD1, #BF0D65); color: #fff; width: 100%' }, 'Continue to payment'),
     h('p', { class: 'acct-fine' }, 'Next you’ll see our bank details and your payment reference. Pay by bank transfer, then upload your receipt. ', h('a', { href: '/pricing' }, 'Compare what’s included')));
+  if (sprintOk && fromUrl !== 'sprint') box.append(h('a', { class: 'sprint-mini', href: '/account?plan=sprint' }, h('strong', {}, 'New here? '), 'Try the free 7-Day Growth Sprint first →'));
   box.append(form);
   updateTotal(form);
+}
+
+// ---------- free sprint ----------
+const SPRINT_ITEMS = ['1 social media audit', '2 professional post designs', '1 promotional reel', '1 personalised growth recommendation', '1 paid marketing proposal'];
+function sprintForm() {
+  const form = h('form', { class: 'acct-choose sprint-form', onsubmit: requestSprint },
+    h('div', { class: 'acct-plan-head' },
+      h('div', {}, h('p', { class: 'kick acct-kick' }, 'Free for new customers'), h('h3', { class: 'serif acct-plan-name' }, '7-Day Growth Sprint')),
+      h('span', { class: 'acct-pill', 'data-kind': 'live' }, 'AED 0')),
+    h('p', { class: 'acct-text' }, 'Experience Laveesho before investing in marketing.'),
+    h('ul', { class: 'sprint-list' }, SPRINT_ITEMS.map((t) => h('li', {}, t))),
+    h('div', { class: 'field' }, h('label', { for: 'sprint-note' }, 'Your business and Instagram handle (optional)'),
+      h('textarea', { id: 'sprint-note', name: 'note', rows: '3', maxlength: '500', placeholder: 'e.g. Café in JLT · @yourbrand' })),
+    h('button', { type: 'submit', class: 'btn', style: 'background: linear-gradient(100deg, #4A1FD1, #BF0D65); color: #fff; width: 100%' }, 'Start my free sprint'),
+    h('p', { class: 'acct-fine' }, 'No payment and no card needed. The sprint lasts 7 days and does not renew. Afterwards you can choose a paid plan if you like the results. ', h('a', { href: '/account' }, 'See paid plans instead')));
+  return form;
+}
+
+async function requestSprint(e) {
+  e.preventDefault();
+  const f = e.currentTarget;
+  const btn = f.querySelector('button[type=submit]');
+  btn.disabled = true;
+  const { error } = await supabase.from('subscriptions').insert({ user_id: session.user.id, plan_id: 'sprint', note: f.note.value.trim() || null });
+  btn.disabled = false;
+  if (error) return setStatus(status, /new customers/i.test(error.message || '') ? 'The free sprint is for new customers only. Please choose a plan instead.' : friendlyError(error), 'error');
+  setStatus(status, 'Your free sprint is booked! We’ll contact you within 24 hours.', 'ok');
+  history.replaceState(null, '', '/account');
+  await refresh();
 }
 
 // ---------- bank transfer ----------

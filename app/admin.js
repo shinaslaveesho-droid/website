@@ -277,6 +277,22 @@ function renderPending() {
   const badge = $('nav-pending'); badge.textContent = String(toCheck || all.length); badge.toggleAttribute('data-zero', !all.length);
   $('pending-list').replaceChildren(...(rows.length ? rows.map((x) => {
     const p = person(x.user_id);
+    if (x.plan_id === 'sprint') {
+      const start = h('input', { type: 'date', name: 'start', required: true, value: dubaiToday() });
+      return h('li', { class: 'row row-sprint' }, who(p),
+        h('div', { class: 'plan' },
+          h('span', { class: 'plan-n' }, 'Free 7-Day Growth Sprint'),
+          h('span', { class: 'pill', 'data-kind': 'live' }, 'Free · no payment'),
+          x.note ? h('q', {}, x.note) : null,
+          h('span', { class: 'muted' }, `Requested ${fmtDate(x.requested_at)}`)),
+        h('form', { class: 'acts', onsubmit: (e) => {
+          e.preventDefault();
+          act('start_sprint', { p_subscription: x.id, p_starts_on: start.value }, `Free sprint started for ${p.full_name || p.email}. It ends after 7 days.`);
+        } },
+          h('label', {}, 'Start', start),
+          h('button', { type: 'submit', class: 'b' }, 'Start sprint'),
+          h('button', { type: 'button', class: 'b b-danger', onclick: () => confirm('Decline this sprint request?') && act('cancel_subscription', { p_subscription: x.id }, 'Sprint request declined.') }, 'Decline')));
+    }
     const price = (plans.find((pl) => pl.id === x.plan_id) || {}).price_aed || 0;
     const months = x.months || 1;
     const total = withVat(price * months);
@@ -329,7 +345,10 @@ function renderActive() {
   $('active-list').replaceChildren(...(rows.length ? rows.map((x) => {
     const p = person(x.user_id);
     const left = daysBetween(today, x.ends_on) + 1;
-    const form = h('form', { class: 'acts', onsubmit: (e) => {
+    const form = x.plan_id === 'sprint'
+      ? h('div', { class: 'acts' }, h('span', { class: 'muted' }, 'Free sprint · no sale'),
+          h('button', { type: 'button', class: 'b b-danger', onclick: () => confirm(`End ${p.full_name || p.email}'s sprint now?`) && act('cancel_subscription', { p_subscription: x.id }, 'Sprint ended.') }, 'End sprint'))
+      : h('form', { class: 'acts', onsubmit: (e) => {
       e.preventDefault(); const m = Number(e.currentTarget.months.value);
       act('extend_subscription', { p_subscription: x.id, p_months: m }, `Extended by ${m} month${m === 1 ? '' : 's'}. Renewal recorded.`);
     } },
