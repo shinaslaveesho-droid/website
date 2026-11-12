@@ -114,6 +114,22 @@
 
   // Native scrolling only: the earlier JS "inertial" wheel scroll fought Safari's own momentum and felt laggy.
 
+  // ---- floating back-to-top: shows once the page is scrolled about halfway ----
+  var toTopBtn = document.querySelector('.totop');
+  if (toTopBtn) {
+    var ttTick = false;
+    var ttUpdate = function () {
+      ttTick = false;
+      var se = document.scrollingElement || document.documentElement;
+      var max = se.scrollHeight - window.innerHeight;
+      toTopBtn.classList.toggle('show', max > 0 && se.scrollTop > max * 0.5);
+    };
+    var ttQueue = function () { if (!ttTick) { ttTick = true; requestAnimationFrame(ttUpdate); } };
+    window.addEventListener('scroll', ttQueue, { passive: true });
+    window.addEventListener('resize', ttQueue);
+    ttUpdate();
+  }
+
   // ---- "How we work" sideways journey for browsers without scroll-driven animations (Safari 18 and older) ----
   // Mirrors the CSS version: the track slides left as the tall section scrolls through the sticky viewport.
   var hs = document.querySelector('.hs');
