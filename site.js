@@ -111,24 +111,5 @@
     sec.addEventListener('mouseleave', function () { sec.style.setProperty('--spot', '50% 50%'); });
   });
 
-  // ---- smooth inertial wheel scrolling (home page) ----
-  if (!reduce && document.querySelector('.rot')) {
-    var se = document.scrollingElement || document.documentElement;
-    var target = se.scrollTop, cur = target, loop = null;
-    var step = function () {
-      cur += (target - cur) * 0.11;
-      if (Math.abs(target - cur) < 0.5) { cur = target; se.scrollTop = cur; loop = null; return; }
-      se.scrollTop = cur; loop = requestAnimationFrame(step);
-    };
-    window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || menuOpen) return;
-      if (se.scrollHeight <= window.innerHeight + 4) return;
-      e.preventDefault();
-      if (!loop) { target = se.scrollTop; cur = target; }
-      var d = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? window.innerHeight : 1);
-      target = Math.max(0, Math.min(se.scrollHeight - window.innerHeight, target + d));
-      if (!loop) loop = requestAnimationFrame(step);
-    }, { passive: false });
-    window.addEventListener('scroll', function () { if (!loop) { target = se.scrollTop; cur = target; } }, { passive: true });
-  }
+  // Native scrolling only: the earlier JS "inertial" wheel scroll fought Safari's own momentum and felt laggy.
 })();

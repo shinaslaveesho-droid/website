@@ -153,7 +153,7 @@ a{color:inherit}a:hover{color:inherit}
 @media (prefers-reduced-motion:reduce){.sk-scrib path{animation:none;stroke-dashoffset:0}}
 @media (max-width:860px){.sk-spark{right:-8px}}
 /* menu drawer (all screen sizes) */
-.menu-scrim{position:fixed;inset:0;z-index:99;border:none;padding:0;background:rgba(10,11,34,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;animation:scrimIn .4s ease both}
+.menu-scrim{position:fixed;inset:0;z-index:99;border:none;padding:0;background:rgba(10,11,34,.45);cursor:pointer;animation:scrimIn .4s ease both}
 @keyframes scrimIn{from{opacity:0}to{opacity:1}}
 @media (min-width:700px){
 .menu-panel{left:auto;width:min(520px,92vw);border-radius:32px 0 0 32px;box-shadow:-30px 0 80px -20px rgba(10,11,34,.6);padding:28px 40px 40px;animation:drawerIn .6s cubic-bezier(.2,.8,.2,1)}
@@ -198,7 +198,7 @@ a{color:inherit}a:hover{color:inherit}
 .ch{position:relative;display:inline-block;opacity:0;animation:typ .22s cubic-bezier(.2,.8,.2,1) var(--d) forwards}
 .ch::after{content:"";position:absolute;right:-.05em;top:.1em;bottom:.12em;width:.055em;border-radius:.03em;background:linear-gradient(180deg,#4A1FD1,#BF0D65);opacity:0;animation:car .085s steps(1) var(--d) 1}
 .ch.last::after{animation:car .085s steps(1) var(--d) 1,blink 1s steps(1) calc(var(--d) + .085s) infinite}
-@keyframes typ{0%{opacity:0;filter:blur(6px);transform:translateY(.05em) scaleY(1.08)}60%{opacity:1;filter:blur(0)}100%{opacity:1;filter:none;transform:none}}
+@keyframes typ{0%{opacity:0;transform:translateY(.05em) scaleY(1.08)}60%{opacity:1}100%{opacity:1;transform:none}}
 @keyframes car{0%,100%{opacity:1}}
 @keyframes blink{0%{opacity:1}50%{opacity:0}}
 .calm .ch{opacity:1;animation:none}.calm .ch::after{display:none}
@@ -208,7 +208,7 @@ a{color:inherit}a:hover{color:inherit}
 .mask>span{display:block;transform:translateY(108%);animation:rise 1.25s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes rise{to{transform:none}}
 .in{opacity:0;animation:inUp 1.1s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes inUp{from{opacity:0;transform:translateY(30px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes inUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 /* smoky seam */
 .seam{position:relative;height:clamp(260px,26vw,380px);overflow:hidden;overflow:clip;margin:-2px 0;background:linear-gradient(180deg,var(--a) 0%,var(--a) 14%,var(--m) 50%,var(--b) 86%,var(--b) 100%)}
 .smoke{position:absolute;top:0;left:-10%;width:120%;height:100%;animation:smdrift 26s ease-in-out infinite alternate;pointer-events:none}
@@ -301,7 +301,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .zoomhead{animation:zh linear both;animation-timeline:view();animation-range:entry 0% cover 50%}
 }
 @keyframes gx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes rv{from{opacity:0;transform:translateY(70px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes rv{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:none}}
 @keyframes rvs{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
 @keyframes tin{from{opacity:0;transform:perspective(900px) rotateX(28deg) rotateZ(-4deg) translateY(90px)}to{opacity:1;transform:none}}
 @keyframes par{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
@@ -313,8 +313,8 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 
 /* responsive: mobile menu */
 .menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center;flex:none}
-.menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .6s cubic-bezier(.2,.8,.2,1)}
-@keyframes menuIn{from{clip-path:circle(0 at calc(100% - 44px) 44px)}to{clip-path:circle(150% at calc(100% - 44px) 44px)}}
+.menu-panel{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#2A0F8F 0%,#4A1FD1 45%,#BF0D65 100%);color:#F5EEDC;display:flex;flex-direction:column;gap:8px;padding:22px clamp(16px,5vw,32px) 32px;overflow-y:auto;animation:menuIn .4s cubic-bezier(.2,.8,.2,1) both;will-change:transform,opacity}
+@keyframes menuIn{from{opacity:0;transform:translateY(-14px) scale(.985)}to{opacity:1;transform:none}}
 .menu-panel .ml{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;text-transform:uppercase;font-size:clamp(48px,14vw,84px);line-height:1;text-decoration:none;color:#F5EEDC;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.2);opacity:0;animation:inUp .6s cubic-bezier(.2,.8,.2,1) forwards}
 @media (max-width:860px){.nav-desk,.nav-cta{display:none!important}.menu-btn{display:inline-flex}}
 /* responsive: small screens */
@@ -431,7 +431,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .w5{height:40%!important;top:30%!important}
 @keyframes smk1{from{transform:translate(-6%,4%) scale(1) rotate(0)}to{transform:translate(10%,-5%) scale(1.25) rotate(10deg)}}
 @keyframes smk2{from{transform:translate(8%,-4%) scale(1.1) rotate(0)}to{transform:translate(-10%,5%) scale(.92) rotate(-12deg)}}
-.grain-fixed{position:fixed;inset:0;width:100%;height:100%;opacity:.06;mix-blend-mode:overlay;pointer-events:none;z-index:40}
 
 /* ===== FAQ open / close motion ===== */
 .lx{interpolate-size:allow-keywords}
@@ -445,7 +444,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .lx details .pl{transition:transform .7s cubic-bezier(.3,1.6,.4,1),background .4s ease,color .4s ease,border-color .4s ease}
 .lx details[open] .pl{transform:rotate(135deg);background:#F2C94C;color:#0A0B22;border-color:#F2C94C}
 .lx details[open] summary + p{animation:ansIn .75s cubic-bezier(.2,.8,.2,1) .08s both;padding-left:12px!important}
-@keyframes ansIn{from{opacity:0;transform:translateY(-14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes ansIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.lx details::details-content{transition:none}}
 
 /* ===== snake ribbon ===== */
@@ -479,13 +478,27 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .hx-offer-go{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#0A0B22;color:#fff;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .hx-offer:hover .hx-offer-go{transform:translateX(3px)}
 @media (max-width:560px){.hx-offer{text-align:left;max-width:100%;gap:10px}.hx-offer-sep{display:none}.hx-offer-sub{display:block;font-size:13px}}
+
+/* perf: Safari-friendly layers; lighter effects on phones */
+@media (hover:none),(max-width:860px){
+.smoke,.tex,.w4,.w5,.hx-grain,.cyl-blur{display:none!important}
+.wisp{filter:blur(22px)!important}
+.blob{filter:blur(40px)!important}
+.aurora{filter:blur(44px)!important;animation-duration:90s!important}
+.irid-glow{filter:blur(26px)!important}
+.silk{mix-blend-mode:normal!important;opacity:.35}
+.orbit>span>span,.hx-seg,.hx-line,.hx-seal,.menu-scrim,[style*="backdrop-filter"]{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.orbit>span>span{background:rgba(255,255,255,.92)!important}
+.hx-seg{background:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,linear-gradient(100deg,#4A1FD1,#D94FC4,#F2C94C) border-box!important}
+.hx-line{background:rgba(255,255,255,.85)!important}
+.hx-seal{background:rgba(255,255,255,.94)!important}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 </head>
 <body>
 <div class="lx " style="position: relative; overflow: hidden; overflow: clip; min-height: 100vh">
 <div class="bar" aria-hidden="true"></div>
-<svg class="grain-fixed" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
 
 <!-- ============ 1 · HERO · silver / white / ice ============ -->
 <section style="position: relative; background: #EEF3FB; overflow-x: clip" data-on-mousemove="onMove" data-on-mouseleave="onLeave">
@@ -496,12 +509,12 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="blob" style="width: 30vw; height: 30vw; right: 22vw; top: 26vw; background: radial-gradient(circle, rgba(217,79,196,.3) 0%, rgba(217,79,196,0) 70%); animation-delay: -8s"></div>
 <div class="silk"></div>
 <div style="position: absolute; inset: 0; background: radial-gradient(520px circle at var(--spot, 50% 50%), rgba(255,255,255,.75), rgba(255,255,255,0) 65%); transition: background .2s"></div>
-<svg width="100%" height="100%" style="position: absolute; inset: 0; opacity: .09; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+<svg class="hx-grain" width="100%" height="100%" style="position: absolute; inset: 0; opacity: .09; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
 </div>
 <svg width="0" height="0" aria-hidden="true" style="position: absolute"><defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#4A1FD1"></stop><stop offset=".5" stop-color="#D94FC4"></stop><stop offset="1" stop-color="#2F55F0"></stop></linearGradient>
-<filter id="smA" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.0045 0.016" numOctaves="4" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap><feGaussianBlur stdDeviation="9"></feGaussianBlur></filter>
-<filter id="smB" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.014" numOctaves="4" seed="23" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="G" yChannelSelector="R"></feDisplacementMap><feGaussianBlur stdDeviation="9"></feGaussianBlur></filter>
-<filter id="smH" x="-45%" y="-10%" width="190%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.016 0.0045" numOctaves="4" seed="11" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="220" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap><feGaussianBlur stdDeviation="8"></feGaussianBlur></filter>
+<filter id="smA" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.0045 0.016" numOctaves="2" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+<filter id="smB" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.014" numOctaves="2" seed="23" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="G" yChannelSelector="R"></feDisplacementMap></filter>
+<filter id="smH" x="-45%" y="-10%" width="190%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.016 0.0045" numOctaves="2" seed="11" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="220" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
 </defs></svg>
 
 <header class="wrap in hx-top">
