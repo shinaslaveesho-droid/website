@@ -493,6 +493,16 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .hx-line{background:rgba(255,255,255,.85)!important}
 .hx-seal{background:rgba(255,255,255,.94)!important}
 }
+
+/* back-to-top circle (last two sections) */
+.totop{position:absolute;right:clamp(16px,4vw,48px);bottom:26px;z-index:5;width:56px;height:56px;border-radius:50%;color:var(--ink);display:flex;align-items:center;justify-content:center;text-decoration:none;isolation:isolate;box-shadow:0 18px 36px -14px rgba(242,201,76,.75);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.totop::before{content:"";position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from 0deg,#4A1FD1,#D94FC4,#F2C94C,#2F55F0,#4A1FD1);z-index:-2;animation:spin 7s linear infinite}
+.totop::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--gold);z-index:-1}
+.totop svg{width:22px;height:22px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.totop:hover{transform:translateY(-4px);box-shadow:0 24px 44px -14px rgba(242,201,76,.9)}
+.totop:hover svg{transform:translateY(-2px)}
+@media (max-width:860px){.totop{width:48px;height:48px;bottom:18px}.totop svg{width:20px;height:20px}}
+@media (prefers-reduced-motion:reduce){.totop::before{animation:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 </head>
@@ -518,7 +528,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </defs></svg>
 
 <header class="wrap in hx-top">
-<p class="hx-loc"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span>Business Bay, Dubai</span></p>
+<span class="hx-loc" aria-hidden="true"></span>
 <a href="/" aria-label="Laveesho home" class="hx-logo"><img width="600" height="161" fetchpriority="high" src="/assets/logo-dark-600.webp" alt="Laveesho — Building Digital Future"></a>
 <button type="button" class="hx-burger" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><span></span><span></span><span></span></button>
 
@@ -1169,6 +1179,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 
 </div>
 </div>
+<a class="totop" href="#" aria-label="Back to top" data-on-click="toTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg></a>
 </section>
 
 <!-- ============ 7 · CTA + FOOTER ============ -->
@@ -1184,6 +1195,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <a class="btn" href="https://wa.me/971503940721" style="color: var(--ivory); border: 1.5px solid rgba(245,238,220,.5)">WhatsApp +971 50 394 0721</a>
 </div>
 </div>
+<a class="totop" href="#" aria-label="Back to top" data-on-click="toTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg></a>
 </section>
 <footer style="background: #070F3D; color: #C9CCE8">
 <div class="wrap" style="padding-top: 64px; padding-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">

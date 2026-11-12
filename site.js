@@ -77,6 +77,7 @@
   var actions = {
     toggleMenu: function () { setMenu(!menuOpen); },
     closeMenu: function () { setMenu(false); },
+    toTop: function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); },
     prev: function () { turn(60); },
     next: function () { turn(-60); },
     reset: function () {
