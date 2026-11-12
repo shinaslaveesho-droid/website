@@ -243,8 +243,8 @@ a{color:inherit}a:hover{color:inherit}
 @keyframes hsp{from{transform:scaleX(.08)}to{transform:scaleX(1)}}
 @keyframes popin{from{opacity:0;transform:translateX(80px) rotate(4deg) scale(.92)}to{opacity:1;transform:none}}
 @supports not (animation-timeline: view()){
-.hs{height:auto}.hs-sticky{position:relative;height:auto;overflow-x:auto;scroll-snap-type:x mandatory}
-.panel{height:min(100vh,820px);scroll-snap-align:start}.hs-prog{display:none}
+html:not(.hs-js) .hs{height:auto}html:not(.hs-js) .hs-sticky{position:relative;height:auto;overflow-x:auto;scroll-snap-type:x mandatory}
+html:not(.hs-js) .panel{height:min(100vh,820px);scroll-snap-align:start}html:not(.hs-js) .hs-prog{display:none}
 }
 /* marquee */
 .marq{display:flex;width:max-content;animation:marq 34s linear infinite}

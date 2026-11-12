@@ -112,4 +112,27 @@
   });
 
   // Native scrolling only: the earlier JS "inertial" wheel scroll fought Safari's own momentum and felt laggy.
+
+  // ---- "How we work" sideways journey for browsers without scroll-driven animations (Safari 18 and older) ----
+  // Mirrors the CSS version: the track slides left as the tall section scrolls through the sticky viewport.
+  var hs = document.querySelector('.hs');
+  var hsTrack = hs && hs.querySelector('.hs-track');
+  var calm = document.documentElement.classList.contains('calm') || (document.body && document.body.classList.contains('calm'));
+  if (hs && hsTrack && !reduce && !calm && !(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'))) {
+    document.documentElement.classList.add('hs-js');
+    var hsProg = hs.querySelector('.hs-prog > span');
+    var hsTick = false;
+    var hsUpdate = function () {
+      hsTick = false;
+      var range = hs.offsetHeight - window.innerHeight;
+      var p = range > 0 ? Math.min(1, Math.max(0, -hs.getBoundingClientRect().top / range)) : 0;
+      var dx = Math.max(0, hsTrack.scrollWidth - window.innerWidth) * p;
+      hsTrack.style.transform = 'translate3d(' + (-dx).toFixed(1) + 'px,0,0)';
+      if (hsProg) hsProg.style.transform = 'scaleX(' + (0.08 + 0.92 * p).toFixed(3) + ')';
+    };
+    var hsQueue = function () { if (!hsTick) { hsTick = true; requestAnimationFrame(hsUpdate); } };
+    window.addEventListener('scroll', hsQueue, { passive: true });
+    window.addEventListener('resize', hsQueue);
+    hsUpdate();
+  }
 })();
