@@ -1,0 +1,54 @@
+name: Blog post
+
+# Runs every morning at 09:00 Dubai time. The script publishes only if the last post is 3 or more days old,
+# so the blog gets one new post every 3 days. "Run workflow" publishes immediately (optional topic).
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional topic or angle for this post (leave empty to let it pick the trend)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - name: Research, write and render the post
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOPIC: ${{ inputs.topic }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
+        run: node scripts/blog/generate.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "Laveesho Blog"
+          git config user.email "business@laveesho.com"
+          git add -A blog sitemap.xml llms.txt
+          if git diff --cached --quiet; then echo "No new post today."; exit 0; fi
+          git commit -m "blog: ${{ steps.gen.outputs.title || 'new post' }}"
+          git pull --rebase origin main
+          git push origin HEAD:main
