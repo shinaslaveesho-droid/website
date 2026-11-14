@@ -1,0 +1,15 @@
+# Laveesho
+
+> Laveesho is a creative branding and digital marketing agency in The Citadel Tower, Business Bay, Dubai. Services: brand identity, social media, SEO and AI-search readiness, paid ads, websites and apps, video and motion. Monthly packages with a free 7-day Growth Sprint trial. Contact: business@laveesho.com, +971 50 394 0721.
+
+## Pages
+- [Home](https://laveesho.com/)
+- [Services](https://laveesho.com/services)
+- [About](https://laveesho.com/about)
+- [Pricing](https://laveesho.com/pricing)
+- [Blog](https://laveesho.com/blog)
+- [Contact](https://laveesho.com/contact)
+- [Privacy](https://laveesho.com/privacy)
+
+## Blog posts (newest first)
+- [How to Claim Your ChatGPT Business Profile (Dubai Guide)](https://laveesho.com/blog/claim-chatgpt-business-profile-dubai): OpenAI opened its Business Hub on 10 November. Here's how to claim and verify your ChatGPT profile from the UAE, what the new Insights tab really shows, and what it won't do for your recommendations. (2026-11-14)

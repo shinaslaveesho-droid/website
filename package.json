@@ -2,9 +2,19 @@
   "name": "laveesho-website",
   "private": true,
   "type": "module",
-  "engines": { "node": "22.x" },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@sparticuz/chromium": "153.0.0",
     "puppeteer-core": "25.12.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "zod": "^4.6.7"
+  },
+  "scripts": {
+    "blog": "node scripts/blog/generate.mjs",
+    "blog:build": "node scripts/blog/render.mjs"
   }
 }
