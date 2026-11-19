@@ -369,8 +369,8 @@ ${post.faq.map(f => `<div class="qi"><h3>${esc(f.question)}</h3><p>${esc(f.answe
 <div><b>${AUTHOR.name}</b><p>Founder & CEO of Laveesho, a creative branding and digital marketing agency in Business Bay, Dubai. He leads strategy, video and brand work for clients across the UAE and GCC and writes here about what is changing in marketing, AI and search. <a href="/about">More about Laveesho</a> · <a href="/contact">Talk to him</a>.</p></div>
 </div>
 <div class="cta">
-<div><h2>Want this done for your brand?</h2><p>Try Laveesho free for 7 days. We audit your search and AI visibility, fix the quick wins and show you the plan.</p></div>
-<a class="btn" href="/pricing#sprint" style="background: #F2C94C; color: #0A0B22">Start the free 7-day sprint</a>
+<div><h2>Want this done for your brand?</h2><p>Claim a free, professionally made promotional video for your business. No payment, no commitment, limited slots.</p></div>
+<a class="btn" href="/pricing#free-video" style="background: #F2C94C; color: #0A0B22">Claim my free video</a>
 </div>
 </article>
 </div>
@@ -466,7 +466,7 @@ ${blog.join('\n')}
 export function renderLlms(posts) {
   return `# Laveesho
 
-> Laveesho is a creative branding and digital marketing agency in The Citadel Tower, Business Bay, Dubai. Services: brand identity, social media, SEO and AI-search readiness, paid ads, websites and apps, video and motion. Monthly packages with a free 7-day Growth Sprint trial. Contact: business@laveesho.com, +971 50 394 0721.
+> Laveesho is a creative branding and digital marketing agency in The Citadel Tower, Business Bay, Dubai. Services: brand identity, social media, SEO and AI-search readiness, paid ads, websites and apps, video and motion. Monthly packages, plus one free professionally made promotional video for new businesses (limited slots). Contact: business@laveesho.com, +971 50 394 0721.
 
 ## Pages
 ${STATIC_PAGES.map(([p, n]) => `- [${n}](${SITE}${p})`).join('\n')}

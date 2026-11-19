@@ -122,7 +122,7 @@ function renderPlan() {
       h('textarea', { id: 'plan-note', name: 'note', rows: '3', maxlength: '500', placeholder: 'Your goals, preferred start date, questions' })),
     h('button', { type: 'submit', class: 'btn', style: 'background: linear-gradient(100deg, #4A1FD1, #BF0D65); color: #fff; width: 100%' }, 'Continue to payment'),
     h('p', { class: 'acct-fine' }, 'Next you’ll see our bank details and your payment reference. Pay by bank transfer, then upload your receipt. ', h('a', { href: '/pricing' }, 'Compare what’s included')));
-  if (sprintOk && fromUrl !== 'sprint') box.append(h('a', { class: 'sprint-mini', href: '/account?plan=sprint' }, h('strong', {}, 'New here? '), 'Try the free 7-Day Growth Sprint first →'));
+  if (sprintOk && fromUrl !== 'sprint') box.append(h('a', { class: 'sprint-mini', href: '/pricing#free-video' }, h('strong', {}, 'New here? '), 'Claim your free business promotional video first →'));
   box.append(form);
   updateTotal(form);
 }
