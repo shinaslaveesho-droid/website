@@ -454,32 +454,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 @media (max-width:640px){.seam-ribbon{height:300px!important}}
 @media (prefers-reduced-motion:reduce){.ribbon animate{display:none}}
 
-
-/* ---- hero v2: premium card fan ---- */
-.hx-body{padding-bottom:0}
-.hx-sub{margin:clamp(22px,2.4vw,34px) 0 0;font-size:clamp(15px,1.3vw,18px);line-height:1.5;color:var(--inkm);max-width:640px}
-.hx-sub strong{font-weight:500;color:var(--ink)}
-.hx-cta2{margin-top:clamp(24px,2.6vw,36px);display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.hx-b1,.hx-b2{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:58px;padding:0 10px 0 30px;border-radius:999px;text-decoration:none;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,background .4s,color .4s}
-.hx-b1{background:var(--ink);color:#fff;box-shadow:0 22px 40px -18px rgba(10,11,34,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
-.hx-b1 .hx-ring{width:40px;height:40px;border:0;background:linear-gradient(135deg,#4A1FD1,#D94FC4)}
-.hx-b1:hover{transform:translateY(-3px);box-shadow:0 28px 50px -18px rgba(74,31,209,.65)}
-.hx-b1:hover .hx-ring{transform:rotate(45deg)}
-.hx-b2{padding:0 30px;color:var(--ink);background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1.5px rgba(10,11,34,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx-b2:hover{background:#fff;transform:translateY(-3px)}
-.hx-b1:focus-visible,.hx-b2:focus-visible{outline:3px solid var(--royal);outline-offset:4px}
-.h3d{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
-.h3d.on{opacity:1}
-.h3d canvas{width:100%!important;height:100%!important;display:block}
-.hf{position:relative;z-index:2;height:clamp(300px,30vw,440px);margin-top:clamp(10px,1.6vw,24px)}
-.hf-orb{position:absolute;left:50%;top:50%;width:clamp(200px,20vw,300px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 4%,#B9A4FF 14%,#6B3BFF 40%,#3A12B8 68%,#1A0A5C 100%);box-shadow:0 60px 90px -40px rgba(74,31,209,.7);transition:opacity 1s}
-.hf-chip{position:absolute;z-index:5;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 36px -16px rgba(74,31,209,.45),inset 0 0 0 1px rgba(255,255,255,.9);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-size:13px;font-weight:600;color:var(--inkm);white-space:nowrap;opacity:0;animation:chipin .8s cubic-bezier(.2,.8,.2,1) forwards}
-.hf-chip b{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-weight:400;font-size:24px;line-height:1;color:var(--royal)}
-.ch1{left:calc(50% - clamp(300px,29vw,450px));top:30%;animation-delay:2.3s}
-.ch2{right:calc(50% - clamp(300px,29vw,450px));top:52%;animation-delay:2.45s}
-@keyframes chipin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media (max-width:720px){.hf{height:300px}.ch1{left:8px;top:0}.ch2{right:8px;top:0}.hf-chip{font-size:11px;padding:7px 10px;gap:6px}.hf-chip b{font-size:18px}.hx-cta2{width:100%;flex-direction:column}.hx-b1,.hx-b2{width:100%}}
-@media (prefers-reduced-motion:reduce){.hf-chip{animation:none;opacity:1}}
 /* home: numbers in one centred row on phones */
 @media (max-width:640px){
 .hm-stats{grid-template-columns:repeat(4,1fr)!important;text-align:center}
@@ -567,7 +541,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <filter id="smH" x="-45%" y="-10%" width="190%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.016 0.0045" numOctaves="2" seed="11" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="220" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
 </defs></svg>
 
-<div class="h3d" id="h3d" aria-hidden="true"></div>
 <header class="wrap in hx-top">
 <span class="hx-loc" aria-hidden="true"></span>
 <a href="/" aria-label="Laveesho home" class="hx-logo"><img width="600" height="161" fetchpriority="high" src="/assets/logo-dark-600.webp" alt="Laveesho — Building Digital Future"></a>
@@ -594,6 +567,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="wrap hx-body">
+<p class="hx-proof in" style="animation-delay: .2s"><span class="hx-pi"><span class="count count-t" style="--to: 50"></span>+ campaigns delivered</span><span class="hx-pi"><span class="count count-t" style="--to: 20"></span>+ brands supported</span><span class="hx-pi"><span class="count count-t" style="--to: 5"></span>+ years of experience</span></p>
 
 <a class="hx-offer in" href="/pricing#free-video" style="animation-delay: .35s" aria-label="Free business promotional video: one professionally made video for your business, AED 0, limited slots"><span class="hx-offer-card"><span class="hx-offer-shine" aria-hidden="true"></span><span class="hx-offer-free" aria-hidden="true"><b>FREE</b><i>AED 0</i></span><span class="hx-offer-t" aria-hidden="true"><b>Business Promotional Video</b><span class="hx-offer-sub">Limited slots · claim yours</span></span><span class="hx-offer-go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
 
@@ -602,20 +576,19 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <span class="pline" aria-hidden="true"><span class="ch " style="--d: 2.645s">t</span><span class="ch " style="--d: 2.730s">o</span><span class="ch " style="--d: 2.815s">&nbsp;</span><span class="ch " style="--d: 2.900s">i</span><span class="ch " style="--d: 2.985s">g</span><span class="ch " style="--d: 3.070s">n</span><span class="ch " style="--d: 3.155s">o</span><span class="ch " style="--d: 3.240s">r</span><span class="ch " style="--d: 3.325s">e</span><span class="ch last" style="--d: 3.410s">.</span></span>
 </h1>
 
-<p class="hx-sub in" style="animation-delay: 1.3s"><strong>Creative branding &amp; digital marketing agency in Business Bay, Dubai.</strong></p>
-<div class="hx-cta2 in" style="animation-delay: 1.5s">
-<a class="hx-b1" href="/contact">Let’s grow your brand<span class="hx-ring"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+<div class="hx-split">
+<div class="hx-left in" style="animation-delay: 1.5s">
+<p class="hx-state">Dubai’s <em>creative</em> agency for <em>brands</em> that refuse to blend in.</p>
+<p class="hx-small"><strong>Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai.</strong> Brand identity, social media, SEO, paid ads and websites — designed, built and measured under one roof.</p>
+</div>
+<div class="hx-ctas in" style="animation-delay: 1.75s">
+<a class="hx-btn hx-solid sk" href="/contact"><svg class="sk-scrib" viewBox="0 0 340 90" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 14C110 2 250 4 316 12c22 4 22 58 2 66C240 90 100 88 26 80 4 76 2 22 30 14c40-8 150-12 262-4"></path></svg><svg class="sk-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v9M20 28v9M3 20h9M28 20h9M8 8l6 6M26 26l6 6M32 8l-6 6M8 32l6-6"></path></svg><span>Let’s grow your brand</span><span class="hx-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+<a class="hx-btn hx-line sk2" href="https://wa.me/971503940721"><svg class="sk-out" viewBox="0 0 340 70" preserveAspectRatio="none" aria-hidden="true"><path d="M24 6C100 2 240 3 318 8c18 2 20 52 0 56C240 68 96 68 22 64 2 60 4 10 24 6z"></path><path d="M30 10C110 4 236 6 312 12c14 4 14 44-2 48C232 64 100 64 28 60 10 56 12 14 30 10z" opacity=".45"></path></svg><span>Chat on WhatsApp</span></a>
 </div>
 </div>
-<div class="hf" aria-hidden="true">
-<span class="hf-orb"></span>
-<span class="hf-chip ch1"><b>50+</b> campaigns delivered</span>
-<span class="hf-chip ch2"><b>20+</b> brands supported</span>
 </div>
 
 
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="/hero3d.js"></script>
 </section>
 
 <!-- seam silver → royal -->
