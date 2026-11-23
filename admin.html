@@ -13,8 +13,11 @@
 <link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/app/admin.css">
 <script type="module" src="/app/admin.js"></script>
+<style id="pre-css">.pre{position:fixed;inset:0;z-index:99999;display:none;background:#4A1FD1;pointer-events:none;overflow:clip}html.pre-on .pre,.pre.go{display:block}.pre.go{background:transparent}.pre.go.solid{background:#4A1FD1}.pre.done{display:none!important}.pre-s{position:absolute;top:-15%;left:-15%;width:130%;height:130%;color:#4A1FD1;stroke-width:30%;visibility:hidden;overflow:visible}.pre.go .pre-s{visibility:visible}@media (prefers-reduced-motion:reduce){.pre{display:none!important}}</style>
+<script>try{var ss=sessionStorage;if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&(!ss.getItem('lv-pre')||ss.getItem('lv-trans')))document.documentElement.classList.add('pre-on')}catch(e){}</script>
 </head>
 <body>
+<div class="pre" aria-hidden="true"><svg class="pre-s" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M40 255C295 8 995 -5 922 500C850 1000 280 1005 122 768C-36 530 180 258 472 258C765 258 792 500 660 655C527 810 318 755 285 668C250 582 298 450 496 450C694 450 877 640 936 940" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 <div class="app" id="top">
 
 <aside class="side" aria-label="Admin navigation">
@@ -114,5 +117,6 @@
 </main>
 </div>
 <div class="tip" id="tip" role="tooltip" hidden></div>
+<script src="/trans.js" defer></script>
 </body>
 </html>
