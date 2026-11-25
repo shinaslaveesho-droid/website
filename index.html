@@ -468,28 +468,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .hs-track{will-change:auto}
 .hs .g-shine{animation:none!important}
 }
-/* hero: free sprint offer (ticket) */
-.hx-offer{position:relative;z-index:3;display:inline-block;margin:clamp(18px,2.2vw,28px) auto 0;text-decoration:none;color:#F5EEDC;border-radius:999px;transition:box-shadow .35s}
-.hx-offer::before{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid #F2C94C;opacity:.85;pointer-events:none;animation:offerPulse 2.2s cubic-bezier(.2,.8,.2,1) infinite}
-.hx-offer-card{position:relative;display:flex;align-items:center;gap:12px;padding:7px 9px 7px 8px;border-radius:999px;overflow:hidden;overflow:clip;background:linear-gradient(110deg,#2A0F8F 0%,#4A1FD1 48%,#BF0D65 100%);box-shadow:0 18px 40px -16px rgba(74,31,209,.7),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.hx-offer:hover .hx-offer-card{transform:translateY(-2px)}
-.hx-offer:focus-visible{outline:3px solid #4A1FD1;outline-offset:8px}
-.hx-offer-shine{position:absolute;inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.35) 50%,transparent 58%);transform:translateX(-130%);animation:offerShine 3.4s ease-in-out infinite;pointer-events:none}
-.hx-offer-free{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#F2C94C;color:#0A0B22;rotate:-8deg;box-shadow:0 6px 14px -6px rgba(10,11,34,.6);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;line-height:1;animation:offerWiggle 3.6s ease-in-out infinite}
-.hx-offer-free b{font-weight:900;font-size:15px;letter-spacing:.04em}
-.hx-offer-free i{font-style:normal;font-weight:700;font-size:9px;letter-spacing:.1em;margin-top:3px;opacity:.85}
-.hx-offer-t{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-right:4px}
-.hx-offer-t b{font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(20px,1.6vw,24px);line-height:1.05;letter-spacing:.01em}
-.hx-offer-sub{display:flex;align-items:center;gap:6px;margin-top:4px;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,238,220,.85)}
-.hx-offer-sub::before{content:"";width:6px;height:6px;border-radius:50%;background:#F2C94C;box-shadow:0 0 8px #F2C94C;animation:offerBlink 1.3s ease-in-out infinite}
-.hx-offer-go{position:relative;flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#F2C94C;color:#0A0B22;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.hx-offer:hover .hx-offer-go{transform:translateX(3px) rotate(-20deg)}
-@keyframes offerPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.16);opacity:0}}
-@keyframes offerShine{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
-@keyframes offerBlink{0%,100%{opacity:1}50%{opacity:.25}}
-@keyframes offerWiggle{0%,100%{rotate:-8deg}50%{rotate:-2deg}}
-@media (prefers-reduced-motion:reduce){.hx-offer::before,.hx-offer-shine,.hx-offer-free,.hx-offer-sub::before{animation:none}}
-@media (max-width:560px){.hx-offer{max-width:100%}.hx-offer-card{gap:10px}.hx-offer-t b{font-size:19px}.hx-offer-sub{font-size:9.5px;letter-spacing:.1em}}
 
 /* perf: Safari-friendly layers; lighter effects on phones */
 @media (hover:none),(max-width:860px){
@@ -528,8 +506,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .pre-on .hx-top{animation-delay:1s}
 .hx-v4 .aurora{opacity:.6}
 .hx-v4{padding-top:6px;padding-bottom:0}
-.hx-v4 .hx-offer{margin-top:clamp(10px,1.4vw,18px)}
-.pre-on .hx-v4 .hx-offer{animation-delay:1.15s}
 .hx-mask{display:block;overflow:hidden;padding-bottom:.06em}
 .hx-mask>span{display:block;transform:translateY(112%);transition:transform 1.05s cubic-bezier(.2,.8,.2,1) var(--d,.3s)}
 .hx-v4.on .hx-mask>span{transform:none}
@@ -579,7 +555,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 
 /* hero v4b: condensed grotesque, two centred lines, hero fills the first screen */
 .hx-v4{min-height:calc(100svh - 118px);justify-content:center;padding-top:0}
-.hx-v4 .hx-offer{margin-top:0}
 .hx-sub{margin:clamp(14px,1.8vw,26px) auto 0;max-width:34ch;font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(19px,2vw,30px);line-height:1.2;color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
 @media (max-width:760px){.hx-sub{font-size:clamp(17px,4.4vw,22px)}}
 .hx-eyebrow{margin-top:clamp(26px,3.4vw,46px);font-size:clamp(22px,2.6vw,38px);line-height:1.05}
@@ -625,7 +600,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .pre-s{position:absolute;top:-15%;left:-15%;width:130%;height:130%;color:#4A1FD1;stroke-width:30%;visibility:hidden;overflow:visible}
 .pre.go .pre-s{visibility:visible}
 .pre-on .hx-top{animation-delay:1.2s}
-.pre-on .hx-v4 .hx-offer{animation-delay:1.35s}
 
 /* results cards: photo on top, label + title below (user-made photos, 2026-11-23) */
 .ccard .cimg{position:absolute;left:0;right:0;top:0;width:100%;height:54%;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.25)}
@@ -685,8 +659,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="wrap hx-body hx-v4">
-<a class="hx-offer in" href="/pricing#free-video" style="animation-delay: .35s" aria-label="Free business promotional video: one professionally made video for your business, AED 0, limited slots"><span class="hx-offer-card"><span class="hx-offer-shine" aria-hidden="true"></span><span class="hx-offer-free" aria-hidden="true"><b>FREE</b><i>AED 0</i></span><span class="hx-offer-t" aria-hidden="true"><b>Business Promotional Video</b><span class="hx-offer-sub">Limited slots · claim yours</span></span><span class="hx-offer-go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
-<p class="hx-eyebrow" aria-hidden="true"><span class="hx-mask"><span style="--d:1.00s">Branding, social content &amp; video</span></span></p>
 <h1 class="hx-h1 hx-h4" aria-label="Your business growth partner"><span class="hl hl-sans" aria-hidden="true">Your <em>business</em></span><span class="hl hl-serif" aria-hidden="true">growth partner</span></h1>
 <p class="hx-sub"><span class="hx-mask"><span style="--d:1.55s">Result-oriented, ROI-driven digital marketing agency in Business Bay, Dubai</span></span></p>
 <a class="hx-disc" href="#services"><span class="hx-mask"><span>Discover more</span></span><span class="hx-disc-b" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span><svg class="hx-scrib" viewBox="0 0 230 26" fill="none" aria-hidden="true"><path pathLength="1" d="M3 15C50 4 110 20 150 10c30-7 50-2 74 2"/><path pathLength="1" d="M34 21C80 13 140 24 196 17" opacity=".55"/></svg></a>

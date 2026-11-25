@@ -133,29 +133,7 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 .lx details[open] summary + p{animation:ansIn .75s cubic-bezier(.2,.8,.2,1) .08s both;padding-left:12px!important}
 @keyframes ansIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.lx details::details-content{transition:none}}
-.scroll-hint{display:none}@media (max-width:820px){.scroll-hint{display:block}}/* free promotional video card (brand: ink → royal, gold accents, Instrument Serif + Montserrat) */
-.sprint{position:relative;overflow:hidden;margin:0 0 22px;padding:clamp(28px,3.4vw,44px);border-radius:32px;color:#F5EEDC;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,.85fr);gap:clamp(22px,3vw,44px);align-items:center;border:1px solid rgba(245,238,220,.18);background:linear-gradient(125deg,#0A0B22 0%,#2A0F8F 48%,#4A1FD1 100%)}
-.sprint-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(480px 260px at 100% 0%,rgba(217,79,196,.45),transparent 70%),radial-gradient(420px 240px at 0% 100%,rgba(242,201,76,.22),transparent 70%)}
-.sprint>*:not(.sprint-glow){position:relative}
-.sprint-badge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:9px 14px;border-radius:999px;background:var(--gold);color:var(--ink);font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.sprint-dot{width:8px;height:8px;border-radius:50%;background:#BF0D65;box-shadow:0 0 0 4px rgba(191,13,101,.22)}
-.sprint h2{margin:0;font-size:clamp(46px,5vw,72px);line-height:.95}
-.sprint h2 em{background:linear-gradient(100deg,#F2C94C,#F7DE8E 45%,#D94FC4);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.sprint-price{margin:14px 0 0;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.sprint-price span{font-size:14px;opacity:.85}
-.sprint-price b{font-weight:400;font-size:clamp(72px,7vw,96px);line-height:.9;color:var(--gold)}
-.sprint-lede{margin:10px 0 0;font-size:17px;line-height:1.5;font-weight:600}
-.sprint-items{list-style:none;margin:0;padding:0;display:grid;gap:4px}
-.sprint-items li{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(245,238,220,.18);font-size:15.5px;line-height:1.4}
-.sprint-items li:last-child{border-bottom:0}
-.sprint-items svg circle{fill:#F2C94C}
-.sprint-items svg path{stroke:#0A0B22}
-.sprint-c{display:grid;gap:14px}
-.sprint-btn{background:var(--gold)!important;color:var(--ink)!important;width:100%}
-.sprint-btn:hover{background:#F7DE8E!important}
-.sprint-fine{margin:0;font-size:13px;line-height:1.55;color:rgba(245,238,220,.78)}
-@media (max-width:1020px){.sprint{grid-template-columns:1fr 1fr}.sprint-c{grid-column:1/-1}}
-@media (max-width:640px){.sprint{grid-template-columns:1fr;border-radius:26px}.sprint-c{grid-column:auto}}
+.scroll-hint{display:none}@media (max-width:820px){.scroll-hint{display:block}}
 
 /* perf: Safari-friendly layers; lighter effects on phones */
 @media (hover:none),(max-width:860px){
@@ -215,21 +193,6 @@ details .pl{transition:transform .45s}details[open] .pl{transform:rotate(45deg)}
 <!-- PLANS · silver -->
 <section style="background: #F4F8FD">
 <div class="wrap" style="padding-top: 0; padding-bottom: 100px">
-<article id="free-video" class="sprint rv" aria-labelledby="free-video-title">
-<div class="sprint-glow" aria-hidden="true"></div>
-<div class="sprint-a">
-<p class="sprint-badge"><span class="sprint-dot" aria-hidden="true"></span>Limited slots · 100% free</p>
-<h2 id="free-video-title" class="serif">Free Business <em>Promotional Video</em></h2>
-<p class="sprint-price"><span>AED</span><b class="serif">0</b><span>no payment, no commitment</span></p>
-<p class="sprint-lede">Your business deserves the spotlight. Get one professionally created, personalised promotional video for your business, absolutely free.</p>
-</div>
-<ul class="sprint-items" aria-label="What's included"><li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="11" fill="#F2C94C"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0A0B22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Professional video shooting</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="11" fill="#F2C94C"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0A0B22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Creative concept tailored to your business</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="11" fill="#F2C94C"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0A0B22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Professional editing and transitions</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="11" fill="#F2C94C"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0A0B22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your business logo and branding</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="11" fill="#F2C94C"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0A0B22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Instagram and Facebook-ready format</span></li></ul>
-<div class="sprint-c">
-<a class="btn sprint-btn" href="https://wa.me/971503940721?text=Hi%20Laveesho%2C%20I%27d%20like%20to%20claim%20my%20FREE%20business%20promotional%20video." target="_blank" rel="noopener">Claim my free video</a>
-<p class="sprint-fine">Just experience our creativity: let Laveesho showcase your business to the world. Terms and conditions apply. Subject to availability and filming arrangements.</p>
-</div>
-</article>
-
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; align-items: stretch">
 
 <article class="plan fan" style="position: relative; padding: 38px 32px 34px; border-radius: 32px; background: #FFFFFF; color: #0A0B22; border: 1px solid rgba(10,11,34,.1); display: flex; flex-direction: column; gap: 14px; --fy: 18deg; --fz: -3deg">
