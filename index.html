@@ -65,9 +65,9 @@ a{color:inherit}a:hover{color:inherit}
 .cue::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:#4A1FD1;animation:cue 1.8s ease-in-out infinite}
 @keyframes cue{to{top:100%}}
 /* hero v3 — reference structure */
-.hx-top{position:relative;z-index:6;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-top:20px;padding-bottom:8px}
+.hx-top{position:relative;z-index:6;display:grid;grid-template-columns:auto 1fr;align-items:center;padding-top:20px;padding-bottom:8px}
 .hx-loc{margin:0;display:flex;align-items:center;gap:10px;font-family:"Inter Tight",'Inter Tight Fallback',sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
-.hx-logo{justify-self:center;display:flex}.hx-logo img{height:clamp(54px,6vw,78px);width:auto;display:block}
+.hx-logo{justify-self:start;display:flex}.hx-logo img{height:clamp(54px,6vw,78px);width:auto;display:block}
 .hx-burger{justify-self:end;width:56px;height:44px;border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0;color:var(--ink)}
 .hx-burger span{display:block;height:3px;border-radius:2px;background:currentColor;transition:width .4s cubic-bezier(.2,.8,.2,1)}
 .hx-burger span:nth-child(2){width:78%;align-self:flex-end}.hx-burger:hover span:nth-child(2){width:100%}
@@ -634,7 +634,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </defs></svg>
 
 <header class="wrap in hx-top">
-<span class="hx-loc" aria-hidden="true"></span>
+
 <a href="/" aria-label="Laveesho home" class="hx-logo"><img width="600" height="161" fetchpriority="high" src="/assets/logo-dark-600.webp" alt="Laveesho — Building Digital Future"></a>
 <button type="button" class="hx-burger" aria-label="Open menu" aria-expanded="true" data-on-click="toggleMenu"><span></span><span></span><span></span></button>
 
