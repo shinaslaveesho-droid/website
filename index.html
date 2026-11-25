@@ -161,8 +161,8 @@ a{color:inherit}a:hover{color:inherit}
 }
 @keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
 /* cylinder gallery (helicopter) */
-.cyl{position:relative;z-index:2;height:clamp(300px,34vw,540px);overflow:hidden;overflow:clip;--w:clamp(118px,11.5vw,200px);--R:calc(var(--w) * 2.45);perspective:calc(var(--w) * 2.15);perspective-origin:50% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
-.cyl-scroll{position:absolute;left:50%;top:50%;width:var(--w);height:calc(var(--w) * 1.34);margin:calc(var(--w) * -.67) 0 0 calc(var(--w) * -.5);transform-style:preserve-3d}
+.cyl{position:relative;z-index:2;height:clamp(340px,38vw,600px);overflow:hidden;overflow:clip;--w:clamp(118px,11.5vw,200px);--R:calc(var(--w) * 2.45);perspective:calc(var(--w) * 2.15);perspective-origin:50% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
+.cyl-scroll{position:absolute;left:50%;top:50%;width:var(--w);height:calc(var(--w) * 1.62);margin:calc(var(--w) * -.81) 0 0 calc(var(--w) * -.5);transform-style:preserve-3d}
 .cyl-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:cylspin 48s linear infinite}
 .cyl:hover .cyl-spin{animation-play-state:paused}
 @keyframes cylspin{to{transform:rotateY(360deg)}}
@@ -192,7 +192,7 @@ a{color:inherit}a:hover{color:inherit}
 @keyframes sr{from{transform:translateX(-38%)}to{transform:translateX(8%)}}
 @keyframes clipup{from{opacity:0;transform:perspective(1070px) rotateX(-72deg) translateY(50px)}to{opacity:1;transform:none}}
 .clipup{transform-origin:50% 0%}
-@media (max-width:640px){.cyl{height:300px;--w:112px}.cyl-blur{width:14%}}
+@media (max-width:640px){.cyl{height:340px;--w:112px}.cyl-blur{width:14%}}
 /* printed headline */
 .pline{display:block;position:relative;z-index:2;white-space:nowrap}
 .ch{position:relative;display:inline-block;opacity:0;animation:typ .22s cubic-bezier(.2,.8,.2,1) var(--d) forwards}
