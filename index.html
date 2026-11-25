@@ -626,6 +626,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="silk"></div>
 <div style="position: absolute; inset: 0; background: radial-gradient(520px circle at var(--spot, 50% 50%), rgba(255,255,255,.75), rgba(255,255,255,0) 65%); transition: background .2s"></div>
 <svg class="hx-grain" width="100%" height="100%" style="position: absolute; inset: 0; opacity: .09; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+<div class="hx-fade" style="position: absolute; left: 0; right: 0; bottom: 0; height: clamp(160px, 22vw, 320px); background: linear-gradient(180deg, rgba(238,243,251,0) 0%, rgba(238,243,251,.65) 55%, #EEF3FB 100%)"></div>
 </div>
 <svg width="0" height="0" aria-hidden="true" style="position: absolute"><defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#4A1FD1"></stop><stop offset=".5" stop-color="#D94FC4"></stop><stop offset="1" stop-color="#2F55F0"></stop></linearGradient>
 <filter id="smA" x="-10%" y="-45%" width="120%" height="190%"><feTurbulence type="fractalNoise" baseFrequency="0.0045 0.016" numOctaves="2" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="240" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
