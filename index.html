@@ -554,13 +554,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .hx-scrib path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s cubic-bezier(.3,.6,.2,1)}
 .hx-scrib path+path{transition-delay:.35s}
 .hx-disc.on .hx-scrib path{stroke-dashoffset:0}
-.hx-card{position:absolute;left:0;top:0;z-index:1;width:clamp(150px,16vw,230px);aspect-ratio:1;margin:calc(clamp(150px,16vw,230px) / -2) 0 0 calc(clamp(150px,16vw,230px) / -2);pointer-events:none;opacity:0;scale:.6;transition:opacity .45s ease,scale .6s cubic-bezier(.2,.8,.2,1);will-change:transform}
-.hx-card.vis{opacity:1;scale:1}
-.hx-card.dim{opacity:0;scale:.8}
-.hx-card-in{position:absolute;inset:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(10,11,34,.55),0 0 0 1px rgba(255,255,255,.6) inset;background:#fff}
-.hx-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:inset(0 0 100% 0);transition:clip-path .55s cubic-bezier(.76,0,.24,1)}
-.hx-card img.on{clip-path:inset(0 0 0 0)}
-.hx-card.static{position:relative;left:auto;top:auto;margin:clamp(24px,4vw,36px) auto 0;opacity:1;scale:1;rotate:-3deg;width:min(58vw,230px);transition:none}
 .hx-marq{overflow:hidden;margin-top:clamp(40px,5vw,72px);padding:15px 0;border-top:1px solid rgba(10,11,34,.1);border-bottom:1px solid rgba(10,11,34,.1);background:rgba(255,255,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);position:relative;z-index:2}
 .hx-marq-t{display:flex;width:max-content;animation:hxm 42s linear infinite}
 .hx-marq:hover .hx-marq-t{animation-play-state:paused}
@@ -587,6 +580,8 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 /* hero v4b: condensed grotesque, two centred lines, hero fills the first screen */
 .hx-v4{min-height:calc(100svh - 118px);justify-content:center;padding-top:0}
 .hx-v4 .hx-offer{margin-top:0}
+.hx-sub{margin:clamp(14px,1.8vw,26px) auto 0;max-width:34ch;font-family:"Instrument Serif",'Instrument Serif Fallback',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(19px,2vw,30px);line-height:1.2;color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+@media (max-width:760px){.hx-sub{font-size:clamp(17px,4.4vw,22px)}}
 .hx-eyebrow{margin-top:clamp(26px,3.4vw,46px);font-size:clamp(22px,2.6vw,38px);line-height:1.05}
 .hx-h4{font-size:clamp(40px,8.6vw,126px);line-height:.92;margin-top:clamp(12px,1.6vw,22px)}
 .hx-h4 .hl{padding:.02em .05em .05em}
@@ -595,8 +590,6 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .hx-h4 .hl-serif{font-size:1em;font-style:normal;letter-spacing:-.01em;line-height:.95}
 .hx-h4 .w.em{font-size:1.06em;margin:0 .03em}
 .hx-disc{margin-top:clamp(18px,2.2vw,32px)}
-.hx-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:inset(0 0 100% 0);transition:clip-path .55s cubic-bezier(.76,0,.24,1);background:#0A0B22}
-.hx-card video.on{clip-path:inset(0 0 0 0)}
 .hx-marq{margin-top:0}
 @media (max-width:860px){.hx-v4{min-height:0}.hx-h4{font-size:clamp(40px,12.4vw,96px)}.hx-marq{margin-top:34px}}
 
@@ -633,6 +626,12 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 .pre.go .pre-s{visibility:visible}
 .pre-on .hx-top{animation-delay:1.2s}
 .pre-on .hx-v4 .hx-offer{animation-delay:1.35s}
+
+/* results cards: photo on top, label + title below (user-made photos, 2026-11-23) */
+.ccard .cimg{position:absolute;left:0;right:0;top:0;width:100%;height:54%;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.25)}
+.ccard .ct{top:54%;padding:7% 10% 9%;justify-content:flex-start;gap:5%}
+.ccard .ct>*:nth-child(n+3){display:none!important}
+.ccard .ct .serif{font-size:calc(var(--w) * .165)!important;line-height:.9!important}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 <style id="pre-css">.pre{position:fixed;inset:0;z-index:99999;display:none;background:#4A1FD1;pointer-events:none;overflow:clip}html.pre-on .pre,.pre.go{display:block}.pre.go{background:transparent}.pre.go.solid{background:#4A1FD1}.pre.done{display:none!important}.pre-s{position:absolute;top:-15%;left:-15%;width:130%;height:130%;color:#4A1FD1;stroke-width:30%;visibility:hidden;overflow:visible}.pre.go .pre-s{visibility:visible}@media (prefers-reduced-motion:reduce){.pre{display:none!important}}</style>
@@ -688,9 +687,9 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="wrap hx-body hx-v4">
 <a class="hx-offer in" href="/pricing#free-video" style="animation-delay: .35s" aria-label="Free business promotional video: one professionally made video for your business, AED 0, limited slots"><span class="hx-offer-card"><span class="hx-offer-shine" aria-hidden="true"></span><span class="hx-offer-free" aria-hidden="true"><b>FREE</b><i>AED 0</i></span><span class="hx-offer-t" aria-hidden="true"><b>Business Promotional Video</b><span class="hx-offer-sub">Limited slots · claim yours</span></span><span class="hx-offer-go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
 <p class="hx-eyebrow" aria-hidden="true"><span class="hx-mask"><span style="--d:1.00s">Branding, social content &amp; video</span></span></p>
-<h1 class="hx-h1 hx-h4" aria-label="Make your brand impossible to ignore."><span class="hl hl-sans" aria-hidden="true">Make <em>your</em> brand</span><span class="hl hl-serif" aria-hidden="true">impossible to ignore.</span></h1>
+<h1 class="hx-h1 hx-h4" aria-label="Your business growth partner"><span class="hl hl-sans" aria-hidden="true">Your <em>business</em></span><span class="hl hl-serif" aria-hidden="true">growth partner</span></h1>
+<p class="hx-sub"><span class="hx-mask"><span style="--d:1.55s">Result-oriented, ROI-driven digital marketing agency in Business Bay, Dubai</span></span></p>
 <a class="hx-disc" href="#services"><span class="hx-mask"><span>Discover more</span></span><span class="hx-disc-b" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span><svg class="hx-scrib" viewBox="0 0 230 26" fill="none" aria-hidden="true"><path pathLength="1" d="M3 15C50 4 110 20 150 10c30-7 50-2 74 2"/><path pathLength="1" d="M34 21C80 13 140 24 196 17" opacity=".55"/></svg></a>
-<div class="hx-card" aria-hidden="true"><div class="hx-card-in"><video class="on" muted playsinline loop preload="auto" poster="/assets/work-1-360.webp" width="480" height="480"><source src="/assets/clip-1.mp4" type="video/mp4"></video><video class="" muted playsinline loop preload="metadata" poster="/assets/work-3-360.webp" width="480" height="480"><source src="/assets/clip-3.mp4" type="video/mp4"></video></div></div>
 </div>
 <div class="hx-marq" aria-hidden="true"><div class="hx-marq-t"><span>Brand identity</span><span>Social content</span><span>Promo video</span><span>SEO</span><span>Paid ads</span><span>Websites</span><span><b>50+</b> campaigns</span><span><b>20+</b> brands</span><span><b>5+</b> years in Dubai</span></div></div>
 <div class="wrap hx-under">
@@ -853,7 +852,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="cyl-spin">
 
 <div class="ccard" style="transform: rotateY(0.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E46BD0,#F2C94C); color: #0A0B22">
-<div class="ct">
+<img class="cimg" src="/assets/res-branding.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Branding</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Brands people remember</span>
 <span style="display: flex; gap: 6%; height: 16%"><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #4A1FD1"></span><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #BF0D65"></span><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #F5EEDC; box-shadow: inset 0 0 0 2px rgba(10,11,34,.25)"></span></span>
@@ -863,7 +862,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(22.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#3A12B8); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-social.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Social</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Scroll-stopping content</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -872,7 +871,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(45.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#4F7BFF,#1D3FD0); color: #F5EEDC">
-<div class="ct">
+<img class="cimg" src="/assets/res-video.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Video &amp; motion</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Reels that move</span>
 <span style="display: flex; align-items: center; gap: 7%; height: 16%"><svg viewBox="0 0 24 24" style="height: 100%; flex: none" fill="currentColor"><circle cx="12" cy="12" r="12" opacity=".25"/><path d="M9.5 7.5v9l7-4.5z"/></svg><span style="flex: 1; height: 18%; border-radius: 9px; background: linear-gradient(90deg,currentColor 62%,rgba(245,238,220,.3) 62%)"></span></span>
@@ -882,7 +881,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(67.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E0307F,#BF0D65); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-seo.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">SEO &amp; GEO</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Found by Google &amp; AI</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -891,7 +890,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(90.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFF8E8,#F5EEDC); color: #4A1FD1">
-<div class="ct">
+<img class="cimg" src="/assets/res-leads.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Lead generation</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Leads that grow</span>
 <svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width: 100%; height: 16%" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 27 L22 20 L40 23 L60 12 L78 15 L98 3"/><circle cx="98" cy="3" r="2.5" fill="currentColor"/></svg>
@@ -901,7 +900,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(112.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFE7A3,#F2C94C); color: #0A0B22">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-paid.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Paid ads</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Every dirham tracked</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -910,7 +909,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(135.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#D94FC4); color: #F5EEDC">
-<div class="ct">
+<img class="cimg" src="/assets/res-reporting.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Reporting</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Clear monthly reports</span>
 <span style="display: flex; align-items: center; gap: 8%; height: 18%"><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: conic-gradient(#F2C94C 0 68%, rgba(245,238,220,.3) 0); -webkit-mask: radial-gradient(circle, transparent 42%, #000 44%); mask: radial-gradient(circle, transparent 42%, #000 44%)"></span><span style="flex: 1; display: grid; gap: 22%"><span style="height: 5px; border-radius: 3px; background: currentColor; opacity: .85"></span><span style="height: 5px; width: 65%; border-radius: 3px; background: currentColor; opacity: .5"></span></span></span>
@@ -920,7 +919,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(157.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#141633,#0A0B22); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-websites.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Websites</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Built to convert</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -929,7 +928,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(180.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E46BD0,#F2C94C); color: #0A0B22">
-<div class="ct">
+<img class="cimg" src="/assets/res-branding.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Branding</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Brands people remember</span>
 <span style="display: flex; gap: 6%; height: 16%"><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #4A1FD1"></span><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #BF0D65"></span><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: #F5EEDC; box-shadow: inset 0 0 0 2px rgba(10,11,34,.25)"></span></span>
@@ -939,7 +938,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(202.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#3A12B8); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-social.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Social</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Scroll-stopping content</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -948,7 +947,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(225.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#4F7BFF,#1D3FD0); color: #F5EEDC">
-<div class="ct">
+<img class="cimg" src="/assets/res-video.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Video &amp; motion</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Reels that move</span>
 <span style="display: flex; align-items: center; gap: 7%; height: 16%"><svg viewBox="0 0 24 24" style="height: 100%; flex: none" fill="currentColor"><circle cx="12" cy="12" r="12" opacity=".25"/><path d="M9.5 7.5v9l7-4.5z"/></svg><span style="flex: 1; height: 18%; border-radius: 9px; background: linear-gradient(90deg,currentColor 62%,rgba(245,238,220,.3) 62%)"></span></span>
@@ -958,7 +957,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(247.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#E0307F,#BF0D65); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-seo.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">SEO &amp; GEO</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Found by Google &amp; AI</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -967,7 +966,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(270.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFF8E8,#F5EEDC); color: #4A1FD1">
-<div class="ct">
+<img class="cimg" src="/assets/res-leads.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Lead generation</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Leads that grow</span>
 <svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width: 100%; height: 16%" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 27 L22 20 L40 23 L60 12 L78 15 L98 3"/><circle cx="98" cy="3" r="2.5" fill="currentColor"/></svg>
@@ -977,7 +976,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(292.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#FFE7A3,#F2C94C); color: #0A0B22">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-paid.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Paid ads</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Every dirham tracked</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
@@ -986,7 +985,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 
 <div class="ccard" style="transform: rotateY(315.0deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#6B3BFF,#D94FC4); color: #F5EEDC">
-<div class="ct">
+<img class="cimg" src="/assets/res-reporting.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Reporting</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Clear monthly reports</span>
 <span style="display: flex; align-items: center; gap: 8%; height: 18%"><span style="aspect-ratio: 1; height: 100%; border-radius: 50%; background: conic-gradient(#F2C94C 0 68%, rgba(245,238,220,.3) 0); -webkit-mask: radial-gradient(circle, transparent 42%, #000 44%); mask: radial-gradient(circle, transparent 42%, #000 44%)"></span><span style="flex: 1; display: grid; gap: 22%"><span style="height: 5px; border-radius: 3px; background: currentColor; opacity: .85"></span><span style="height: 5px; width: 65%; border-radius: 3px; background: currentColor; opacity: .5"></span></span></span>
@@ -996,7 +995,7 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <div class="ccard" style="transform: rotateY(337.5deg) translateZ(calc(var(--R) * -1)); background: linear-gradient(160deg,#141633,#0A0B22); color: #F5EEDC">
 
 
-<div class="ct">
+<img class="cimg" src="/assets/res-websites.webp" alt="" loading="lazy" decoding="async" width="480" height="420"><div class="ct">
 <span class="kick" style="font-size: calc(var(--w) * .065); letter-spacing: .1em; opacity: .85">Websites</span>
 <span class="serif" style="font-size: calc(var(--w) * .2); line-height: .88">Built to convert</span>
 <span style="display: flex; gap: 5%; align-items: flex-end; height: 14%"><span style="flex: 1; height: 45%; border-radius: 3px; background: currentColor; opacity: .35"></span><span style="flex: 1; height: 70%; border-radius: 3px; background: currentColor; opacity: .55"></span><span style="flex: 1; height: 100%; border-radius: 3px; background: currentColor; opacity: .85"></span></span>
