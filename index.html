@@ -709,6 +709,11 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 @media (max-width:700px){.hr-sub{font-size:clamp(18px,5vw,22px);max-width:24ch}}
 @media (max-width:380px){.hr-sub{font-size:17px}}
 @media (max-height:520px) and (orientation:landscape){.hr-sub{font-size:16px;margin-top:8px;max-width:40ch}}
+/* hero v6e: laptops/desktops keep the text and button clear of the ribbon */
+@media (min-width:1101px) and (min-height:521px),(min-width:701px) and (orientation:landscape) and (min-height:521px){
+  .hr{padding-bottom:28vw}
+  .hr-h1.hx-h4{font-size:min(9.4vw,15.5vh,160px)}
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){var hr=document.querySelector('[data-hr]');if(!hr)return;
