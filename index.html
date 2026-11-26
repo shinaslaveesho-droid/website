@@ -678,6 +678,22 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 
 .hr-cta{margin-top:clamp(22px,2.4vw,36px);opacity:0;transform:translateY(18px);transition:opacity .7s ease 1s,transform .9s cubic-bezier(.3,1.5,.5,1) 1s}
 .hr.go .hr-cta{opacity:1;transform:none}
+
+/* hero v6c: responsive tuning */
+@media (max-width:380px){.hr-cta{transform-origin:50% 0}.hr.go .hr-cta{transform:scale(.84)}.hr-sub{font-size:15px}}
+@media (min-width:701px) and (max-width:1100px) and (orientation:portrait){
+  .hr{min-height:0;padding-bottom:58vw}
+  .hr-h1.hx-h4{font-size:10.2vw}.hr-h1.hx-h4 .hl{white-space:nowrap}
+  .hr-sub{font-size:clamp(18px,2.5vw,24px);max-width:40ch}
+  .hr-cta{margin-top:32px}
+}
+@media (max-height:520px) and (orientation:landscape){
+  .hr{min-height:0;padding-top:calc(var(--hrh,70px) + 4px);padding-bottom:30vw}
+  .hr-h1.hx-h4{font-size:clamp(34px,6.4vw,64px);margin-top:4px}
+  .hr-sub{font-size:14px;margin-top:8px}
+  .hr-cta{margin-top:10px;transform-origin:50% 0}
+  .hr.go .hr-cta{transform:scale(.82)}
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){var hr=document.querySelector('[data-hr]');if(!hr)return;
