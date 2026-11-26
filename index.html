@@ -610,6 +610,88 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://laveesho.com/#business","name":"Laveesho","alternateName":"Laveesho Creative Growth Agency","description":"Creative branding and digital marketing agency in Business Bay, Dubai: brand identity, social media, SEO & AI search, paid ads, websites and apps.","url":"https://laveesho.com/","logo":"https://laveesho.com/assets/favicon-512.png","image":"https://laveesho.com/assets/og-image.jpg","telephone":"+971503940721","email":"business@laveesho.com","priceRange":"AED 3,000 – 12,000 / month","address":{"@type":"PostalAddress","streetAddress":"The Citadel Tower, Marasi Drive, Business Bay","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"Country","name":"United Arab Emirates"}]},{"@type":"WebSite","@id":"https://laveesho.com/#website","url":"https://laveesho.com/","name":"Laveesho","publisher":{"@id":"https://laveesho.com/#business"}}]}</script>
 <style id="pre-css">.pre{position:fixed;inset:0;z-index:99999;display:none;background:#4A1FD1;pointer-events:none;overflow:clip}html.pre-on .pre,.pre.go{display:block}.pre.go{background:transparent}.pre.go.solid{background:#4A1FD1}.pre.done{display:none!important}.pre-s{position:absolute;top:-15%;left:-15%;width:130%;height:130%;color:#4A1FD1;stroke-width:30%;visibility:hidden;overflow:visible}.pre.go .pre-s{visibility:visible}@media (prefers-reduced-motion:reduce){.pre{display:none!important}}</style>
 <script>try{var ss=sessionStorage;if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&(!ss.getItem('lv-pre')||ss.getItem('lv-trans')))document.documentElement.classList.add('pre-on')}catch(e){}</script>
+<style>
+/* ===== HERO v6: luminous glass ribbon, centred serif headline ===== */
+.hx-top{position:relative;z-index:6}
+.hr{position:relative;isolation:isolate;overflow:hidden;overflow:clip;margin-top:calc(var(--hrh,80px) * -1);padding-top:calc(var(--hrh,80px) + clamp(16px,2.6vw,40px));min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;background:radial-gradient(60% 55% at 12% 10%,#D8ECFB 0%,transparent 70%),radial-gradient(55% 60% at 88% 30%,#E7CFF8 0%,transparent 70%),radial-gradient(70% 50% at 50% 70%,#FBE6F1 0%,transparent 75%),linear-gradient(180deg,#E3EAFB 0%,#EEE4F8 55%,#E9DDF6 100%)}
+.hr-bg{position:absolute;inset:0;z-index:-2}
+.hr-bg.snake img{visibility:hidden}
+.hr-bg img,.hr-bg canvas{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:translate3d(var(--px,0),var(--py,0),0) scale(1.06);transition:transform 1.4s cubic-bezier(.2,.8,.2,1);animation:hrIn 2.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes hrIn{from{opacity:0;transform:translateY(40px) scale(1.14)}}
+.hr-sheen{position:absolute;z-index:-1;left:0;right:0;bottom:0;height:52%;pointer-events:none;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.55) 48%,transparent 60%) no-repeat;background-size:60% 100%;background-position:-80% 0;mix-blend-mode:soft-light;-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%);animation:hrSheen 7s ease-in-out 2.4s infinite}
+@keyframes hrSheen{0%{background-position:-80% 0}55%,100%{background-position:200% 0}}
+.hr-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hr-eye{margin:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 16px;font-family:"Montserrat",'Montserrat Fallback',sans-serif;font-weight:600;font-size:clamp(11.5px,1vw,14px);letter-spacing:.26em;text-transform:uppercase;color:#1A1640;opacity:0;transform:translateY(12px);transition:opacity .8s ease .15s,transform .8s cubic-bezier(.2,.8,.2,1) .15s}
+.hr-eye i{width:5px;height:5px;border-radius:50%;background:#1A1640}
+.hr-h1{margin:clamp(14px,1.6vw,24px) 0 0;font-family:"Instrument Serif",'Instrument Serif Fallback',serif;font-weight:400;text-transform:uppercase;font-size:clamp(50px,9.4vw,160px);line-height:.9;letter-spacing:-.01em;color:#141235}
+.hr-l{display:block;overflow:hidden;padding:.02em .08em .08em;margin-bottom:-.06em}
+.hr-l>span{display:inline-block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1) .25s}
+.hr-l:nth-child(2)>span{transition-delay:.38s}
+.hr-h1 em{font-style:italic;padding-right:.04em;background:linear-gradient(100deg,#5B21D6 0%,#A3139E 45%,#7A1FD0 70%,#2F55F0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hr-h1 em b{font-weight:400}
+.hr-l:first-child em{background-image:linear-gradient(100deg,#4A2AD8,#A0169F 55%,#3A50EE)}
+.hr-sub{margin:clamp(14px,1.6vw,22px) 0 0;max-width:46ch;font-family:"Montserrat",'Montserrat Fallback',sans-serif;font-size:clamp(16px,1.45vw,21px);line-height:1.45;color:#1E1B3A;opacity:0;transform:translateY(14px);transition:opacity .8s ease .75s,transform .8s cubic-bezier(.2,.8,.2,1) .75s}
+.hr.go .hr-eye,.hr.go .hr-sub{opacity:1;transform:none}
+.hr.go .hr-l>span{transform:none}
+.hr.settled .hr-l{overflow:visible}
+.hr-h1.hx-h4{margin:clamp(14px,1.6vw,24px) 0 0;font-size:clamp(50px,9.4vw,160px);line-height:.9;color:#141235}
+@media (max-width:700px){.hr-h1.hx-h4{font-size:clamp(44px,13.4vw,72px)}.hr-h1.hx-h4 .hl{white-space:normal}}
+/* button: lifts in, magnetic, label rolls, arrow flies out and back, light sweeps across */
+.hr-btn{position:relative;margin-top:clamp(22px,2.4vw,36px);display:inline-flex;align-items:center;gap:12px;padding:18px 26px 18px 32px;border-radius:999px;background:#4A1FD1;color:#fff;text-decoration:none;font-family:"Montserrat",'Montserrat Fallback',sans-serif;font-weight:700;font-size:clamp(16px,1.3vw,19px);overflow:hidden;isolation:isolate;box-shadow:0 18px 40px -16px rgba(74,31,209,.75),inset 0 1px 0 rgba(255,255,255,.25);opacity:0;transform:translate3d(var(--mx,0),calc(var(--my,0px) + 18px),0) scale(.92);transition:opacity .7s ease 1s,transform .9s cubic-bezier(.3,1.5,.5,1) 1s,box-shadow .35s,background-color .35s}
+.hr.go .hr-btn{opacity:1;transform:translate3d(var(--mx,0),var(--my,0),0)}
+.hr.settled .hr-btn{transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background-color .35s}
+.hr-btn::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(100deg,#4A1FD1,#A3139E 55%,#2F55F0);opacity:0;transition:opacity .45s}
+.hr-btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:hrShine 4.5s ease-in-out 3s infinite}
+@keyframes hrShine{0%{left:-60%}35%,100%{left:130%}}
+.hr-btn:hover,.hr-btn:focus-visible{color:#fff;box-shadow:0 24px 50px -14px rgba(163,19,158,.65),inset 0 1px 0 rgba(255,255,255,.3)}
+.hr-btn:hover::before{opacity:1}
+.hr-btn-t{display:block;overflow:hidden;line-height:1.3;height:1.3em}
+.hr-btn-t>span{display:block;text-shadow:0 1.3em 0 currentColor;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.hr-btn:hover .hr-btn-t>span{transform:translateY(-1.3em)}
+.hr-btn-a{position:relative;width:20px;height:20px;overflow:hidden}
+.hr-btn-a svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.hr-btn-a svg+svg{transform:translate(-110%,110%)}
+.hr-btn:hover .hr-btn-a svg:first-child{transform:translate(110%,-110%)}
+.hr-btn:hover .hr-btn-a svg+svg{transform:none}
+.hr-btn:active{transform:translate3d(var(--mx,0),var(--my,0),0) scale(.96)}
+.hr-btn:focus-visible{outline:3px solid #F2C94C;outline-offset:5px}
+@media (max-width:700px){
+  .hr{min-height:0;padding-bottom:min(70vw,330px)}
+  .hr-bg img{object-position:38% 100%}
+  .hr-h1{font-size:clamp(44px,13.4vw,72px)}
+  .hr-eye{letter-spacing:.18em;flex-direction:column;gap:4px}.hr-eye i{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .hr-bg img,.hr-bg canvas,.hr-sheen,.hr-btn::after{animation:none!important}
+  .hr-l>span,.hr-eye,.hr-sub,.hr-btn{transition:none!important;opacity:1!important;transform:none!important}
+}
+
+/* hero v6b: the reference ribbon itself, with light flowing left to right along it */
+.hr-bg{animation:hrIn 2.2s cubic-bezier(.2,.8,.2,1) both}
+.hr-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:none!important;animation:none!important}
+.hr-flow{position:absolute;inset:0;pointer-events:none;-webkit-mask:url(/assets/hero-ribbon-mask.png) 50% 100%/cover no-repeat;mask:url(/assets/hero-ribbon-mask.png) 50% 100%/cover no-repeat;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,.9) 50%,rgba(255,255,255,0) 70%,rgba(255,255,255,0) 100%) 0 0/420px 100% repeat-x;mix-blend-mode:soft-light;animation:hrFlow 5s linear infinite}
+.hr-flow2{background:linear-gradient(90deg,rgba(255,80,200,0) 0%,rgba(255,80,200,.55) 25%,rgba(90,160,255,.55) 60%,rgba(90,160,255,0) 100%) 0 0/760px 100% repeat-x;mix-blend-mode:overlay;opacity:.55;animation:hrFlow2 9s linear infinite}
+@keyframes hrFlow{to{background-position:420px 0}}
+@keyframes hrFlow2{to{background-position:760px 0}}
+@media (max-width:700px){.hr-bg img{object-position:38% 100%}.hr-flow{-webkit-mask-position:38% 100%;mask-position:38% 100%}}
+@media (prefers-reduced-motion:reduce){.hr-flow{animation:none;opacity:0}}
+
+.hr-cta{margin-top:clamp(22px,2.4vw,36px);opacity:0;transform:translateY(18px);transition:opacity .7s ease 1s,transform .9s cubic-bezier(.3,1.5,.5,1) 1s}
+.hr.go .hr-cta{opacity:1;transform:none}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var hr=document.querySelector('[data-hr]');if(!hr)return;
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover: hover) and (pointer: fine)').matches,top=document.querySelector('.hx-top');
+var setH=function(){if(top)hr.style.setProperty('--hrh',Math.ceil(top.getBoundingClientRect().height)+'px')};setH();addEventListener('resize',setH);
+var wait=document.documentElement.classList.contains('pre-on')?1100:60;
+var go=function(){setTimeout(function(){hr.classList.add('go');setTimeout(function(){hr.classList.add('settled')},2100)},wait)};
+if(reduce)hr.classList.add('go','settled');else if(document.readyState==='complete')go();else addEventListener('load',go,{once:true});
+if(fine&&!reduce){var img=document.createElement('i'),btn=hr.querySelector('.hr-cta .hx-btn')||document.createElement('i');
+hr.addEventListener('mousemove',function(e){var r=hr.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;img.style.setProperty('--px',(-x*22).toFixed(1)+'px');img.style.setProperty('--py',(-y*14).toFixed(1)+'px');
+var c=btn.getBoundingClientRect(),dx=e.clientX-(c.left+c.width/2),dy=e.clientY-(c.top+c.height/2);if(Math.abs(dx)<c.width*.9&&Math.abs(dy)<c.height*1.6){btn.style.setProperty('--mx',(dx*.2).toFixed(1)+'px');btn.style.setProperty('--my',(dy*.3).toFixed(1)+'px')}else{btn.style.setProperty('--mx','0px');btn.style.setProperty('--my','0px')}});
+hr.addEventListener('mouseleave',function(){img.style.setProperty('--px','0px');img.style.setProperty('--py','0px');btn.style.setProperty('--mx','0px');btn.style.setProperty('--my','0px')})}
+});
+</script>
 </head>
 <body>
 <div class="pre" aria-hidden="true"><svg class="pre-s" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M40 255C295 8 995 -5 922 500C850 1000 280 1005 122 768C-36 530 180 258 472 258C765 258 792 500 660 655C527 810 318 755 285 668C250 582 298 450 496 450C694 450 877 640 936 940" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -659,24 +741,15 @@ details .pl{transition:transform .45s cubic-bezier(.2,.8,.2,1)}details[open] .pl
 </div>
 </div>
 
-<div class="wrap hx-body hx-v4">
-<h1 class="hx-h1 hx-h4" aria-label="Your business growth partner"><span class="hl hl-sans" aria-hidden="true">Your <em>business</em></span><span class="hl hl-serif" aria-hidden="true">growth partner</span></h1>
-<p class="hx-sub"><span class="hx-mask"><span style="--d:1.55s">Result-oriented, ROI-driven digital marketing agency in Business Bay, Dubai</span></span></p>
-<a class="hx-disc" href="#services"><span class="hx-mask"><span>Discover more</span></span><span class="hx-disc-b" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span><svg class="hx-scrib" viewBox="0 0 230 26" fill="none" aria-hidden="true"><path pathLength="1" d="M3 15C50 4 110 20 150 10c30-7 50-2 74 2"/><path pathLength="1" d="M34 21C80 13 140 24 196 17" opacity=".55"/></svg></a>
+<div class="hr hx-v4" data-hr>
+<div class="hr-bg" aria-hidden="true"><picture><source media="(max-width:700px)" srcset="/assets/hero-ribbon-800.webp"><img src="/assets/hero-ribbon-1920.webp" srcset="/assets/hero-ribbon-1200.webp 1200w, /assets/hero-ribbon-1920.webp 1920w" sizes="100vw" width="1920" height="1202" alt="" fetchpriority="high" decoding="async"></picture><span class="hr-flow"></span><span class="hr-flow hr-flow2"></span></div>
+<div class="wrap hr-in">
+<h1 class="hr-h1 hx-h4" aria-label="Your business growth partner"><span class="hr-l" aria-hidden="true"><span class="hl">Your <em>business</em></span></span><span class="hr-l" aria-hidden="true"><span class="hl hl-serif"><em>growth partner.</em></span></span></h1>
+<p class="hr-sub">Result-oriented and ROI-focused digital marketing agency in Business Bay, Dubai</p>
+<div class="hr-cta"><a class="hx-btn hx-solid sk" href="/contact"><svg class="sk-scrib" viewBox="0 0 340 90" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 14C110 2 250 4 316 12c22 4 22 58 2 66C240 90 100 88 26 80 4 76 2 22 30 14c40-8 150-12 262-4"></path></svg><svg class="sk-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v9M20 28v9M3 20h9M28 20h9M8 8l6 6M26 26l6 6M32 8l-6 6M8 32l6-6"></path></svg><span>Start a project</span><span class="hx-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a></div>
+</div>
 </div>
 <div class="hx-marq" aria-hidden="true"><div class="hx-marq-t"><span>Brand identity</span><span>Social content</span><span>Promo video</span><span>SEO</span><span>Paid ads</span><span>Websites</span><span><b>50+</b> campaigns</span><span><b>20+</b> brands</span><span><b>5+</b> years in Dubai</span></div></div>
-<div class="wrap hx-under">
-<div class="hx-split">
-<div class="hx-left in" style="animation-delay: 2.3s">
-<p class="hx-state">Dubai’s <em>creative</em> agency for <em>brands</em> that refuse to blend in.</p>
-<p class="hx-small"><strong>Laveesho is a creative branding and digital marketing agency in Business Bay, Dubai.</strong> Brand identity, social media, SEO, paid ads and websites — designed, built and measured under one roof.</p>
-</div>
-<div class="hx-ctas in" style="animation-delay: 2.5s">
-<a class="hx-btn hx-solid sk" href="/contact"><svg class="sk-scrib" viewBox="0 0 340 90" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 14C110 2 250 4 316 12c22 4 22 58 2 66C240 90 100 88 26 80 4 76 2 22 30 14c40-8 150-12 262-4"></path></svg><svg class="sk-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v9M20 28v9M3 20h9M28 20h9M8 8l6 6M26 26l6 6M32 8l-6 6M8 32l6-6"></path></svg><span>Let’s grow your brand</span><span class="hx-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
-<a class="hx-btn hx-line sk2" href="https://wa.me/971503940721"><svg class="sk-out" viewBox="0 0 340 70" preserveAspectRatio="none" aria-hidden="true"><path d="M24 6C100 2 240 3 318 8c18 2 20 52 0 56C240 68 96 68 22 64 2 60 4 10 24 6z"></path><path d="M30 10C110 4 236 6 312 12c14 4 14 44-2 48C232 64 100 64 28 60 10 56 12 14 30 10z" opacity=".45"></path></svg><span>Chat on WhatsApp</span></a>
-</div>
-</div>
-</div>
 
 </section>
 
